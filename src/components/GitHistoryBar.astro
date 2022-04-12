@@ -1,0 +1,87 @@
+---
+import {getBlob, getLog, getTags, getBranches, getObject, resolveRef, commitEntryDate} from '@utils/git';
+import {getRepoMaps,getHistory} from '@utils/staticPaths'
+import GitLogEntry from '@components/GitLogEntry.astro';
+import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
+import "./GitHistoryBar.css"
+import "../style/headered-section.css"
+let {ref, path, entry: {oid}} = Astro.props;
+
+
+if(!path){
+  path = "."
+}
+const log = await getLog(ref);
+const {refPathMap} = await getRepoMaps();
+const history = await getHistory(ref, path);
+const tags = await getTags()
+const branches = await getBranches()
+const latestCommit = history[0];
+
+let tagEntries = new Map();
+for(let tag of tags){
+  let oid = await resolveRef(tag);
+  let obj = await getObject(oid);
+  let commitOid = obj.object.object;
+  if(!tagEntries.get(commitOid)){
+    tagEntries.set(commitOid, new Set())
+  }
+  tagEntries.get(commitOid).add(tag);
+}
+let branchEntries = new Map();
+for(let branch of branches){
+  let commitOid = await resolveRef(branch);
+  if(!branchEntries.get(commitOid)){
+    branchEntries.set(commitOid, new Set())
+  }
+  branchEntries.get(commitOid).add(branch);
+}
+---
+<details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><RelativeDateTime date={commitEntryDate(latestCommit)}/></span>
+    <b class="commit-message">
+      {latestCommit.commit.message}
+    </b>
+    <div>
+      <span class="commit-author-name">
+        {latestCommit.commit.author.name}
+      </span>
+      <span>
+        <a href={"/commit/"+latestCommit.oid}>
+          {latestCommit.oid.slice(0, 7)}
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      {history.map(entry => {
+        let tags = tagEntries.get(entry.oid);
+        let branches = branchEntries.get(entry.oid);
+        return <tr>
+          <td class="commit-datetime">
+            <RelativeDateTime date={commitEntryDate(entry)}/>
+          </td>
+          <td class="commit-message">
+            <a href={"/tree/" + entry.oid + "/" + path} set:text={entry.commit.message}/>
+            <span class="commit-tags">
+              {branches && Array.from(branches).map(branch => {
+                return <span class="commit-branch">{branch}</span>
+              })}
+              {tags && Array.from(tags).map(tag => {
+                return <span class="commit-tag">{tag}</span>
+              })}
+            </span>
+          </td>
+          <td class="commit-author-name">
+              {entry.commit.author.name}
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href={"/commit/" + entry.oid + "/"} title="show diff" set:text={entry.oid.slice(0,7)}/>
+          </td>
+        </tr>
+      })}
+    </tbody>
+  </table>
+</details>

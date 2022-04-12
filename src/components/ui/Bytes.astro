@@ -1,0 +1,12 @@
+---
+const {bytes} = Astro.props;
+
+const units = ["B", "KB", "MB", "GB", "TB"];
+function prettyBytes(){
+	let order = Math.ceil(Math.log(bytes) / Math.log(10));
+	return (bytes / (10 ** (order - 1))).toFixed(order <= 3 ? 0 : 1) + " " + units[(order)/3|0]
+}
+---
+<span class="bytes">
+  {prettyBytes()}
+</span>

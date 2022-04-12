@@ -1,0 +1,22 @@
+---
+import '../style/main.css';
+import './BaseLayout.css';
+import DarkmodeButton from '@components/ui/DarkmodeButton.astro';
+import EnsureDarkmode from '@components/ui/EnsureDarkmode.astro';
+import RelativeDateTimeInitializer from '@components/ui/RelativeDateTimeInitializer.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Astro Git"/>
+    <title>Astro Git</title>
+    <EnsureDarkmode/>
+    <RelativeDateTimeInitializer/>
+  </head>
+  <body data-dark>
+    <DarkmodeButton/>
+    <slot/>
+  </body>
+</html>

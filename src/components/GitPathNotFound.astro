@@ -1,0 +1,13 @@
+---
+const {ref, path, entry} = Astro.props;
+---
+<h3>
+  Path not found. Maybe one of these branches and commits?
+</h3>
+<ul>
+  {entry.options.map(option => {
+    return <li>
+      <a href={`/tree/${option}/${path}`}>{option}</a>
+    </li>
+  })}
+</ul>

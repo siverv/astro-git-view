@@ -1,0 +1,45 @@
+---
+import {getBranches, getTags} from "@utils/git";
+
+const {ref} = Astro.props;
+
+const branches = await getBranches();
+const tags = await getTags();
+
+const isOther = !branches.concat(tags).includes(ref);
+---
+<script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    window.location = window.location.pathname.replace(select.dataset.current, value);
+  } 
+} 
+</script>
+<select data-current={ref} onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    {
+      branches.map(branch => {
+        return <option value={branch} selected={branch === ref}>
+          {branch}
+        </option>
+
+      })
+    }
+  </optgroup>
+  {tags.length > 0 &&
+    <optgroup label="tags">
+      {
+        tags.map(tag => {
+          return <option value={tag} selected={tag === ref}>
+            {tag}
+          </option>
+
+        })
+      }
+    </optgroup>
+  }
+  {isOther && <optgroup label="other">
+    <option value={ref} selected={true}>{ref.match(/^[a-f0-9]{40}$/) ? ref.slice(0,7) : ref}</option>
+  </optgroup>}
+</select>

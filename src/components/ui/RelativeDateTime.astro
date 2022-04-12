@@ -1,0 +1,11 @@
+---
+const {date} = Astro.props;
+
+function prettyDatetime(date){
+  return date.toISOString().replace("T", " ").slice(0,-8);
+}
+
+---
+<relative-datetime title={prettyDatetime(date)}>
+  {prettyDatetime(date)}
+</relative-datetime>

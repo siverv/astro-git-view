@@ -1,0 +1,8 @@
+---
+---
+<script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>

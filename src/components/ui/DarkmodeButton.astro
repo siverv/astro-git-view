@@ -1,0 +1,20 @@
+---
+const lightLabel = "light";
+---
+<>
+<button id="darkmode-button" type="button" style="float:right; display: none;">light</button>
+<script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script>
+</> 

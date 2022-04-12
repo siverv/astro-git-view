@@ -1,0 +1,31 @@
+
+
+.headered-section {
+  margin: 2ch;
+}
+
+.headered-section > .headered-section-header {
+  border:  1px solid #000;
+  background-color: #eee1;
+  padding: 1ch;
+  border-radius: 3px;
+}
+.headered-section > :first-child {
+  border-radius: 3px 3px 0 0;
+}
+.headered-section > :last-child {
+  border-radius: 0 0 3px 3px;
+}
+details.headered-section > .headered-section-header {
+  border-radius: 3px;
+}
+details.headered-section[open] > .headered-section-header {
+  border-radius: 3px 3px 0 0;
+}
+.headered-section > :nth-child(n+2) {
+  margin:  0;
+  border:  1px solid #000;
+  border-top:  none;
+  overflow-y:  hidden;
+  overflow-x: auto;
+}

@@ -1,0 +1,39 @@
+
+.latest-commit > div {
+  display: inline-block;
+  float:  right;
+}
+
+.history-bar .commit-author-name {
+  color:  #777;
+}
+
+.history-bar .commit-datetime {
+  padding-left: 3ch;
+  word-break: keep-all;
+  width: min-content;
+}
+
+.history-bar .commit-tags {
+  padding: 0 1ch;
+  width:  min-content;
+}
+
+.history-bar .commit-branch,
+.history-bar .commit-tag {
+  font-weight:  bold;
+  padding: 1px 2px;
+  margin:  0px 2px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.history-bar .commit-tag {
+  background-color: darkolivegreen;
+  color:  white;
+  border: 1px solid darkseagreen;
+}
+.history-bar .commit-branch {
+  background-color: #004050;
+  color:  white;
+  border: 1px solid #0090D0;
+}

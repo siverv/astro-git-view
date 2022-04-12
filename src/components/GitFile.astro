@@ -1,0 +1,35 @@
+---
+import {getBlob, getLog, commitEntryDate} from '@utils/git';
+import { Markdown } from 'astro/components';
+import {getRepoMaps, getHistory} from '@utils/staticPaths'
+import GitLogEntry from '@components/GitLogEntry.astro';
+import GitHistoryBar from '@components/GitHistoryBar.astro';
+import CodeFilePreview from './filePreviews/CodeFilePreview.astro'
+import MarkdownPreview from './filePreviews/MarkdownPreview.astro'
+import "./GitFile.css"
+import "../style/headered-section.css"
+const {ref, path, entry: {oid}} = Astro.props;
+
+const log = await getLog(ref);
+const blob = await getBlob(oid);
+const decoder = new TextDecoder("utf-8");
+
+const {pathMap, refPathMap} = await getRepoMaps();
+const history = await getHistory(ref, path);
+
+const latestCommit = history[0];
+const content = decoder.decode(blob.blob);
+const lines = content.split(/\n/);
+const sloc = lines.filter(line => !line.match(/^\s*$/)).length;
+const bytes = blob.blob.length;
+---
+<article class="file-browser">
+  <GitHistoryBar {...Astro.props}/>
+  {path.endsWith(".md")
+    ? <MarkdownPreview {...Astro.props}/>
+    : <CodeFilePreview {...Astro.props}/>
+  }
+</article>
+
+
+

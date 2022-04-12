@@ -1,0 +1,17 @@
+
+
+.tree-browser .tree-table .object-type {
+  text-align: center;
+  padding: 0 1ch;
+  width: 1ch;
+}
+
+.tree-browser .tree-table .object-history {
+  width: auto;
+  display:  flex;
+  padding: 0 2ch;
+}
+.tree-browser .tree-table .object-history .commit-message {
+  flex-grow: 1;
+  color:  #777;
+}

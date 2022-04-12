@@ -1,0 +1,48 @@
+---
+import {getBlob, getLog,commitEntryDate} from '@utils/git';
+import { Markdown } from 'astro/components';
+import {getRepoMaps} from '@utils/staticPaths'
+import GitLogEntry from '@components/GitLogEntry.astro';
+import Bytes from '@components/ui/Bytes.astro';
+import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
+const {ref, entry: {oid}} = Astro.props;
+
+const log = await getLog(ref);
+const blob = await getBlob(oid);
+const decoder = new TextDecoder("utf-8");
+
+const {oidMap, refPathMap} = await getRepoMaps();
+const path = oidMap.get(oid);
+const history = log
+  .map(entry => ({
+    ref: entry.oid,
+    timestamp: entry.commit.author.timestamp,
+    checksum:  refPathMap.get(entry.oid)?.get(path)?.oid,
+    entry
+  }))
+  .filter(a => a.checksum)
+  .sort((a,b) => a.timestamp - b.timestamp)
+  .filter((a,i,l) => l.findIndex(b => b.checksum === a.checksum) === i)
+  .sort((a,b) => b.timestamp - a.timestamp)
+  .map(a => a.entry);
+
+const latestCommit = history[0];
+const content = decoder.decode(blob.blob);
+const lines = content.split(/\n/);
+const sloc = lines.filter(line => !line.match(/^\s*$/)).length;
+const bytes = blob.blob.length;
+---
+<section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <b>{path}</b>
+    <span>{lines.length} lines</span>
+    <span>({sloc} sloc)</span>
+    |
+    <Bytes bytes={bytes}/>
+    <span><RelativeDateTime date={commitEntryDate(latestCommit)}/></span>
+    <a href="#raw">raw</a>
+  </header>
+  <div class="markdown-preview ">
+    <Markdown>{content}</Markdown>
+  </div>
+</section>

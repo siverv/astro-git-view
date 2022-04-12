@@ -1,0 +1,33 @@
+body {
+  --bg: #ccc;
+  --fg: #222;
+}
+
+body[data-dark]{
+  --bg: #222;
+  --fg: #ccc;
+}
+
+body a {
+  color: darkblue;
+}
+body[data-dark] a {
+  color: steelblue;
+}
+
+table {
+  max-width:  100%;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+table tr:nth-child(2n) {
+  background-color:  #9992;
+}
+table tr:nth-child(2n+1) {
+  background-color:  #BBB2;
+}
+
+table tr:hover {
+  background-color:  #EEE2;
+}
