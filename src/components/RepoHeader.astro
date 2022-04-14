@@ -1,6 +1,8 @@
 ---
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro'
 import GitRefSelector from '@components/GitRefSelector.astro';
+import SearchInput from '@components/search/SearchInput.astro';
+import SearchResult from '@components/search/SearchResult.astro';
 import {getBranches, getTags, getName, getDescription} from '@utils/git';
 import "./RepoHeader.css"
 
@@ -24,8 +26,11 @@ const {ref, path} = Astro.props;
       </>}
     </div>
     <div>
-    <a href={"/commits/" + ref}>Search</a>
+      <div style="display:inline-block">
+        <SearchInput/>
+      </div>
     <a href={"/commits/" + ref}>Download</a>
     </div>
   </nav>
 </header>
+<SearchResult/>

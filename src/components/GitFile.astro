@@ -6,6 +6,8 @@ import GitLogEntry from '@components/GitLogEntry.astro';
 import GitHistoryBar from '@components/GitHistoryBar.astro';
 import CodeFilePreview from './filePreviews/CodeFilePreview.astro'
 import MarkdownPreview from './filePreviews/MarkdownPreview.astro'
+import BinaryFilePreview from './filePreviews/BinaryFilePreview.astro'
+import {isBinaryFile} from "isbinaryfile";
 import "./GitFile.css"
 import "../style/headered-section.css"
 const {ref, path, entry: {oid}} = Astro.props;
@@ -18,18 +20,37 @@ const {pathMap, refPathMap} = await getRepoMaps();
 const history = await getHistory(ref, path);
 
 const latestCommit = history[0];
-const content = decoder.decode(blob.blob);
-const lines = content.split(/\n/);
-const sloc = lines.filter(line => !line.match(/^\s*$/)).length;
+const isBinary = await isBinaryFile(blob.blob);
+const content = isBinary ? null : decoder.decode(blob.blob);
+const lines = content?.split(/\n/);
+const sloc = lines?.filter(line => !line.match(/^\s*$/)).length;
 const bytes = blob.blob.length;
+const name = path.split("/").pop();
 ---
-<article class="file-browser">
-  <GitHistoryBar {...Astro.props}/>
-  {path.endsWith(".md")
-    ? <MarkdownPreview {...Astro.props}/>
-    : <CodeFilePreview {...Astro.props}/>
-  }
-</article>
+{isBinary ? <>
+  <article class="file-browser">
+    <GitHistoryBar {...Astro.props}/>
+    <BinaryFilePreview {...Astro.props}/>
+  </article>
+</> : <>
+  <lunr-document>
+    <lunr-field name="ref" value={ref}/>
+    <lunr-field name="path" value={path}/>
+    <lunr-field name="base" value={path.split("/").slice(0,-1).join("/")}/>
+    <lunr-field name="name" value={name}/>
+    <lunr-field name="oid" value={oid}/>
+    <lunr-field name="type" value={"blob"}/>
+    <lunr-field name="extension" value={name.split(".").pop()}/>
+    <lunr-text name="content">{content}</lunr-text>
+  </lunr-document>
+  <article class="file-browser">
+    <GitHistoryBar {...Astro.props}/>
+    {path.endsWith(".md")
+      ? <MarkdownPreview {...Astro.props}/>
+      : <CodeFilePreview {...Astro.props}/>
+    }
+  </article>
+</>}
 
 
 

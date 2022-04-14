@@ -8,7 +8,6 @@ const {ref, path, entry: {oid}} = Astro.props;
 
 const log = await getLog(ref);
 const blob = await getBlob(oid);
-const decoder = new TextDecoder("utf-8");
 
 const {pathMap, refPathMap} = await getRepoMaps();
 const history = log
@@ -25,37 +24,16 @@ const history = log
   .map(a => a.entry);
 
 const latestCommit = history[0];
-const content = decoder.decode(blob.blob);
-const lines = content.split(/\n/);
-const sloc = lines.filter(line => !line.match(/^\s*$/)).length;
 const bytes = blob.blob.length;
 ---
 <section class="file-content-section headered-section">
   <header class="headered-section-header">
-    <span>{lines.length} lines</span>
-    <span>({sloc} sloc)</span>
+    {path}
     |
     <Bytes bytes={bytes}/>
     <a href={"/object/" + oid + "/" + path}>raw</a>
-    <button type="button">
-      blame
-    </button>
   </header>
   <div>
-    <table class="file-content">
-      <tbody>
-        {lines.map((line, index) => {
-          let num = index + 1;
-          return <tr class="line">
-            <td class="line-number">
-              <a href={"#L"+num} id={"L"+num}>
-                {num}
-              </a>
-            </td>
-            <td class="line-content">{line}</td>
-          </tr>
-        })}
-      </tbody>
-    </table>
+    <i>Binary file.</i>
   </div>
 </section>

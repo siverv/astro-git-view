@@ -12,7 +12,11 @@ const isOther = !branches.concat(tags).includes(ref);
 window.refSelectorOnChange = (select) => {
 	let value = select.value
   if(value && value != select.dataset.current){
-    window.location = window.location.pathname.replace(select.dataset.current, value);
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = "/tree/" + value;
+    }
   } 
 } 
 </script>

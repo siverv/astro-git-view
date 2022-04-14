@@ -1,0 +1,66 @@
+
+#search-result-query {
+  white-space: pre-line;
+  background-color:  #FFF3;
+  padding: 0 1ch;
+  border-bottom:  1px solid white;
+}
+#search-result-close {
+  float:  right;
+}
+
+#search-result-list {
+  padding:  0;
+}
+#search-result-list > li  {
+  list-style: none;
+  margin: 1ch 5ch;
+}
+#search-result-list .search-header  {
+  padding: 1ch;
+  margin-bottom: 0;
+}
+#search-result-list .search-hit {
+  background-color: #6665;
+  padding: 1ch;
+  overflow: auto;
+  max-width:  100%;
+}
+#search-result-list .search-hit p {
+  margin: 0;
+}
+
+#search-result-list .content-hit {
+  max-width:  100%;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#search-result-list .content-hit .line .line-number {
+  width:  5ch;
+  text-align:  right;
+  font-size:  14px;
+  line-height:  1em;
+  padding: 0 1ch;
+  margin-right: 1ch;
+}
+#search-result-list .content-hit .line .line-number a {
+  text-decoration:  none;
+}
+
+#search-result-list .content-hit .line .line-content {
+  white-space: pre;
+  font-family:  monospace;
+  margin:  0;
+  padding:  0;
+  font-size:  14px;
+  line-height:  1em;
+  padding: 1px 1ch; 
+  border-left: 1px solid black;
+}
+
+
+.markdown-preview {
+  padding: 2ch;
+}

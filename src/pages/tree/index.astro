@@ -1,0 +1,6 @@
+---
+import TreeView from './[ref]/index.astro'
+import {getMainBranch} from '@utils/git';
+const ref = await getMainBranch();
+---
+<TreeView ref={ref}/>

@@ -1,0 +1,11 @@
+---
+import "./Search.css"
+---
+<form id="search-form">
+  {Astro.props.filter && <input type="hidden" name="filter" value={Astro.props.filter}/>}
+  <input type="text" name="query"/>
+  <button>
+ 	Search
+  </button>
+</form>
+<script src="@utils/search.js"/>

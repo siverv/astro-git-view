@@ -22,6 +22,7 @@ if(entry == null){
 const View = entry.type === "tree" ? GitTree : entry.type === "blob" ? GitFile : GitPathNotFound;
 
 export const getStaticPaths = async () => await getPathsWithIndexHandling();
+
 ---
 <BaseLayout>
   <RepoHeader ref={ref} path={path}/>
