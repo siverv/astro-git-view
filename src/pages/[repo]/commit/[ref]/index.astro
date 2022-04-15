@@ -1,9 +1,9 @@
 ---
-import {getRepoRefsStaticPaths} from '@integrations/astro-git/gitStaticPaths';
+import {getRepoRefsStaticPaths} from 'astro-git/gitStaticPaths.js';
 
 const {repo, ref} = {...Astro.props, ...Astro.params};
 
-export const getStaticPaths = getRepoRefsStaticPaths;
+export const getStaticPaths = async () => await getRepoRefsStaticPaths(true);
 ---
 <div>
   Diff between commit and previous. {repo} / {ref}

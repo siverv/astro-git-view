@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
-import astroLunr from './integrations/astro-lunr/plugin.mjs';
-import astroGit from './integrations/astro-git/plugin.mjs';
+import astroLunr from 'astro-lunr/plugin.mjs';
+import astroGit from 'astro-git/plugin.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,7 +8,7 @@ export default defineConfig({
 	integrations: [
 		astroGit({
           repositories: [
-            {name: "infrastructure", dir: "/home/siver/Projects/kvissleik.no/infrastructure"},
+            {name: "kvissleik.no-infrastructure", dir: "/home/siver/Projects/kvissleik.no/infrastructure"},
             {name: "samspill", dir: "/home/siver/Projects/kvissleik.no/samspill"},
             {name: "kvissleik", dir: "/home/siver/Projects/kvissleik.no/kvissleik"},
             {name: "astro-git", dir: "/home/siver/Projects/astro-git/"},
@@ -17,11 +17,12 @@ export default defineConfig({
           includeCommitRefs: false
 		}),
 		astroLunr({
+			subDir: "lunr",
 			pathFilter: (pathname) => {
-				return pathname.match(/\w+\/tree\/master/) && !pathname.includes("package-lock.json");
+				return pathname.match(/\w+\/tree\//);
 			},
 			documentFilter: (doc) => {
-				return doc.ref === "master";
+				return doc.ref === "master" && !doc.canonicalUrl.includes("package-lock.json");
 			},
 			initialize: (builder, lunr) => {
 				lunr.tokenizer.separator = /[^\w]+/;
@@ -33,7 +34,8 @@ export default defineConfig({
 				builder.field("name", {boost: 10});
 				builder.field("content");
 				builder.metadataWhitelist = ["position"];
-			}
+			},
+			verbose: true
 		})
 	]
 });

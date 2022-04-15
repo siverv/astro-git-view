@@ -26,10 +26,12 @@ const bytes = blob.blob.length;
 ---
 <section class="file-content-section headered-section">
   <header class="headered-section-header">
-    <GitBreadcrumbs {...Astro.props}/>
-    |
-    <Bytes bytes={bytes}/>
-    <a href={"/object/" + oid + "/" + path}>raw</a>
+    <div style="display: inline-block">
+      <GitBreadcrumbs {...Astro.props}/>
+      <div>
+        <Bytes bytes={bytes}/>
+      </div>
+    </div>
   </header>
   <div>
     <i>Binary file.</i>

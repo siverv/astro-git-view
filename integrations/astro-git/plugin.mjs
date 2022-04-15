@@ -21,7 +21,7 @@ export default function createPlugin(config){
     name: 'astro-plugin-git',
     hooks: {
       'astro:config:setup': (options) => {
-        options.injectScript("page-ssr", `import initializeGitRepos from '@integrations/astro-git/git';\nawait initializeGitRepos(${configString});`)
+        options.injectScript("page-ssr", `import initializeGitRepos from 'astro-git/git.js';\nawait initializeGitRepos(${configString});`)
       }
     }
   }

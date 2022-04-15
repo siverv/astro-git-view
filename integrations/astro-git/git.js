@@ -154,7 +154,7 @@ export class Repo {
   getDateOfCommit(commitEntry){
     let timestampedMetadata = (commitEntry.commit||commitEntry.object)?.author
       || (commitEntry.tag||commitEntry.object)?.tagger
-    return new Date((timestampedMetadata.timestamp + timestampedMetadata.timezoneOffset * 60) * 1000);
+    return new Date((timestampedMetadata.timestamp - timestampedMetadata.timezoneOffset * 60) * 1000);
   }
 
   async getHistory(ref, path, repo) {

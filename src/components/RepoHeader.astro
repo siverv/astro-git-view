@@ -1,5 +1,5 @@
 ---
-import {getRepoPath, getCommitPath} from '@utils/linkUtils';
+import {getRepoPath, getCommitPath, getTreePath} from '@utils/linkUtils';
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro'
 import GitRefSelector from '@components/GitRefSelector.astro';
 import SearchInput from '@components/search/SearchInput.astro';
@@ -9,25 +9,30 @@ import "./RepoHeader.css"
 const {repo, ref, path} = Astro.props;
 const branches = await repo.getBranches();
 const tags = await repo.getTags();
+
+const latestCommit = await repo.latestCommit();
+const latestTree = await repo.getTree(latestCommit.commit.tree);
+const license = latestTree.tree.find(part => part.path.match(/^li[cs]en[sc]e/i));
+
+
 ---
 <header class="repo-header">
   <a href="/">All repositories</a>
   <h1><a href={getRepoPath(repo)}>{repo.getName()}</a></h1>
-  <div>
-      <a href={"/tree/" + ref + "/LICENSE"}>License</a>
-  </div>
+  {license && <div>
+      <a href={getTreePath(repo, ref, license.path)}>License</a>
+  </div>}
   <p>{repo.getDescription()}</p>
   <nav class="repo-nav">
     <div>
       <GitRefSelector {...Astro.props}/>
-      {branches.length > 1 && <span class="branches"><b>{branches.length}</b> {branches.length === 1 ? "branch" : "branches"}</span>}
+      {branches.length > 0 && <span class="branches"><b>{branches.length}</b> {branches.length === 1 ? "branch" : "branches"}</span>}
       {tags.length > 0 && <span class="tags"><b>{tags.length}</b> {tags.length === 1 ? "tag" : "tags"}</span>}
     </div>
     <div>
       <div style="display:inline-block">
         <SearchInput index={repo.getName()}/>
       </div>
-    <a href={getCommitPath(repo, ref)}>Download</a>
     </div>
   </nav>
 </header>

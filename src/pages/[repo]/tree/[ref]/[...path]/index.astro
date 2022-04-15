@@ -1,6 +1,6 @@
 ---
-import {getRepoTreesStaticPaths} from '@integrations/astro-git/gitStaticPaths';
-import {getRepo} from '@integrations/astro-git/git';
+import {getRepoTreesStaticPaths} from 'astro-git/gitStaticPaths.js';
+import {getRepo} from 'astro-git/git.js';
 import BaseLayout from '@layout/BaseLayout.astro';
 import RepoHeader from '@components/RepoHeader.astro'
 import GitTree from '@components/GitTree.astro';
@@ -23,7 +23,7 @@ if(entry == null){
 
 const View = entry.type === "tree" ? GitTree : entry.type === "blob" ? GitFile : GitPathNotFound;
 
-export const getStaticPaths = getRepoTreesStaticPaths;
+export const getStaticPaths = async () => await getRepoTreesStaticPaths();
 
 ---
 <BaseLayout>

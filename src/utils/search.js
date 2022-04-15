@@ -1,4 +1,4 @@
-import {search, enrich} from "@integrations/astro-lunr/client/lunr.js";
+import {search, enrich} from "astro-lunr/client/lunr.js";
 
 export async function searchOnLoad(useResult){
   window.addEventListener("load", async () => {

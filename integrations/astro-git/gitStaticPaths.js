@@ -5,23 +5,23 @@ export function getRepoStaticPaths(){
   return getRepos().map(repo => ({params: {repo: repo.getName()}}));
 }
 
-export async function getRepoRefsStaticPaths(){
+export async function getRepoRefsStaticPaths(includeCommitRefs){
   return (await Promise.all(getRepos().map(async repo => {
     let name = repo.getName();
     let refs = await repo.getNamedRefs();
-    if(repo.includeCommitRefs){
+    if(includeCommitRefs == null ? repo.includeCommitRefs : includeCommitRefs){
       refs = refs.concat(await repo.getCommitRefs());
     }
     return refs.map(ref => ({params: {repo: name, ref}}))
   }))).flat();
 }
 
-export async function getRepoTreesStaticPaths(){
+export async function getRepoTreesStaticPaths(includeCommitRefs){
   return (await Promise.all(getRepos().map(async repo => {
     let name = repo.getName();
     let {refPathMap} = await repo.getStaticHelpers();
     let treeEntries = Array.from(refPathMap.entries());
-    if(!repo.includeCommitRefs){
+    if(includeCommitRefs == null ? !repo.includeCommitRefs : !includeCommitRefs){
       let namedRefs = await repo.getNamedRefs();
       treeEntries = treeEntries.filter(([ref]) => namedRefs.includes(ref));
     }

@@ -6,7 +6,7 @@ const {index} = Astro.props;
   Search requires javascript
 </noscript>
 <form id="search-form" data-index={index}>
-  <input type="text" name="query"/>
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo"/>
   <button>
  	Search
   </button>

@@ -1,5 +1,6 @@
 ---
 import { Markdown } from 'astro/components';
+import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';
 import Bytes from '@components/ui/Bytes.astro';
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
 const {repo, ref, entry: {oid}} = Astro.props;
@@ -19,13 +20,15 @@ const bytes = blob.blob.length;
 ---
 <section class="file-content-section headered-section">
   <header class="headered-section-header">
-    <b>{path}</b>
-    <span>{lines.length} lines</span>
-    <span>({sloc} sloc)</span>
-    |
-    <Bytes bytes={bytes}/>
-    <span><RelativeDateTime date={repo.getDateOfCommit(latestCommit)}/></span>
-    <a href="#raw">raw</a>
+    <div style="display: inline-block">
+      <GitBreadcrumbs {...Astro.props}/>
+      <div>
+        <span>{lines.length} lines</span>
+        <span>({sloc} sloc)</span>
+        | 
+        <Bytes bytes={bytes}/>
+      </div>
+    </div>
   </header>
   <div class="markdown-preview ">
     <Markdown>{content}</Markdown>
