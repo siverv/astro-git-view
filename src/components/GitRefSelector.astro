@@ -1,10 +1,10 @@
 ---
-import {getBranches, getTags} from "@utils/git";
+import {getRefPath} from "@utils/linkUtils";
 
-const {ref} = Astro.props;
+const {repo, ref} = Astro.props;
 
-const branches = await getBranches();
-const tags = await getTags();
+const branches = await repo.getBranches();
+const tags = await repo.getTags();
 
 const isOther = !branches.concat(tags).includes(ref);
 ---
@@ -15,12 +15,12 @@ window.refSelectorOnChange = (select) => {
     if(window.location.pathname.includes(select.dataset.current)){
       window.location = window.location.pathname.replace(select.dataset.current, value);
     } else {
-      window.location = "/tree/" + value;
+      window.location = `/${select.dataset.repo}/tree/${value}`;
     }
   } 
 } 
 </script>
-<select data-current={ref} onchange="window.refSelectorOnChange(this)">
+<select data-repo={repo.getName()} data-current={ref} onchange="window.refSelectorOnChange(this)">
   <optgroup label="branches">
     {
       branches.map(branch => {

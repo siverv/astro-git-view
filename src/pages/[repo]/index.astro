@@ -1,0 +1,13 @@
+---
+import {getRepoStaticPaths} from '@integrations/astro-git/gitStaticPaths';
+import {getRepo} from '@integrations/astro-git/git';
+import TreeView from './tree/[ref]/index.astro'
+
+const {repo: repoName} = {...Astro.props, ...Astro.params};
+
+const repo = getRepo(repoName);
+const ref = await repo.getMainBranch();
+
+export const getStaticPaths = getRepoStaticPaths;
+---
+<TreeView repo={repoName} ref={ref} path="."/>

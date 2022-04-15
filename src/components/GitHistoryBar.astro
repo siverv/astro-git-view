@@ -1,27 +1,21 @@
 ---
-import {getBlob, getLog, getTags, getBranches, getObject, resolveRef, commitEntryDate} from '@utils/git';
-import {getRepoMaps,getHistory} from '@utils/staticPaths'
-import GitLogEntry from '@components/GitLogEntry.astro';
+import {getCommitPath, getTreePath} from '@utils/linkUtils.js';
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
 import "./GitHistoryBar.css"
 import "../style/headered-section.css"
-let {ref, path, entry: {oid}} = Astro.props;
+let {repo, ref, path, entry: {oid}} = Astro.props;
 
-
-if(!path){
-  path = "."
-}
-const log = await getLog(ref);
-const {refPathMap} = await getRepoMaps();
-const history = await getHistory(ref, path);
-const tags = await getTags()
-const branches = await getBranches()
+const log = await repo.getLog(ref);
+const {refPathMap} = await repo.getStaticHelpers();
+const history = await repo.getHistory(ref, path);
+const tags = await repo.getTags()
+const branches = await repo.getBranches()
 const latestCommit = history[0];
 
 let tagEntries = new Map();
 for(let tag of tags){
-  let oid = await resolveRef(tag);
-  let obj = await getObject(oid);
+  let oid = await repo.resolveRef(tag);
+  let obj = await repo.getObject(oid);
   let commitOid = obj.object.object;
   if(!tagEntries.get(commitOid)){
     tagEntries.set(commitOid, new Set())
@@ -30,7 +24,7 @@ for(let tag of tags){
 }
 let branchEntries = new Map();
 for(let branch of branches){
-  let commitOid = await resolveRef(branch);
+  let commitOid = await repo.resolveRef(branch);
   if(!branchEntries.get(commitOid)){
     branchEntries.set(commitOid, new Set())
   }
@@ -39,7 +33,7 @@ for(let branch of branches){
 ---
 <details class="history-bar headered-section">
   <summary class="latest-commit headered-section-header">
-    <span><RelativeDateTime date={commitEntryDate(latestCommit)}/></span>
+    <span><RelativeDateTime date={repo.getDateOfCommit(latestCommit)}/></span>
     <b class="commit-message">
       {latestCommit.commit.message}
     </b>
@@ -48,7 +42,7 @@ for(let branch of branches){
         {latestCommit.commit.author.name}
       </span>
       <span>
-        <a href={"/commit/"+latestCommit.oid}>
+        <a href={getCommitPath(repo, latestCommit.oid)}>
           {latestCommit.oid.slice(0, 7)}
         </a>
       </span>
@@ -61,10 +55,10 @@ for(let branch of branches){
         let branches = branchEntries.get(entry.oid);
         return <tr>
           <td class="commit-datetime">
-            <RelativeDateTime date={commitEntryDate(entry)}/>
+            <RelativeDateTime date={repo.getDateOfCommit(entry)}/>
           </td>
           <td class="commit-message">
-            <a href={"/tree/" + entry.oid + "/" + path} set:text={entry.commit.message}/>
+            <a href={getTreePath(repo, entry.oid, path)} set:text={entry.commit.message}/>
             <span class="commit-tags">
               {branches && Array.from(branches).map(branch => {
                 return <span class="commit-branch">{branch}</span>
@@ -78,7 +72,7 @@ for(let branch of branches){
               {entry.commit.author.name}
           </td>
           <td class="commit-shorthash" style="font-family: monospace">
-            <a href={"/commit/" + entry.oid + "/"} title="show diff" set:text={entry.oid.slice(0,7)}/>
+            <a href={getCommitPath(repo, entry.oid)} title="show diff" set:text={entry.oid.slice(0,7)}/>
           </td>
         </tr>
       })}

@@ -1,7 +1,0 @@
----
-import TreeView from './[...path]/index.astro'
-import {getRefs} from '@utils/staticPaths';
-const {ref} = Astro.props;
-export const getStaticPaths = async () => await getRefs();
----
-<TreeView ref={ref} path={""}/>

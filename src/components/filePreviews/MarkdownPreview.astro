@@ -1,31 +1,16 @@
 ---
-import {getBlob, getLog,commitEntryDate} from '@utils/git';
 import { Markdown } from 'astro/components';
-import {getRepoMaps} from '@utils/staticPaths'
-import GitLogEntry from '@components/GitLogEntry.astro';
 import Bytes from '@components/ui/Bytes.astro';
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
-const {ref, entry: {oid}} = Astro.props;
+const {repo, ref, entry: {oid}} = Astro.props;
 
-const log = await getLog(ref);
-const blob = await getBlob(oid);
+const log = await repo.getLog(ref);
+const blob = await repo.getBlob(oid);
 const decoder = new TextDecoder("utf-8");
 
-const {oidMap, refPathMap} = await getRepoMaps();
+const {oidMap, refPathMap} = await repo.getStaticHelpers();
 const path = oidMap.get(oid);
-const history = log
-  .map(entry => ({
-    ref: entry.oid,
-    timestamp: entry.commit.author.timestamp,
-    checksum:  refPathMap.get(entry.oid)?.get(path)?.oid,
-    entry
-  }))
-  .filter(a => a.checksum)
-  .sort((a,b) => a.timestamp - b.timestamp)
-  .filter((a,i,l) => l.findIndex(b => b.checksum === a.checksum) === i)
-  .sort((a,b) => b.timestamp - a.timestamp)
-  .map(a => a.entry);
-
+const history = await repo.getHistory(ref, path);
 const latestCommit = history[0];
 const content = decoder.decode(blob.blob);
 const lines = content.split(/\n/);
@@ -39,7 +24,7 @@ const bytes = blob.blob.length;
     <span>({sloc} sloc)</span>
     |
     <Bytes bytes={bytes}/>
-    <span><RelativeDateTime date={commitEntryDate(latestCommit)}/></span>
+    <span><RelativeDateTime date={repo.getDateOfCommit(latestCommit)}/></span>
     <a href="#raw">raw</a>
   </header>
   <div class="markdown-preview ">

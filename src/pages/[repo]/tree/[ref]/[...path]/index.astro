@@ -1,17 +1,19 @@
 ---
+import {getRepoTreesStaticPaths} from '@integrations/astro-git/gitStaticPaths';
+import {getRepo} from '@integrations/astro-git/git';
 import BaseLayout from '@layout/BaseLayout.astro';
-import {getPathsWithIndexHandling, getRepoMaps} from '@utils/staticPaths';
 import RepoHeader from '@components/RepoHeader.astro'
 import GitTree from '@components/GitTree.astro';
 import GitFile from '@components/GitFile.astro';
 import GitPathNotFound from '@components/GitPathNotFound.astro';
 
-const ref = Astro.params.ref || Astro.props.ref;
-let path = Astro.params.path || Astro.props.path;
+let {repo: repoName, ref, path} = {...Astro.props, ...Astro.params};
+const repo = getRepo(repoName);
 
-const {refPathMap, pathMap, oidMap} = await getRepoMaps();
+const {refPathMap, pathMap, oidMap} = await repo.getStaticHelpers();
+
 path = oidMap.get(path) || path;
-let entry = refPathMap?.get(ref)?.get(path || ".");
+let entry = refPathMap?.get(ref)?.get(path);
 if(entry == null){
 	entry = {
 		type: "not_found",
@@ -21,10 +23,10 @@ if(entry == null){
 
 const View = entry.type === "tree" ? GitTree : entry.type === "blob" ? GitFile : GitPathNotFound;
 
-export const getStaticPaths = async () => await getPathsWithIndexHandling();
+export const getStaticPaths = getRepoTreesStaticPaths;
 
 ---
 <BaseLayout>
-  <RepoHeader ref={ref} path={path}/>
-  <View ref={ref} path={path} entry={entry}/>
+  <RepoHeader repo={repo} ref={ref} path={path}/>
+  <View repo={repo} ref={ref} path={path} entry={entry}/>
 </BaseLayout>

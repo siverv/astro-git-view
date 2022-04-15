@@ -1,0 +1,10 @@
+{
+  "name": "astro-git",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Git integration for Astro, for content generated from a git repo.",
+  "type": "module",
+  "dependencies": {
+    "isomorphic-git": "^1.17.0"
+  }
+}

@@ -1,8 +1,11 @@
 ---
 import "./Search.css"
+const {index} = Astro.props;
 ---
-<form id="search-form">
-  {Astro.props.filter && <input type="hidden" name="filter" value={Astro.props.filter}/>}
+<noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index={index}>
   <input type="text" name="query"/>
   <button>
  	Search

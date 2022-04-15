@@ -1,15 +1,13 @@
 ---
-import {getBlob, getLog} from '@utils/git';
 import { Code } from 'astro/components';
-import {getRepoMaps} from '@utils/staticPaths'
-import GitLogEntry from '@components/GitLogEntry.astro';
 import Bytes from '@components/ui/Bytes.astro';
-const {ref, path, entry: {oid}} = Astro.props;
+import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';
+const {repo, ref, path, entry: {oid}} = Astro.props;
 
-const log = await getLog(ref);
-const blob = await getBlob(oid);
+const log = await repo.getLog(ref);
+const blob = await repo.getBlob(oid);
 
-const {pathMap, refPathMap} = await getRepoMaps();
+const {pathMap, refPathMap} = await repo.getStaticHelpers();
 const history = log
   .map(entry => ({
     ref: entry.oid,
@@ -28,7 +26,7 @@ const bytes = blob.blob.length;
 ---
 <section class="file-content-section headered-section">
   <header class="headered-section-header">
-    {path}
+    <GitBreadcrumbs {...Astro.props}/>
     |
     <Bytes bytes={bytes}/>
     <a href={"/object/" + oid + "/" + path}>raw</a>

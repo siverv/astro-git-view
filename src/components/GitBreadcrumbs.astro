@@ -1,11 +1,11 @@
 ---
-const {ref, path} = Astro.props;
-const root = "/tree/" + ref + "/";
+import {getRefPath, getTreePath} from '@utils/linkUtils.js';
+const {repo, ref, path} = Astro.props;
 ---
-<a href={root}>kvissleik</a>
+<a href={getRefPath(repo, ref)}>kvissleik</a>
 {path?.split("/").map((segment, index, list) => {
 	if(index === list.length-1){
 		return <> / <b>{segment}</b></>;
 	}
-	return <> / <a href={root +list.slice(0, index+1).join("/")}>{segment}</a></>
+	return <> / <a href={getTreePath(repo, ref, list.slice(0, index+1).join("/"))}>{segment}</a></>
 })}

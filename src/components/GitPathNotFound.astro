@@ -1,13 +1,23 @@
 ---
-const {ref, path, entry} = Astro.props;
+import {getTreePath, getRefPath} from '@utils/linkUtils.js';
+const {repo, ref, path, entry} = Astro.props;
 ---
-<h3>
-  Path not found. Maybe one of these branches and commits?
-</h3>
-<ul>
-  {entry.options.map(option => {
-    return <li>
-      <a href={`/tree/${option}/${path}`}>{option}</a>
-    </li>
-  })}
-</ul>
+{entry.options.length > 0
+  ? <>
+    <h3>
+      Path not found. Maybe one of these branches and commits?
+    </h3>
+    <ul>
+      {entry.options.map(option => {
+        return <li>
+          <a href={getTreePath(repo, option, path)}>{option}</a>
+        </li>
+      })}
+    </ul>
+  </>
+  : <>
+    <h3>
+      Path not found. <a href={getRefPath(repo, ref)}>Return to repository main page</a>
+    </h3>
+  </>
+}

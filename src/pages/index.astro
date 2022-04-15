@@ -1,6 +1,34 @@
 ---
-import TreeView from './tree/[ref]/index.astro'
-import {getMainBranch} from '@utils/git';
-const ref = await getMainBranch();
+import {getRepos} from '@integrations/astro-git/git';
+import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
+import BaseLayout from '@layout/BaseLayout.astro';
+import {getRepoPath} from '@utils/linkUtils.js';
+
 ---
-<TreeView ref={ref}/>
+<BaseLayout>
+  <h1 class="headered-section-header">
+    Git-repos as presented through Astro-Git
+  </h1>
+  <section>
+    <table class="repo-list-table">
+      <tbody>
+      {getRepos().map(async repo => {
+        const latestCommit = await repo.latestCommit();
+      	return <tr>
+          <td><a href={getRepoPath(repo)}>{repo.getName()}</a></td>
+          <td>{repo.getDescription()}</td>
+          <td class="message" style="color: #999;">
+            {latestCommit.commit.message}
+          </td>
+          <td class="date"><RelativeDateTime date={repo.getDateOfCommit(latestCommit)}/></td>
+        </tr>
+      })}
+      </tbody>
+    </table>
+  </section>
+</BaseLayout>
+<style>
+  .repo-list-table td { padding: 1ch; }
+  .repo-list-table .message { font-style: italic; color: #777; }
+  .repo-list-table .date { text-align: right; min-width: 16ch; }
+</style>

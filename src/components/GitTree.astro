@@ -1,33 +1,30 @@
 ---
-import {getTree,getLog,getBlob, commitEntryDate} from '@utils/git';
-import {BAD_NAMES, getHistory} from '@utils/staticPaths';
+import {getTreePath} from '@utils/linkUtils';
 import "./GitTree.css"
 import "../style/headered-section.css"
 import MarkdownPreview from './filePreviews/MarkdownPreview.astro'
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
 import GitHistoryBar from '@components/GitHistoryBar.astro';
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';
-import GitLogEntry from '@components/GitLogEntry.astro';
-const {ref, path, entry: {oid}} = Astro.props;
+const {repo, ref, path, entry: {oid}} = Astro.props;
 
-const log = await getLog(ref);
-const object = await getTree(oid);
+const log = await repo.getLog(ref);
+const object = await repo.getTree(oid);
 
-const history = await getHistory(ref, path || ".");
-
+const history = await repo.getHistory(ref, path);
 
 function joinPath(...path){
-  return path.filter(Boolean).join("/")
+  return path.filter(segment => segment && segment != ".").join("/")
 }
 const historyMap = new Map();
 for(let subObject of object.tree){
-  historyMap.set(subObject.oid, await getHistory(ref, joinPath(path, subObject.path)));
+  historyMap.set(subObject.oid, await repo.getHistory(ref, joinPath(path, subObject.path)));
 }
 
 const latestCommit = history[0];
 
 const readme = object.tree.find(part => part.path.match(/^readme/i));
-const readmeBlob = readme ? await getBlob(readme.oid) : null; 
+const readmeBlob = readme ? await repo.getBlob(readme.oid) : null; 
 
 const orderedTree = [...object.tree].sort((a,b) => a.type == b.type ? a.path.localeCompare(b.path) : a.type === "tree" ? -1 : 1)
 ---
@@ -36,14 +33,13 @@ const orderedTree = [...object.tree].sort((a,b) => a.type == b.type ? a.path.loc
   <GitHistoryBar {...Astro.props}/>
   <section class="headered-section">
     <header class="headered-section-header">
-      <GitBreadcrumbs ref={ref} path={path}/>
+      <GitBreadcrumbs {...Astro.props}/>
     </header>
     <table class="tree-table">
       <tbody>
         {orderedTree.map(part => {
           const latestCommit = historyMap.get(part.oid)[0];
-          let segment = BAD_NAMES.includes(part.path) ? part.oid : part.path;
-          const href = "/tree/"+ref+"/"+(path ? path + "/" : "")+segment;
+          const href = getTreePath(repo, ref, path, part.path);
           return <tr class="tree-row">
             <td class="object-type">{part.type === "tree" ? "▦" : "▢"}</td>
             <td class="object-link">
@@ -52,7 +48,7 @@ const orderedTree = [...object.tree].sort((a,b) => a.type == b.type ? a.path.loc
             {latestCommit &&
               <td class="object-history">
                 <span class="commit-message">{latestCommit.commit.message}</span>
-                <RelativeDateTime date={commitEntryDate(latestCommit)}/>
+                <RelativeDateTime date={repo.getDateOfCommit(latestCommit)}/>
               </td>
             }
           </tr>

@@ -1,12 +1,48 @@
-import {search, getDocs, searchOnLoad, searchOnSubmit} from "../utils/lunr.js";
+import {search, enrich} from "@integrations/astro-lunr/client/lunr.js";
 
-async function displaySearchResult(result){
-  const docs = await getDocs();
+export async function searchOnLoad(useResult){
+  window.addEventListener("load", async () => {
+    let searchForm = document.getElementById("search-form");
+    let index = searchForm.dataset.index;
+    if(searchForm){
+      if(window.location.search.includes("query=")){
+        let searchParams = new URLSearchParams(window.location.search);
+        let query = searchParams.get("query");
+        if(!query){
+          return;
+        }
+        let hits = await search(query, index);
+        let result = await enrich(hits, index);
+        useResult({result, query});
+      }
+    }
+  })
+}
+
+export async function searchOnSubmit(useResult){
+  let searchForm = document.getElementById("search-form");
+  let index = searchForm.dataset.index;
+  searchForm.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    if(searchForm){
+      let searchParams = new URLSearchParams(new FormData(ev.target))
+      let query = searchParams.get("query");
+      if(!query){
+        return;
+      }
+      let hits = await search(query, index);
+      let result = await enrich(hits, index);
+      useResult({result, query});
+    }
+  })
+}
+
+export async function displaySearchResult({result, query}){
   const section = document.getElementById("search-result-section");
   const searchResults = document.getElementById("search-result-list");
   searchResults.innerHTML = "";
   section.style.display = "block";
-  document.getElementById("search-result-query").textContent = result.query;
+  document.getElementById("search-result-query").textContent = query;
   document.getElementById("search-result-total").textContent = result.length;
   document.getElementById("search-result-close").onclick = () => {
     searchResults.innerHTML = "";
@@ -14,17 +50,16 @@ async function displaySearchResult(result){
   };
   const template = document.getElementById("search-item-template");
   const contentLineTemplate = document.getElementById("search-item-content-line-template");
-  for(let searchItem of result){
+  for(let {hit, doc} of result){
     const fragment = template.content.cloneNode(true);
-    const doc = docs.get(searchItem.ref);
-    fragment.querySelector(".search-item").setAttribute("id", "search-item-" + searchItem.ref);
+    fragment.querySelector(".search-item").setAttribute("id", "search-item-" + hit.ref);
     fragment.querySelector(".url").setAttribute("href", "/" + doc.canonicalUrl);
     fragment.querySelector(".url").textContent = doc.name;
     fragment.querySelector(".base-path").textContent = doc.base + "/";
 
     let contentHit = fragment.querySelector(".content-hit-lines");
     let fields = document.createElement("dl");
-    for(let [key, value] of Object.entries(searchItem.matchData.metadata)){
+    for(let [key, value] of Object.entries(hit.matchData.metadata)){
       let startAt = 0;
       let total = "";
       if(value.content){
@@ -109,4 +144,5 @@ async function displaySearchResult(result){
     searchResults.appendChild(fragment);
   }
 }
-searchOnSubmit(displaySearchResult);
+
+searchOnSubmit(displaySearchResult)

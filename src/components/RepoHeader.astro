@@ -1,35 +1,33 @@
 ---
+import {getRepoPath, getCommitPath} from '@utils/linkUtils';
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro'
 import GitRefSelector from '@components/GitRefSelector.astro';
 import SearchInput from '@components/search/SearchInput.astro';
 import SearchResult from '@components/search/SearchResult.astro';
-import {getBranches, getTags, getName, getDescription} from '@utils/git';
 import "./RepoHeader.css"
 
-const branches = await getBranches();
-const tags = await getTags();
-const {ref, path} = Astro.props;
+const {repo, ref, path} = Astro.props;
+const branches = await repo.getBranches();
+const tags = await repo.getTags();
 ---
 <header class="repo-header">
   <a href="/">All repositories</a>
-  <h1><a href={"/tree/" + ref}>{getName()}</a></h1>
+  <h1><a href={getRepoPath(repo)}>{repo.getName()}</a></h1>
   <div>
       <a href={"/tree/" + ref + "/LICENSE"}>License</a>
   </div>
-  <p>{getDescription()}</p>
+  <p>{repo.getDescription()}</p>
   <nav class="repo-nav">
     <div>
-      <GitRefSelector ref={ref}/>
-      {path ? <GitBreadcrumbs ref={ref} path={path}/> : <>
-        {branches.length > 1 && <span class="branches"><b>{branches.length}</b> branches</span>}
-        {tags.length > 0 && <span class="tags"><b>{tags.length}</b> tags</span>}
-      </>}
+      <GitRefSelector {...Astro.props}/>
+      {branches.length > 1 && <span class="branches"><b>{branches.length}</b> {branches.length === 1 ? "branch" : "branches"}</span>}
+      {tags.length > 0 && <span class="tags"><b>{tags.length}</b> {tags.length === 1 ? "tag" : "tags"}</span>}
     </div>
     <div>
       <div style="display:inline-block">
-        <SearchInput/>
+        <SearchInput index={repo.getName()}/>
       </div>
-    <a href={"/commits/" + ref}>Download</a>
+    <a href={getCommitPath(repo, ref)}>Download</a>
     </div>
   </nav>
 </header>
