@@ -8,10 +8,7 @@ export default defineConfig({
 	integrations: [
 		astroGit({
           repositories: [
-            {name: "kvissleik.no-infrastructure", dir: "/home/siver/Projects/kvissleik.no/infrastructure"},
-            {name: "samspill", dir: "/home/siver/Projects/kvissleik.no/samspill"},
-            {name: "kvissleik", dir: "/home/siver/Projects/kvissleik.no/kvissleik"},
-            {name: "astro-git", dir: "/home/siver/Projects/astro-git/"},
+            {name: "astro-git-view", dir: "."},
           ],
           branchFilter: branch => ["dev", "master"].includes(branch),
           includeCommitRefs: false

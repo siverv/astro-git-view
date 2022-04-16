@@ -1,0 +1,32 @@
+---
+import "./DiffLines.css";
+const {diff} = Astro.props;
+
+let lineNumberStart = 0;
+
+let preparedDiff = diff.flatMap(({count, removed, added, value}) => {
+  let innerStart = lineNumberStart;
+  let lines = value.split("\n").slice(0,-1);
+  lineNumberStart += count;
+  let rows = lines.map((line, i) => {
+    return {index: innerStart + i, added, removed, line};
+  });
+  if(!removed && !added && count > 5){
+    rows = rows.slice(0,2).concat({index: "..."}, rows.slice(-2));
+  }
+  return rows;
+})
+---
+<table class="diff-lines">
+  <tbody>
+    {preparedDiff.map(({index, added, removed, line}) => {
+      return <tr class:list={[{added, removed, ellipsis: index === "..."}]}>
+        <td class="line-number">{index}</td>
+        <td class="line-removed">{removed ? "-" : " "}</td>
+        <td class="line-added">{added ? "+" : " "}</td>
+        <td class="line">{line}</td>
+      </tr>
+
+    })}
+  </tbody>
+</table>

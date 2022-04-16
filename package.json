@@ -3,6 +3,13 @@
   "version": "0.0.3",
   "private": true,
   "license": "GPL-3.0",
+  "contributors": [
+    {
+      "name": "Siver K. Volle",
+      "email": "package-json.astro-git-view@siverv.no",
+      "url": "https://www.siverv.no"
+    }
+  ],
   "scripts": {
     "dev": "(ln -s ../dist/lunr ./public/lunr 2> /dev/null || true) && astro dev",
     "start": "(ln -s ../dist/lunr ./public/lunr 2> /dev/null || true) && astro dev",

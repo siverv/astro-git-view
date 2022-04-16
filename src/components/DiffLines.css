@@ -1,0 +1,36 @@
+
+
+.diff-lines .added {
+	background-color: #0901;
+}
+.diff-lines .removed {
+	background-color: #9001;
+}
+.diff-lines .added:hover {
+	background-color: #0904;
+}
+.diff-lines .removed:hover {
+	background-color: #9004;
+}
+.diff-lines .ellipsis {
+	opacity: 0.5;
+}
+
+.diff-lines .line-number {
+	min-width: 7ch;
+	width: 7ch;
+	text-align: right;
+}
+
+.diff-lines .line-added,
+.diff-lines .line-removed {
+	min-width: 1ch;
+	width: 1ch;
+	font-family: monospace;
+	text-align: center;
+}
+
+.diff-lines .line {
+	white-space:  pre;
+	font-family: monospace;
+}

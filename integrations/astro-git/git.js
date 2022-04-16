@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import git from 'isomorphic-git'
-import { TREE , STAGE  } from 'isomorphic-git'
+import { TREE } from 'isomorphic-git'
+import * as Diff from 'diff';
 
 export class Repo {
   static BAD_NAMES = ["index.html"];
@@ -228,6 +229,42 @@ export class Repo {
     return this.helperMaps;
   }
 
+  async getDiff(refFrom, refTo){
+    const decoder = new TextDecoder("utf-8");
+    let diffList = [];
+    await git.walk({
+      ...this.config,
+      trees: [git.TREE({ ref: refFrom }), git.TREE({ ref: refTo })],
+      map: async (path, [nodeFrom, nodeTo]) => {
+        if (path === '.' || !nodeFrom || !nodeTo
+          || (await nodeFrom.type()) === 'tree'
+          || (await nodeTo.type()) === 'tree') {
+          return
+        }
+        const oidFrom = await nodeFrom.oid();
+        const oidTo = await nodeTo.oid();
+        if(oidFrom === oidTo){
+          return;
+        } else if(!oidFrom){
+          diffList.push({type: "ADD", path, a: oidFrom, b: oidTo});
+        } else if(!oidTo){
+          diffList.push({type: "REMOVE", path, a: oidFrom, b: oidTo});
+        } {
+          let blobFrom = await this.getBlob(oidFrom);
+          let blobTo = await this.getBlob(oidTo);
+          diffList.push({
+            type: "MODIFY",
+            path,
+            a: oidFrom,
+            b: oidTo,
+            diff: Diff.diffLines(decoder.decode(blobFrom.blob), decoder.decode(blobTo.blob))
+          })
+        }
+      },
+    });
+    return diffList;
+  }
+
   async preload(){
     await this.getStaticHelpers();
   }
@@ -242,13 +279,13 @@ export function getRepo(repoName){
   return repoMap.get(repoName); 
 }
 
-export default function initialize({repositories, ...commonConfig}) {
+export default async function initialize({repositories, ...commonConfig}) {
   if(repoMap.size > 0){
     return;
   }
   for(let repoConfig of repositories){
     let repo = new Repo({...commonConfig, ...repoConfig});
     repoMap.set(repo.getName(), repo);
-    repo.getStaticHelpers();
+    await repo.preload();
   }
 }
