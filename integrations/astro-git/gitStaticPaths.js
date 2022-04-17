@@ -27,7 +27,7 @@ export async function getRepoTreesStaticPaths(includeCommitRefs){
     }
     return treeEntries
       .flatMap(([ref, map]) => Array.from(map.entries()).map(([key, entry]) => {
-        let path = Repo.isBadPath(key) ? entry.oid : key;
+        let path = repo.isBadPath(key) && entry ? entry.oid : key;
         return {params: {repo: name, ref, path}}
       }));
   }))).flat();

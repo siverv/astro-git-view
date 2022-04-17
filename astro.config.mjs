@@ -4,12 +4,14 @@ import astroGit from 'astro-git/plugin.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-	siteUrl: "localhost",
+	site: "https://siverv.github.io",
+	base: "/astro-git-view",
 	integrations: [
 		astroGit({
           repositories: [
             {name: "astro-git-view", dir: "."},
           ],
+          badPaths: [/\bindex.html\b/, /(?:\/|^)\.\w/],
           branchFilter: branch => ["dev", "master"].includes(branch),
           includeCommitRefs: false
 		}),
@@ -34,5 +36,5 @@ export default defineConfig({
 			},
 			verbose: true
 		})
-	]
+	],
 });

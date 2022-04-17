@@ -5,13 +5,14 @@ import { TREE } from 'isomorphic-git'
 import * as Diff from 'diff';
 
 export class Repo {
-  static BAD_NAMES = ["index.html"];
-  static isBadPath(path){
-    return Repo.BAD_NAMES.some(badName => path.endsWith(badName));
+  badPaths = [/index.html/];
+  isBadPath(path){
+    return this.badPaths.some(badPathPattern => path.match(badPathPattern));
   }
 
-  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, verbose}){
+  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, badPaths, verbose}){
     this.config = {fs, dir};
+    this.badPaths = badPaths || this.badPaths;
     this.includeCommitRefs = includeCommitRefs == true;
     this.name = name || dir.split("/").pop();
     this.branchFilter = branchFilter || (() => true);
@@ -208,7 +209,7 @@ export class Repo {
         }
         return [[refs[index], entry]]
       })));
-      if(Repo.isBadPath(path)) {
+      if(this.isBadPath(path)) {
         let oids = entries.map(entry => entry?.oid).filter(id=>id);
         refs.forEach(ref => oids.forEach(oid => refPathMap.get(ref).set(oid, null)));
         entries.forEach((entry, index) => {

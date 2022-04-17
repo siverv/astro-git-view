@@ -26,6 +26,7 @@ repositories, includeCommitRefs, branchFilter, tagFilter, verbose
 |:------------------- |:------------------  |:-------------------------------------------- |
 | `repositories`      | [{name?: string, dir: string}] | Repositories to include.  |
 | `includeCommitRefs` | boolean             | Whether the commit-hashes should be included in the static path helpers. |
+| `badPaths`          | [RegExp]            | Paths that needs to be referred to by oid. Default matches `index.html`.
 | `branchFilter`      | (string) => boolean | Filter the branches that should be considered relevant |
 | `tagFilter`         | (string) => boolean | Filter the tags that should be considered relevant |
 | `verbose`           | boolean             | Debug log |
@@ -42,6 +43,7 @@ astroGit({
     {name: "custom-name", dir: "/path/to/some/repo/with-another-name", tagFilter: tag => false },
     {name: "yet-another", dir: "/path/to/some/repo/yet-another", includeCommitRefs: true},
   ],
+  badPaths: [/\bindex.html\b/, /(?:\/|^)\.\w/],
   branchFilter: branch => ["dev", "master"].includes(branch),
   tagFilter: tag => tag.match(/v\d+(\.\d+(\.\d+)?)?/),
   includeCommitRefs: false,
