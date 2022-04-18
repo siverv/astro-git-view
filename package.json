@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "private": true,
   "license": "GPL-3.0",
+  "homepage": "https://siverv.github.io/astro-git-view/",
   "contributors": [
     {
       "name": "Siver K. Volle",
@@ -21,7 +22,7 @@
     "isbinaryfile": "^5.0.0"
   },
   "dependencies": {
-    "astro-git": "./integrations/astro-git",
-    "astro-lunr": "./integrations/astro-lunr"
+    "@siverv/astro-lunr": "file:integrations/astro-lunr",
+    "astro-git": "./integrations/astro-git"
   }
 }

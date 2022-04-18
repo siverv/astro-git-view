@@ -18,5 +18,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# sym-link for indexing
-public/lunr
+
+# sub-repos
+integrations

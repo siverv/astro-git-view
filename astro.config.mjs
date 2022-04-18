@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import astroLunr from 'astro-lunr/plugin.mjs';
+import astroLunr from '@siverv/astro-lunr/plugin.mjs';
 import astroGit from 'astro-git/plugin.mjs';
 
 // https://astro.build/config
@@ -9,7 +9,8 @@ export default defineConfig({
 	integrations: [
 		astroGit({
           repositories: [
-            {name: "astro-git-view", dir: "."}
+            {name: "astro-git-view", dir: "."},
+            {name: "astro-lunr", dir: "./integrations/astro-lunr"}
           ],
           badPathFilter: (path) => path.split("/").some(segment => segment === "index.html" || segment.match(/^\.\w/)),
           branchFilter: branch => ["dev", "master"].includes(branch),

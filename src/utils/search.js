@@ -1,4 +1,4 @@
-import {search, enrich} from "astro-lunr/client/lunr.js";
+import {search, enrich} from "@siverv/astro-lunr/client/lunr.js";
 
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL || "/";
 
