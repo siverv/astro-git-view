@@ -5,14 +5,10 @@ import { TREE } from 'isomorphic-git'
 import * as Diff from 'diff';
 
 export class Repo {
-  badPaths = [/index.html/];
-  isBadPath(path){
-    return this.badPaths.some(badPathPattern => path.match(badPathPattern));
-  }
-
-  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, badPaths, verbose}){
+  static DEFAULT_BAD_PATH_FILTER = (path) => path.match(/(?:^|\/)index.html(?:$|\/)/);
+  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, badPathFilter, verbose}){
     this.config = {fs, dir};
-    this.badPaths = badPaths || this.badPaths;
+    this.isBadPath = badPathFilter || DEFAULT_BAD_PATH_FILTER;
     this.includeCommitRefs = includeCommitRefs == true;
     this.name = name || dir.split("/").pop();
     this.branchFilter = branchFilter || (() => true);
@@ -233,31 +229,44 @@ export class Repo {
   async getDiff(refFrom, refTo){
     const decoder = new TextDecoder("utf-8");
     let diffList = [];
+    if(!refFrom){
+      await git.walk({
+        ...this.config,
+        trees: [git.TREE({ ref: refTo })],
+        map: async (path, [nodeTo]) => {
+          if(path === "." && (await nodeTo?.type()) !== 'blob') {
+            return;
+          }
+          const oidTo = await nodeTo?.oid();
+          diffList.push({type: "ADD", path, oidFrom: null, oidTo, diff: []});
+        }
+      });
+      return diffList;
+    }
     await git.walk({
       ...this.config,
       trees: [git.TREE({ ref: refFrom }), git.TREE({ ref: refTo })],
       map: async (path, [nodeFrom, nodeTo]) => {
-        if (path === '.' || !nodeFrom || !nodeTo
-          || (await nodeFrom.type()) === 'tree'
-          || (await nodeTo.type()) === 'tree') {
+        if (path === '.'
+          || (await nodeFrom?.type()) !== 'blob' && (await nodeTo?.type()) !== 'blob') {
           return
         }
-        const oidFrom = await nodeFrom.oid();
-        const oidTo = await nodeTo.oid();
+        const oidFrom = await nodeFrom?.oid();
+        const oidTo = await nodeTo?.oid();
         if(oidFrom === oidTo){
           return;
         } else if(!oidFrom){
-          diffList.push({type: "ADD", path, a: oidFrom, b: oidTo});
+          diffList.push({type: "ADD", path, oidFrom, oidTo, diff: []});
         } else if(!oidTo){
-          diffList.push({type: "REMOVE", path, a: oidFrom, b: oidTo});
-        } {
+          diffList.push({type: "REMOVE", path, oidFrom, oidTo, diff: []});
+        } else {
           let blobFrom = await this.getBlob(oidFrom);
           let blobTo = await this.getBlob(oidTo);
           diffList.push({
             type: "MODIFY",
             path,
-            a: oidFrom,
-            b: oidTo,
+            oidFrom,
+            oidTo,
             diff: Diff.diffLines(decoder.decode(blobFrom.blob), decoder.decode(blobTo.blob))
           })
         }
@@ -266,7 +275,7 @@ export class Repo {
     return diffList;
   }
 
-  async preload(){
+  async initialize(){
     await this.getStaticHelpers();
   }
 }
@@ -287,6 +296,6 @@ export default async function initialize({repositories, ...commonConfig}) {
   for(let repoConfig of repositories){
     let repo = new Repo({...commonConfig, ...repoConfig});
     repoMap.set(repo.getName(), repo);
-    await repo.preload();
+    await repo.initialize();
   }
 }

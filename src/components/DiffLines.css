@@ -34,3 +34,17 @@
 	white-space:  pre;
 	font-family: monospace;
 }
+
+
+.stats {
+	padding: 0 1ch;
+}
+.stats.removed {
+	background-color:  #9002;
+}
+.stats.added {
+	background-color:  #0902;
+}
+.stats.changed {
+	background-color:  #0092;
+}

@@ -5,6 +5,7 @@ import GitHistoryBar from '@components/GitHistoryBar.astro'
 import {getRepo} from 'astro-git/git.js';
 import BaseLayout from '@layout/BaseLayout.astro';
 import DiffLines from '@components/DiffLines.astro';
+import FileDiff from '@components/FileDiff.astro';
 import "../../../../style/headered-section.css"
 
 const {repo: repoName, ref} = {...Astro.props, ...Astro.params};
@@ -14,7 +15,7 @@ const previousCommit = log[1];
 
 export const getStaticPaths = async () => await getRepoRefsStaticPaths(true);
 
-let diffList = previousCommit && await repo.getDiff(previousCommit.oid, ref)
+let diffList = await repo.getDiff(previousCommit?.oid, ref)
 
 diffList?.sort((a,b) => a.path.localeCompare(b.path))
 
@@ -25,13 +26,5 @@ diffList?.sort((a,b) => a.path.localeCompare(b.path))
   <section>
     <h3>Differences for commit {ref}</h3>
   </section>
-  {diffList?.map(({type, path, a, b, diff}) => {
-    let lineNumber = 0;
-    return <section class="headered-section">
-      <header class="headered-section-header">
-        {path}
-      </header>
-      <DiffLines diff={diff}/>
-    </section>
-  })}
+  {diffList?.map((diffProps) => <FileDiff repo={repo} ref={ref} {...diffProps}/>)}
 </BaseLayout>

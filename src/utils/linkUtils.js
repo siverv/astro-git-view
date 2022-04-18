@@ -22,11 +22,24 @@ export function getTreePath(repo, ref, ...path){
 	path = path.filter(segment => segment && segment !== ".").join("/")
 	if(repo.isBadPath(path)){
 		let {pathMap} = repo.getStaticHelpersSync();
-		path = pathMap.get(path).get(ref).oid;
+		let refMap = pathMap.get(path).get(ref);
+		if(!refMap){
+			return null;
+		} else {
+			path = refMap.oid;
+		}
 	}
 	return join(getRefPath(repo,ref), path);
 }
 
-export function getCommitPath(repo, ref){
-	return join(getRepoPath(repo), "commit", ref);
+export function getCommitPath(repo, ref, path){
+	let hash = "";
+	if(path){
+		let {pathMap} = repo.getStaticHelpersSync();
+		let entry = pathMap.get(path).get(ref);
+		if(entry && entry.type === "blob"){
+			hash = "B" + entry.oid;
+		}
+	}
+	return join(getRepoPath(repo), "commit", ref) + (hash ? "#" + hash : "");
 }

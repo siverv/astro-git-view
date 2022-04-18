@@ -12,9 +12,9 @@ Note that usage on github pages requires a fix to [the base-path problem for sta
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           		| Action                                       |
-|:------------------------- |:-------------------------------------------- |
-| `npm ci --ignore-scripts` | Installs dependencies                        |
-| `npm run dev`     		| Starts local dev server at `localhost:3000`  |
-| `npm run build`   		| Build your production site to `./dist/`      |
-| `npm run preview` 		| Preview your build locally, before deploying |
+| Command          							 		| Action                                       |
+|:------------------------------------------------- |:-------------------------------------------- |
+| `npm ci --ignore-scripts` 						| Installs dependencies                        |
+| `npm run dev -- --experimental-integrations`     	| Starts local dev server at `localhost:3000`  |
+| `npm run build -- --experimental-integrations`   	| Build your production site to `./dist/`      |
+| `npm run preview -- --experimental-integrations` 	| Preview your build locally, before deploying |

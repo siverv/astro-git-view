@@ -58,7 +58,7 @@ for(let branch of branches){
             <RelativeDateTime date={repo.getDateOfCommit(entry)}/>
           </td>
           <td class="commit-message">
-            <a href={repo.includeCommitRefs ? getTreePath(repo, entry.oid, path) : getCommitPath(repo, entry.oid)} set:text={entry.commit.message}/>
+            <a href={repo.includeCommitRefs ? getTreePath(repo, entry.oid, path) : getCommitPath(repo, entry.oid, path)} set:text={entry.commit.message}/>
             <span class="commit-tags">
               {branches && Array.from(branches).map(branch => {
                 return <span class="commit-branch">{branch}</span>

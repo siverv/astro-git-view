@@ -9,11 +9,11 @@ export default defineConfig({
 	integrations: [
 		astroGit({
           repositories: [
-            {name: "astro-git-view", dir: "."},
+            {name: "astro-git-view", dir: "."}
           ],
-          badPaths: [/\bindex.html\b/, /(?:\/|^)\.\w/],
+          badPathFilter: (path) => path.split("/").some(segment => segment === "index.html" || segment.match(/^\.\w/)),
           branchFilter: branch => ["dev", "master"].includes(branch),
-          includeCommitRefs: false
+          includeCommitRefs: false,
 		}),
 		astroLunr({
 			subDir: "lunr",

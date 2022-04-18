@@ -1,6 +1,6 @@
 ---
 import "./DiffLines.css";
-const {diff} = Astro.props;
+const {diff, idBase} = Astro.props;
 
 let lineNumberStart = 0;
 
@@ -20,8 +20,9 @@ let preparedDiff = diff.flatMap(({count, removed, added, value}) => {
 <table class="diff-lines">
   <tbody>
     {preparedDiff.map(({index, added, removed, line}) => {
-      return <tr class:list={[{added, removed, ellipsis: index === "..."}]}>
-        <td class="line-number">{index}</td>
+      let id = idBase + "-L" + index;
+      return <tr id={id} class:list={[{added, removed, ellipsis: index === "..."}]}>
+        <td class="line-number"><a href={"#" + id}>{index}</a></td>
         <td class="line-removed">{removed ? "-" : " "}</td>
         <td class="line-added">{added ? "+" : " "}</td>
         <td class="line">{line}</td>

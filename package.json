@@ -1,6 +1,6 @@
 {
   "name": "astro-git-view",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "license": "GPL-3.0",
   "contributors": [
@@ -11,9 +11,9 @@
     }
   ],
   "scripts": {
-    "dev": "(ln -s ../dist/lunr ./public/lunr 2> /dev/null || true) && astro dev",
-    "start": "(ln -s ../dist/lunr ./public/lunr 2> /dev/null || true) && astro dev",
-    "build": "(rm ./public/lunr 2> /dev/null || true) && astro build",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "devDependencies": {

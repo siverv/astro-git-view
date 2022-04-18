@@ -1,0 +1,64 @@
+---
+import {getTreePath} from '@utils/linkUtils';
+import DiffLines from '@components/DiffLines.astro';
+
+const {repo, ref, type, path, oidFrom, oidTo, diff} = Astro.props;
+
+
+const id = "B" + oidTo;
+
+function diffStats(diff){
+  let added = 0;
+  let removed = 0;
+  let total = 0;
+  for(let section of diff){
+    total += section.count;
+    if(section.added){
+      added += section.count;
+    } else if(section.removed){
+      removed += section.count;
+    }
+  }
+  return {
+    added,
+    removed,
+    total
+  }
+}
+
+let {added, removed, total} = diffStats(diff);
+
+const mainBranch = await repo.getMainBranch();
+let treePath = getTreePath(repo, mainBranch, path);
+---
+<section class="file-diff headered-section">
+  <header id={id} class="headered-section-header">
+    <a href={"#" + id}>{path}</a>
+    |
+    {type === "MODIFY" && <>
+      <span class="stats added">
+        {added > 0 ? `+${added}L` : null}
+      </span>
+      <span class="stats removed">
+        {removed > 0 ? `-${removed}L` : null}
+      </span>
+      <span class="stats changed">
+        {added + removed > 0 ? `${((added + removed)*100/total).toFixed(0)}% changed` : null}
+      </span>
+    </>}
+    {type === "ADD" && <>
+      <span class="stats added">
+        new file
+      </span>
+    </>}
+    {type === "REMOVE" && <>
+      <span class="stats removed">
+        deleted file
+      </span>
+    </>}
+    {treePath && <div style="float:right">
+      <a href={treePath}>to file</a>
+    </div>}
+  </header>
+  {type == "MODIFY" && <DiffLines idBase={id} diff={diff}/>}
+</section>
