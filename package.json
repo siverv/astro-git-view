@@ -22,7 +22,7 @@
     "isbinaryfile": "^5.0.0"
   },
   "dependencies": {
-    "@siverv/astro-lunr": "file:integrations/astro-lunr",
+    "@siverv/astro-lunr": "github:siverv/astro-lunr",
     "astro-git": "./integrations/astro-git"
   }
 }

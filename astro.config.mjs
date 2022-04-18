@@ -10,7 +10,7 @@ export default defineConfig({
 		astroGit({
           repositories: [
             {name: "astro-git-view", dir: "."},
-            {name: "astro-lunr", dir: "./integrations/astro-lunr"}
+            // {name: "astro-lunr", dir: "../astro-lunr"} // https://github.com/siverv/astro-lunr
           ],
           badPathFilter: (path) => path.split("/").some(segment => segment === "index.html" || segment.match(/^\.\w/)),
           branchFilter: branch => ["dev", "master"].includes(branch),
