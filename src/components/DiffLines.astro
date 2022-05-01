@@ -16,6 +16,12 @@ let preparedDiff = diff.flatMap(({count, removed, added, value}) => {
   }
   return rows;
 })
+
+const tooLong = preparedDiff.length > 300;
+if(tooLong){
+  preparedDiff = preparedDiff.slice(0,300);
+}
+
 ---
 <table class="diff-lines">
   <tbody>
@@ -29,5 +35,11 @@ let preparedDiff = diff.flatMap(({count, removed, added, value}) => {
       </tr>
 
     })}
+    {tooLong && <tr>
+      <td>...{preparedDiff.length}</td>
+      <td class="line-content"><b>Limited to only the first 300 lines</b></td>
+      <td/>
+      <td/>
+    </tr>}
   </tbody>
 </table>

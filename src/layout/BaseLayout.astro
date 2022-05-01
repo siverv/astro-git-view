@@ -15,7 +15,7 @@ import RelativeDateTimeInitializer from '@components/ui/RelativeDateTimeInitiali
     <EnsureDarkmode/>
     <RelativeDateTimeInitializer/>
   </head>
-  <body data-dark>
+  <body data-dark data-lunr-dir={import.meta.env.PUBLIC_LUNR_DIR}>
     <DarkmodeButton/>
     <slot/>
   </body>

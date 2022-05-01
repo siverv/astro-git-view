@@ -10,7 +10,21 @@ import "../../../../style/headered-section.css"
 
 const {repo: repoName, ref} = {...Astro.props, ...Astro.params};
 const repo = getRepo(repoName);
+if(!repo){
+  return new Response(`Repository not found: ${repoName}`, {
+     status: 404,
+  });
+}
+
+const {refPathMap} = await repo.getStaticHelpers();
+if(!refPathMap.get(ref)){
+  return new Response(`Reference not found: ${ref}`, {
+     status: 404,
+  });
+}
+
 const log = await repo.getLog(ref);
+
 const previousCommit = log[1];
 
 export const getStaticPaths = async () => await getRepoRefsStaticPaths(true);

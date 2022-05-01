@@ -1,6 +1,10 @@
-import {search, enrich} from "@siverv/astro-lunr/client/lunr.js";
+import initializeLunr from "@siverv/astro-lunr/client/lunr.js";
+import {joinPath} from '@utils/linkUtils';
 
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL || "/";
+const LUNR_DIR = joinPath(BASE_URL, import.meta.env.PUBLIC_LUNR_DIR);
+
+const {search, enrich} = initializeLunr({lunrDir: LUNR_DIR});
 
 export async function searchOnLoad(useResult){
   window.addEventListener("load", async () => {
@@ -23,6 +27,9 @@ export async function searchOnLoad(useResult){
 
 export async function searchOnSubmit(useResult){
   let searchForm = document.getElementById("search-form");
+  if(!searchForm){
+    return;
+  }
   let index = searchForm.dataset.index;
   searchForm.addEventListener("submit", async ev => {
     ev.preventDefault();
@@ -55,7 +62,7 @@ export async function displaySearchResult({result, query}){
   for(let {hit, doc} of result){
     const fragment = template.content.cloneNode(true);
     fragment.querySelector(".search-item").setAttribute("id", "search-item-" + hit.ref);
-    fragment.querySelector(".url").setAttribute("href", BASE_URL + doc.canonicalUrl);
+    fragment.querySelector(".url").setAttribute("href", joinPath(BASE_URL, doc.canonicalUrl));
     fragment.querySelector(".url").textContent = doc.name;
     fragment.querySelector(".base-path").textContent = doc.base + "/";
 

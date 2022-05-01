@@ -2,10 +2,13 @@
 import { Code } from 'astro/components';
 import Bytes from '@components/ui/Bytes.astro';
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';
+import {getRawPath} from '@utils/linkUtils';
 const {repo, ref, path, entry: {oid}} = Astro.props;
 
 const log = await repo.getLog(ref);
 const blob = await repo.getBlob(oid);
+
+const isSSR = import.meta.env.PUBLIC_IS_SSR === "true";
 
 const {pathMap, refPathMap} = await repo.getStaticHelpers();
 const history = log
@@ -32,6 +35,11 @@ const bytes = blob.blob.length;
         <Bytes bytes={bytes}/>
       </div>
     </div>
+    {isSSR && <span class="download-file">
+      <a href={getRawPath(repo, ref, path)}>
+        download
+      </a>
+    </span>}
   </header>
   <div>
     <i>Binary file.</i>

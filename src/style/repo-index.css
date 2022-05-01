@@ -1,0 +1,4 @@
+
+.repo-list-table td { padding: 1ch; }
+.repo-list-table .message { font-style: italic; color: #777; }
+.repo-list-table .date { text-align: right; min-width: 16ch; }

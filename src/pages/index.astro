@@ -3,11 +3,12 @@ import {getRepos} from 'astro-git/git.js';
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
 import BaseLayout from '@layout/BaseLayout.astro';
 import {getRepoPath} from '@utils/linkUtils.js';
+import "@style/repo-index.css";
 
 ---
 <BaseLayout>
   <h1 class="headered-section-header">
-    Git-repos as presented through Astro-Git
+    Git-repositories as presented through <a href="https://github.com/siverv/astro-git-view">astro-git-view</a>
   </h1>
   <section>
     <table class="repo-list-table">
@@ -27,8 +28,3 @@ import {getRepoPath} from '@utils/linkUtils.js';
     </table>
   </section>
 </BaseLayout>
-<style>
-  .repo-list-table td { padding: 1ch; }
-  .repo-list-table .message { font-style: italic; color: #777; }
-  .repo-list-table .date { text-align: right; min-width: 16ch; }
-</style>

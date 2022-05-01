@@ -18,7 +18,7 @@ const license = latestTree.tree.find(part => part.path.match(/^li[cs]en[sc]e/i))
 ---
 <header class="repo-header">
   <a href={getRootPath()}>All repositories</a>
-  <h1><a href={getRepoPath(repo)}>{repo.getName()}</a></h1>
+  <h1><a href={getRepoPath(repo) + "/"}>{repo.getName()}</a></h1>
   {license && <div>
       <a href={getTreePath(repo, ref, license.path)}>License</a>
   </div>}

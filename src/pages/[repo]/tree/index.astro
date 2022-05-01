@@ -6,7 +6,13 @@ import TreeView from './[ref]/index.astro'
 const {repo: repoName} = {...Astro.props, ...Astro.params};
 
 const repo = getRepo(repoName);
-const ref = await repo.getMainBranch();
+if(!repo){
+  return new Response(`Repository not found: ${repoName}`, {
+     status: 404,
+  });
+}
+
+const ref = await repo?.getMainBranch();
 
 export const getStaticPaths = getRepoStaticPaths;
 ---

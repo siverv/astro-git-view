@@ -2,7 +2,7 @@
 const BASE_URL = import.meta.env.PUBLIC_BASE_URL || "/";
 
 
-function join(...path){
+export function joinPath(...path){
 	return path.filter(Boolean).join("/").replace(/\/+/g, "/");
 }
 
@@ -11,11 +11,11 @@ export function getRootPath(){
 }
 
 export function getRepoPath(repo){
-	return join(BASE_URL, `${repo.getName()}`);
+	return joinPath(BASE_URL, `${repo.getName()}`);
 }
 
 export function getRefPath(repo, ref){
-	return join(getRepoPath(repo), "tree", ref);
+	return joinPath(getRepoPath(repo), "tree", ref);
 }
 
 export function getTreePath(repo, ref, ...path){
@@ -29,7 +29,21 @@ export function getTreePath(repo, ref, ...path){
 			path = refMap.oid;
 		}
 	}
-	return join(getRefPath(repo,ref), path);
+	return joinPath(getRefPath(repo,ref), path);
+}
+
+export function getRawPath(repo, ref, ...path){
+	path = path.filter(segment => segment && segment !== ".").join("/")
+	if(repo.isBadPath(path)){
+		let {pathMap} = repo.getStaticHelpersSync();
+		let refMap = pathMap.get(path).get(ref);
+		if(!refMap){
+			return null;
+		} else {
+			path = refMap.oid;
+		}
+	}
+	return joinPath(getRepoPath(repo), "raw", ref, path);
 }
 
 export function getCommitPath(repo, ref, path){
@@ -41,5 +55,5 @@ export function getCommitPath(repo, ref, path){
 			hash = "B" + entry.oid;
 		}
 	}
-	return join(getRepoPath(repo), "commit", ref) + (hash ? "#" + hash : "");
+	return joinPath(getRepoPath(repo), "commit", ref) + (hash ? "#" + hash : "");
 }

@@ -1,12 +1,23 @@
 ---
-import {getTreePath, getRefPath} from '@utils/linkUtils.js';
+import {getTreePath, getRepoPath, getRefPath} from '@utils/linkUtils.js';
 const {repo, ref, path, entry} = Astro.props;
+
+const {refPathMap} = await repo.getStaticHelpers();
+const hasRef = refPathMap.get(ref);
 ---
+{hasRef
+  ? <h3>
+    "{path}" did not match any known paths in <span class="ref">{ref}</span>.
+  </h3>
+  : <h3>
+    This repo has no references named "{ref}". <a href={getRepoPath(repo)}>Return to repository main page</a>
+  <h3/>
+}
 {entry.options.length > 0
   ? <>
-    <h3>
-      Path not found. Maybe one of these branches and commits?
-    </h3>
+    <h4>
+      These references contains the path "{path}"
+    </h4>
     <ul>
       {entry.options.map(option => {
         return <li>
@@ -15,9 +26,5 @@ const {repo, ref, path, entry} = Astro.props;
       })}
     </ul>
   </>
-  : <>
-    <h3>
-      Path not found. <a href={getRefPath(repo, ref)}>Return to repository main page</a>
-    </h3>
-  </>
+  : <h4>No other reference contains this path. <a href={getRefPath(repo, ref)}>Return to reference root</a></h4>
 }

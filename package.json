@@ -1,6 +1,6 @@
 {
   "name": "astro-git-view",
-  "version": "0.0.4",
+  "version": "0.1.0-alpha",
   "private": true,
   "license": "GPL-3.0",
   "homepage": "https://siverv.github.io/astro-git-view/",
@@ -15,13 +15,18 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "dev-ssr": "astro dev --config ./astro.config.ssr.mjs",
+    "build-ssr": "astro build --config ./astro.config.ssr.mjs",
+    "build-ssg-ssr": "PUBLIC_IS_SSR=true astro build",
+    "serve-ssr": "node ./ssr-server.mjs"
   },
   "devDependencies": {
-    "astro": "^1.0.0-beta.12",
+    "astro": "^1.0.0-beta.18",
     "isbinaryfile": "^5.0.0"
   },
   "dependencies": {
+    "@astrojs/node": "^0.1.1",
     "@siverv/astro-lunr": "github:siverv/astro-lunr",
     "astro-git": "./integrations/astro-git"
   }

@@ -41,3 +41,9 @@
 .markdown-preview {
   padding: 2ch;
 }
+
+
+.download-file {
+  display: inline-block;
+  float: right;
+}

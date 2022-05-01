@@ -9,21 +9,33 @@ import GitPathNotFound from '@components/GitPathNotFound.astro';
 
 let {repo: repoName, ref, path} = {...Astro.props, ...Astro.params};
 const repo = getRepo(repoName);
+if(!repo){
+  return new Response(`Repository not found: ${repoName}`, {
+     status: 404,
+  });
+}
 
 const {refPathMap, pathMap, oidMap} = await repo.getStaticHelpers();
+if(!refPathMap.get(ref)){
+  return new Response(`Reference not found: ${ref}`, {
+     status: 404,
+  });
+}
 
 path = oidMap.get(path) || path;
-let entry = refPathMap?.get(ref)?.get(path);
+const hasRef = refPathMap?.get(ref);
+let entry = refPathMap.get(ref)?.get(path);
 if(entry == null){
-	entry = {
-		type: "not_found",
-		options: Array.from(pathMap.get(path)?.keys() || [])
-	}
+  entry = {
+    type: "not_found",
+    options: Array.from(pathMap.get(path)?.keys() || [])
+  }
 }
 
 const View = entry.type === "tree" ? GitTree : entry.type === "blob" ? GitFile : GitPathNotFound;
 
 export const getStaticPaths = async () => await getRepoTreesStaticPaths();
+
 
 ---
 <BaseLayout>

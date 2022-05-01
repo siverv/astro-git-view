@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  astro:
+    build: ./
+    expose:
+      - '12549'
+    #restart: unless-stopped
+    environment:
+     - REPOSITORIES_JSON=./kvissleik-repos.json
+     - ASTRO_BASE=/
+     - ASTRO_SITE=https://git.kvissleik.no
+    volumes:
+      - ~/Projects/kvissleik.no/:/var/git/:ro
+      - ./data:/var/www/git/
+    networks:
+      - intranet
+  nginx:
+    image: nginx:latest
+    ports:
+      - 127.0.0.1:80:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/static/:/var/www/nginx/static/ # robots.txt
+      - /var/log/nginx:/var/log/nginx
+      - ./data:/var/www/git/:ro
+    #restart: unless-stopped
+    depends_on:
+      - astro
+    networks:
+      - intranet
+
+
+      
+networks:
+  intranet:

@@ -2,12 +2,15 @@
 import { Markdown } from 'astro/components';
 import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';
 import Bytes from '@components/ui/Bytes.astro';
+import {getRawPath} from '@utils/linkUtils';
 import RelativeDateTime from '@components/ui/RelativeDateTime.astro'
 const {repo, ref, entry: {oid}} = Astro.props;
 
 const log = await repo.getLog(ref);
 const blob = await repo.getBlob(oid);
 const decoder = new TextDecoder("utf-8");
+
+const isSSR = import.meta.env.PUBLIC_IS_SSR === "true";
 
 const {oidMap, refPathMap} = await repo.getStaticHelpers();
 const path = oidMap.get(oid);
@@ -29,6 +32,11 @@ const bytes = blob.blob.length;
         <Bytes bytes={bytes}/>
       </div>
     </div>
+    {isSSR && <span class="download-file">
+      <a href={getRawPath(repo, ref, path)}>
+        download
+      </a>
+    </span>}
   </header>
   <div class="markdown-preview ">
     <Markdown set:html={content}></Markdown>

@@ -48,12 +48,22 @@ let treePath = getTreePath(repo, mainBranch, path);
     </>}
     {type === "ADD" && <>
       <span class="stats added">
-        new file
+        New file
       </span>
     </>}
     {type === "REMOVE" && <>
       <span class="stats removed">
-        deleted file
+        Deleted file
+      </span>
+    </>}
+    {type === "IGNORED" && <>
+      <span class="stats removed">
+        File is excluded from diff
+      </span>
+    </>}
+    {type === "TOO_LARGE" && <>
+      <span class="stats removed">
+        File is too large to show diff
       </span>
     </>}
     {treePath && <div style="float:right">

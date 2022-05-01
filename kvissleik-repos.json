@@ -1,0 +1,5 @@
+[
+	{"name": "infrastructure", "dir": "/var/git/infrastructure"},
+	{"name": "kvissleik", "dir": "/var/git/kvissleik"},
+	{"name": "samspill", "dir": "/var/git/samspill"}
+]

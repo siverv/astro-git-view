@@ -1,5 +1,7 @@
 # build output
 dist/
+dist-ssr/
+data/
 .output/
 .vscode/
 

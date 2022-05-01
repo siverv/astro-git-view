@@ -30,6 +30,16 @@ for(let branch of branches){
   }
   branchEntries.get(commitOid).add(branch);
 }
+
+
+const getPathedCommitPath = (repo, entry) => {
+  if(repo.includeCommitRefs || import.meta.env.PUBLIC_IS_SSR == "true"){
+    return getTreePath(repo, entry.oid, path);
+  } else {
+    return getCommitPath(repo, entry.oid);
+  }
+}
+
 ---
 <details class="history-bar headered-section">
   <summary class="latest-commit headered-section-header">
@@ -58,7 +68,7 @@ for(let branch of branches){
             <RelativeDateTime date={repo.getDateOfCommit(entry)}/>
           </td>
           <td class="commit-message">
-            <a href={repo.includeCommitRefs ? getTreePath(repo, entry.oid, path) : getCommitPath(repo, entry.oid, path)} set:text={entry.commit.message}/>
+            <a href={getPathedCommitPath(repo, entry, path)} set:text={entry.commit.message}/>
             <span class="commit-tags">
               {branches && Array.from(branches).map(branch => {
                 return <span class="commit-branch">{branch}</span>

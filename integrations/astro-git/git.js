@@ -6,10 +6,12 @@ import * as Diff from 'diff';
 
 export class Repo {
   static DEFAULT_BAD_PATH_FILTER = (path) => path.match(/(?:^|\/)index.html(?:$|\/)/);
-  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, badPathFilter, verbose}){
+  constructor({dir, includeCommitRefs, name, branchFilter, tagFilter, badPathFilter, ignoreDiffFilter, maxFileSizeForDiff, verbose}){
     this.config = {fs, dir};
     this.isBadPath = badPathFilter || DEFAULT_BAD_PATH_FILTER;
     this.includeCommitRefs = includeCommitRefs == true;
+    this.ignoreDiffFilter = ignoreDiffFilter;
+    this.maxFileSizeForDiff = maxFileSizeForDiff;
     this.name = name || dir.split("/").pop();
     this.branchFilter = branchFilter || (() => true);
     this.tagFilter = tagFilter || (() => true);
@@ -259,18 +261,24 @@ export class Repo {
           diffList.push({type: "ADD", path, oidFrom, oidTo, diff: []});
         } else if(!oidTo){
           diffList.push({type: "REMOVE", path, oidFrom, oidTo, diff: []});
+        } else if(this.ignoreDiffFilter?.(path)) {
+          diffList.push({type: "IGNORED", path, oidFrom, oidTo, diff: []});
         } else {
-          let blobFrom = await this.getBlob(oidFrom);
-          let blobTo = await this.getBlob(oidTo);
+          let contentFrom = await nodeFrom.content();
+          let contentTo = await nodeTo.content();
+          if(this.maxFileSizeForDiff !== undefined && (contentFrom.length > this.maxFileSizeForDiff || contentTo.length > this.maxFileSizeForDiff)) {
+            diffList.push({type: "TOO_LONG", path, oidFrom, oidTo, diff: []});
+            return;
+          }
           diffList.push({
             type: "MODIFY",
             path,
             oidFrom,
             oidTo,
-            diff: Diff.diffLines(decoder.decode(blobFrom.blob), decoder.decode(blobTo.blob))
+            diff: Diff.diffLines(decoder.decode(contentFrom), decoder.decode(contentTo))
           })
         }
-      },
+      }
     });
     return diffList;
   }
