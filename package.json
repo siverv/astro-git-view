@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^0.1.1",
-    "@siverv/astro-lunr": "github:siverv/astro-lunr",
+    "@siverv/astro-lunr": "^0.0.2",
     "astro-git": "./integrations/astro-git"
   }
 }
