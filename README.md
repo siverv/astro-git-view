@@ -10,8 +10,6 @@ See [astro-git](./integrations/astro-git) and [astro-lunr](https://github.com/si
 
 The SSG/SSR-hybrid maintains the full tree-view for each included branch and tag, but specific commits and raw files are served using the SSR-module.
 
-Note that usage on github pages requires a fix to [the base-path problem for static assets](https://github.com/withastro/astro/issues/3119), otherwise it will be without style and script. At the moment, this is built with a local fork of Astro that fixes this.
-
 ## Commands
 
 All commands are run from the root of the project, from a terminal:

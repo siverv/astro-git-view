@@ -12,22 +12,23 @@
     }
   ],
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "dev-ssr": "astro dev --config ./astro.config.ssr.mjs",
-    "build-ssr": "astro build --config ./astro.config.ssr.mjs",
-    "build-ssg-ssr": "PUBLIC_IS_SSR=true astro build",
-    "serve-ssr": "node ./ssr-server.mjs"
+    "dev": "npm run disable-telemetry && astro dev",
+    "start": "npm run disable-telemetry && astro dev",
+    "build": "npm run disable-telemetry && astro build",
+    "preview": "npm run disable-telemetry && astro preview",
+    "dev-ssr": "npm run disable-telemetry && astro dev --config ./astro.config.ssr.mjs",
+    "build-ssr": "npm run disable-telemetry && astro build --config ./astro.config.ssr.mjs",
+    "build-ssg-ssr": "npm run disable-telemetry && PUBLIC_IS_SSR=true astro build",
+    "serve-ssr": "npm run disable-telemetry && node ./ssr-server.mjs",
+    "disable-telemetry": "astro telemetry disable"
   },
   "devDependencies": {
-    "astro": "^1.0.0-beta.18",
+    "astro": "^1.0.0-beta.27",
     "isbinaryfile": "^5.0.0"
   },
   "dependencies": {
     "@astrojs/node": "^0.1.1",
-    "@siverv/astro-lunr": "^0.0.2",
+    "@siverv/astro-lunr": "0.0.3",
     "astro-git": "./integrations/astro-git"
   }
 }
