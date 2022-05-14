@@ -1,0 +1,483 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"></link><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-git-view/tree/master/integrations/astro-git//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected="true">
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="tree-browser">
+  <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+</span>
+    <b class="commit-message">
+      SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">
+          9b5fdf1
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0" title="show diff">9b5fdf1</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f" title="show diff">9a34364</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329">support for github pages; max-lines in file view
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329" title="show diff">f3e5297</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+  <section class="headered-section">
+    <header class="headered-section-header">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/integrations">integrations</a> / <b>astro-git</b>
+
+    </header>
+    <table class="tree-table">
+      <tbody>
+        <tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/6ba4ae8dfdf402703436ce28849eb72ad0536895">.gitignore</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</span>
+                <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/git.js">git.js</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/gitStaticPaths.js">gitStaticPaths.js</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">support for github pages; max-lines in file view
+</span>
+                <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/LICENSE">LICENSE</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</span>
+                <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/package-lock.json">package-lock.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">commit-page with line diffs
+</span>
+                <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/package.json">package.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">commit-page with line diffs
+</span>
+                <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/plugin.mjs">plugin.mjs</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</span>
+                <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/README.md">README.md</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">better lunr in dev-mode; better file diffs
+</span>
+                <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/integrations">integrations</a> / <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git">astro-git</a> / <b>README.md</b>
+
+      <div>
+        <span>76 lines</span>
+        <span>(54 sloc)</span>
+        | 
+        <span class="bytes">
+  3.5 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div class="markdown-preview ">
+    <h1 id="astro-git">astro-git</h1>
+<p><a href="https://git-scm.com/">Git</a> integration for <a href="https://astro.build/">Astro</a>, for use in static path and page generation. Based on <a href="https://isomorphic-git.org/">isomorphic-git</a>.</p>
+<p>See example usage in <a href="https://github.com/siverv/astro-git-view">astro-git-view</a></p>
+<h2 id="usage">Usage</h2>
+<pre is:raw class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { defineConfig } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'astro/config'</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> astroGit </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'astro-git/plugin.mjs'</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">defineConfig</span><span style="color: #FFA657">({</span></span>
+<span class="line"><span style="color: #FFA657">  </span><span style="color: #C9D1D9">integrations: [</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">astroGit</span><span style="color: #C9D1D9">({})</span></span>
+<span class="line"><span style="color: #C9D1D9">  ]</span></span>
+<span class="line"><span style="color: #FFA657">})</span><span style="color: #C9D1D9">;</span></span></code></pre>
+<h3 id="config">Config</h3>
+<p>repositories, includeCommitRefs, branchFilter, tagFilter, verbose</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Config field</th><th align="left">Type</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><code is:raw>repositories</code></td><td align="left">[{name?: string, dir: string}]</td><td align="left">Repositories to include.</td></tr><tr><td align="left"><code is:raw>includeCommitRefs</code></td><td align="left">boolean</td><td align="left">Whether the commit-hashes should be included in the static path helpers.</td></tr><tr><td align="left"><code is:raw>badPathFilter</code></td><td align="left">(string) => boolean</td><td align="left">Filter the paths that needs to be referred to by oid. Default matches <code is:raw>index.html</code>. Github Pages requires ”.”-prefix filter.</td></tr><tr><td align="left"><code is:raw>branchFilter</code></td><td align="left">(string) => boolean</td><td align="left">Filter the branches that should be considered relevant</td></tr><tr><td align="left"><code is:raw>tagFilter</code></td><td align="left">(string) => boolean</td><td align="left">Filter the tags that should be considered relevant</td></tr><tr><td align="left"><code is:raw>verbose</code></td><td align="left">boolean</td><td align="left">Debug log</td></tr></tbody></table>
+<h3 id="example-from-astro-git-view">Example from astro-git-view</h3>
+<p>Names should be url-safe.</p>
+<pre is:raw class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #D2A8FF">astroGit</span><span style="color: #C9D1D9">({</span></span>
+<span class="line"><span style="color: #C9D1D9">  repositories: [</span></span>
+<span class="line"><span style="color: #C9D1D9">    {dir: </span><span style="color: #A5D6FF">"/path/to/some/repo/with-a-name"</span><span style="color: #C9D1D9">}, </span><span style="color: #8B949E">// named "with-a-name"</span></span>
+<span class="line"><span style="color: #C9D1D9">    {name: </span><span style="color: #A5D6FF">"custom-name"</span><span style="color: #C9D1D9">, dir: </span><span style="color: #A5D6FF">"/path/to/some/repo/with-another-name"</span><span style="color: #C9D1D9">, </span><span style="color: #D2A8FF">tagFilter</span><span style="color: #C9D1D9">: </span><span style="color: #FFA657">tag</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9"> },</span></span>
+<span class="line"><span style="color: #C9D1D9">    {name: </span><span style="color: #A5D6FF">"yet-another"</span><span style="color: #C9D1D9">, dir: </span><span style="color: #A5D6FF">"/path/to/some/repo/yet-another"</span><span style="color: #C9D1D9">, includeCommitRefs: </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">},</span></span>
+<span class="line"><span style="color: #C9D1D9">  ],</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">badPathFilter</span><span style="color: #C9D1D9">: (</span><span style="color: #FFA657">path</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> path.</span><span style="color: #D2A8FF">split</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"/"</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">some</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">segment</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> segment </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"index.html"</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">||</span><span style="color: #C9D1D9"> segment.</span><span style="color: #D2A8FF">match</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">/</span><span style="color: #7EE787; font-weight: bold">\.</span><span style="color: #79C0FF">\w</span><span style="color: #A5D6FF">/</span><span style="color: #C9D1D9">)),</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">branchFilter</span><span style="color: #C9D1D9">: </span><span style="color: #FFA657">branch</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> [</span><span style="color: #A5D6FF">"dev"</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">"master"</span><span style="color: #C9D1D9">].</span><span style="color: #D2A8FF">includes</span><span style="color: #C9D1D9">(branch),</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">tagFilter</span><span style="color: #C9D1D9">: </span><span style="color: #FFA657">tag</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> tag.</span><span style="color: #D2A8FF">match</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">/v</span><span style="color: #79C0FF">\d</span><span style="color: #FF7B72">+</span><span style="color: #A5D6FF">(</span><span style="color: #7EE787; font-weight: bold">\.</span><span style="color: #79C0FF">\d</span><span style="color: #FF7B72">+</span><span style="color: #A5D6FF">(</span><span style="color: #7EE787; font-weight: bold">\.</span><span style="color: #79C0FF">\d</span><span style="color: #FF7B72">+</span><span style="color: #A5D6FF">)</span><span style="color: #FF7B72">?</span><span style="color: #A5D6FF">)</span><span style="color: #FF7B72">?</span><span style="color: #A5D6FF">/</span><span style="color: #C9D1D9">),</span></span>
+<span class="line"><span style="color: #C9D1D9">  includeCommitRefs: </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">  verbose: </span><span style="color: #79C0FF">false</span></span>
+<span class="line"><span style="color: #C9D1D9">})</span></span></code></pre>
+<h2 id="the-repo-class">The <code is:raw>Repo</code>-class</h2>
+<p>Functions from isomorphic git are gradually included as the example projects need them, though with some name-changes.</p>
+<h2 id="helpers-for-getstaticpaths">Helpers for <code is:raw>getStaticPaths</code></h2>
+<p>The helpers can be imported from <code is:raw>astro-git/gitStaticPaths.js</code>;</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Function name</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><code is:raw>getRepoStaticPaths</code></td><td align="left"><code is:raw>repo</code>-param for each repository containing the repo-name</td></tr><tr><td align="left"><code is:raw>async getRepoRefsStaticPaths</code></td><td align="left"><code is:raw>(repo, ref)</code>-pair for each reference (branch, tag, and commit if <code is:raw>includeCommitRefs</code>)</td></tr><tr><td align="left"><code is:raw>async getRepoTreesStaticPaths</code></td><td align="left"><code is:raw>(repo, ref, path)</code> for each path within each ref within each repo</td></tr><tr><td align="left"><code is:raw>async getRepoOidsStaticPaths</code></td><td align="left"><code is:raw>(repo, oid)</code> for each tree/blob oid</td></tr><tr><td align="left"><code is:raw>async getRepoBlobsStaticPaths</code></td><td align="left"><code is:raw>(repo, ref, path)</code> for each blob</td></tr></tbody></table>
+<h2 id="shortcomings">Shortcomings</h2>
+<ol>
+<li>The primary drawback is: it is going to be <em>slow</em> on large git repos. Limit the slowness using the branch- and tag-filters. The future might include a limit to logs, thus reducing the number of commits considered relevant for each named ref.</li>
+<li>Cloning from a repo-link is not yet implemented, though isomorphic git can support this.</li>
+<li><code is:raw>index.html</code>-files in a repo is in a tricky situation, as it is the name of the auto-generated files from Astro. These are therefore only accessible through oid-based urls, as in <code is:raw>/repo/tree/master/d093e385a31922954d187f3e16d453863be8e0ce</code></li>
+</ol>
+
+  </div>
+</section>
+</article>
+
+
+
+  </body></html>

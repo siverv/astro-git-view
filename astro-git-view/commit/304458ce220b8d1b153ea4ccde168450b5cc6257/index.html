@@ -1,0 +1,1425 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.42f11fe5.css"></link><script type="module" src="/astro-git-view/entry.3afa2b8f.js" astro-script="/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/304458ce220b8d1b153ea4ccde168450b5cc6257/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="304458ce220b8d1b153ea4ccde168450b5cc6257" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master">
+          master
+        </option>
+  </optgroup>
+  
+  <optgroup label="other">
+    <option value="304458ce220b8d1b153ea4ccde168450b5cc6257" selected="true">304458c</option>
+  </optgroup>
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+</span>
+    <b class="commit-message">
+      npm dependencies updated
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">
+          8a011bd
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">npm dependencies updated
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b" title="show diff">8a011bd</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:33">2022-05-01 20:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4">astr-lunr@0.0.2
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4" title="show diff">b879cee</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0" title="show diff">9b5fdf1</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:03">2022-04-18 20:03</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035">astro-lunr as its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035" title="show diff">53e9aa9</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7" title="show diff">a0ab44c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f" title="show diff">9a34364</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329">support for github pages; max-lines in file view
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329" title="show diff">f3e5297</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f" title="show diff">885875b</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99">Basic functionality, with some some dead links
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99" title="show diff">1a4b2c5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details><section>
+    <h3>Differences for commit 304458ce220b8d1b153ea4ccde168450b5cc6257</h3>
+  </section><section class="file-diff headered-section">
+  <header id="Bc474ef25cf967ac79b37de1832d383fe8102b13f" class="headered-section-header">
+    <a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f">astro.config.mjs</a>
+    |
+    <span class="stats added">
+        +1L
+      </span><span class="stats removed">
+        -4L
+      </span><span class="stats changed">
+        12% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/astro.config.mjs">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L0" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import { defineConfig } from &#39;astro/config&#39;;</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L1" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import astroLunr from &#39;astro-lunr/plugin.mjs&#39;;</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L..." class="ellipsis">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L8" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">		astroGit({</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L9" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L9">9</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">          repositories: [</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L10" class="removed">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L10">10</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">            {name: &quot;kvissleik.no-infrastructure&quot;, dir: &quot;/home/siver/Projects/kvissleik.no/infrastructure&quot;},</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L11" class="removed">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L11">11</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">            {name: &quot;samspill&quot;, dir: &quot;/home/siver/Projects/kvissleik.no/samspill&quot;},</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L12" class="removed">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L12">12</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">            {name: &quot;kvissleik&quot;, dir: &quot;/home/siver/Projects/kvissleik.no/kvissleik&quot;},</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L13" class="removed">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L13">13</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">            {name: &quot;astro-git&quot;, dir: &quot;/home/siver/Projects/astro-git/&quot;},</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L14" class="added">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L14">14</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            {name: &quot;astro-git-view&quot;, dir: &quot;.&quot;},</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L15" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L15">15</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">          ],</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L16" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L16">16</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">          branchFilter: branch =&gt; [&quot;dev&quot;, &quot;master&quot;].includes(branch),</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L..." class="ellipsis">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L40" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L40">40</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">	]</td>
+      </tr><tr id="Bc474ef25cf967ac79b37de1832d383fe8102b13f-L41" class="">
+        <td class="line-number"><a href="#Bc474ef25cf967ac79b37de1832d383fe8102b13f-L41">41</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">});</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B12ba300387242cacd403600cb000639f48c5331a" class="headered-section-header">
+    <a href="#B12ba300387242cacd403600cb000639f48c5331a">integrations/astro-git/git.js</a>
+    |
+    <span class="stats added">
+        +40L
+      </span><span class="stats removed">
+        -3L
+      </span><span class="stats changed">
+        15% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/git.js">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B12ba300387242cacd403600cb000639f48c5331a-L0" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import fs from &#39;fs&#39;;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L1" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import path from &#39;path&#39;;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L2" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import git from &#39;isomorphic-git&#39;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L3" class="removed">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L3">3</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">import { TREE , STAGE  } from &#39;isomorphic-git&#39;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L4" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L4">4</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import { TREE } from &#39;isomorphic-git&#39;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L5" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import * as Diff from &#39;diff&#39;;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L6" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L7" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">export class Repo {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L..." class="ellipsis">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L230" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L230">230</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L231" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L231">231</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L232" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L232">232</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  async getDiff(refFrom, refTo){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L233" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L233">233</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    const decoder = new TextDecoder(&quot;utf-8&quot;);</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L234" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L234">234</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    let diffList = [];</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L235" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L235">235</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    await git.walk({</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L236" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L236">236</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      ...this.config,</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L237" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L237">237</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      trees: [git.TREE({ ref: refFrom }), git.TREE({ ref: refTo })],</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L238" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L238">238</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      map: async (path, [nodeFrom, nodeTo]) =&gt; {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L239" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L239">239</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        if (path === &#39;.&#39; || !nodeFrom || !nodeTo</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L240" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L240">240</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          || (await nodeFrom.type()) === &#39;tree&#39;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L241" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L241">241</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          || (await nodeTo.type()) === &#39;tree&#39;) {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L242" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L242">242</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          return</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L243" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L243">243</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        }</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L244" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L244">244</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        const oidFrom = await nodeFrom.oid();</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L245" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L245">245</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        const oidTo = await nodeTo.oid();</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L246" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L246">246</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        if(oidFrom === oidTo){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L247" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L247">247</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          return;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L248" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L248">248</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        } else if(!oidFrom){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L249" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L249">249</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          diffList.push({type: &quot;ADD&quot;, path, a: oidFrom, b: oidTo});</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L250" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L250">250</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        } else if(!oidTo){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L251" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L251">251</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          diffList.push({type: &quot;REMOVE&quot;, path, a: oidFrom, b: oidTo});</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L252" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L252">252</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        } {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L253" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L253">253</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          let blobFrom = await this.getBlob(oidFrom);</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L254" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L254">254</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          let blobTo = await this.getBlob(oidTo);</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L255" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L255">255</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          diffList.push({</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L256" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L256">256</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            type: &quot;MODIFY&quot;,</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L257" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L257">257</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            path,</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L258" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L258">258</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            a: oidFrom,</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L259" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L259">259</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            b: oidTo,</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L260" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L260">260</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">            diff: Diff.diffLines(decoder.decode(blobFrom.blob), decoder.decode(blobTo.blob))</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L261" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L261">261</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">          })</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L262" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L262">262</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        }</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L263" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L263">263</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      },</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L264" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L264">264</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    });</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L265" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L265">265</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    return diffList;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L266" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L266">266</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  }</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L267" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L267">267</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L268" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L268">268</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  async preload(){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L269" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L269">269</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    await this.getStaticHelpers();</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L..." class="ellipsis">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L280" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L280">280</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">}</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L281" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L281">281</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L282" class="removed">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L282">282</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">export default function initialize({repositories, ...commonConfig}) {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L283" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L283">283</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">export default async function initialize({repositories, ...commonConfig}) {</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L284" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L284">284</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  if(repoMap.size &gt; 0){</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L285" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L285">285</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    return;</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L..." class="ellipsis">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L288" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L288">288</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    let repo = new Repo({...commonConfig, ...repoConfig});</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L289" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L289">289</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    repoMap.set(repo.getName(), repo);</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L290" class="removed">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L290">290</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">    repo.getStaticHelpers();</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L291" class="added">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L291">291</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    await repo.preload();</td>
+      </tr><tr id="B12ba300387242cacd403600cb000639f48c5331a-L292" class="">
+        <td class="line-number"><a href="#B12ba300387242cacd403600cb000639f48c5331a-L292">292</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B5efb04870f51657aacf8ae9a2eaad32eac840d85" class="headered-section-header">
+    <a href="#B5efb04870f51657aacf8ae9a2eaad32eac840d85">integrations/astro-git/package-lock.json</a>
+    |
+    
+    
+    
+    <span class="stats removed">
+        File is excluded from diff
+      </span>
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/package-lock.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268" class="headered-section-header">
+    <a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268">integrations/astro-git/package.json</a>
+    |
+    <span class="stats added">
+        +3L
+      </span><span class="stats removed">
+        -2L
+      </span><span class="stats changed">
+        26% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git/package.json">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L0" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">{</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L1" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;name&quot;: &quot;astro-git&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L2" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L3" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L3">3</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;private&quot;: true,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L4" class="removed">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L4">4</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;license&quot; : &quot;GPL-3.0&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L5" class="added">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &quot;license&quot;: &quot;GPL-3.0&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L6" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;description&quot;: &quot;Git integration for Astro, for content generated from a git repo.&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L7" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;type&quot;: &quot;module&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L..." class="ellipsis">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L12" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L12">12</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  },</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L13" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L13">13</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;dependencies&quot;: {</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L14" class="added">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L14">14</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;diff&quot;: &quot;^5.0.0&quot;,</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L15" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L15">15</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    &quot;isomorphic-git&quot;: &quot;^1.17.0&quot;</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L16" class="">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L16">16</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr><tr id="Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L18" class="added">
+        <td class="line-number"><a href="#Bd3a40e223403506bc4c7ae49e578e5b8c56d9268-L18">18</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">}</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb" class="headered-section-header">
+    <a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb">jsconfig.json</a>
+    |
+    <span class="stats added">
+        +2L
+      </span><span class="stats removed">
+        -1L
+      </span><span class="stats changed">
+        25% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/jsconfig.json">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L0" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">{</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L1" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;compilerOptions&quot;: {</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L..." class="ellipsis">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L4" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L4">4</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">      &quot;@components/*&quot;: [&quot;src/components/*&quot;],</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L5" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">      &quot;@layout/*&quot;: [&quot;src/layout/*&quot;],</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L6" class="removed">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L6">6</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">      &quot;@utils/*&quot;: [&quot;src/utils/*&quot;]</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L7" class="added">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &quot;@utils/*&quot;: [&quot;src/utils/*&quot;],</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L8" class="added">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &quot;@style/*&quot;: [&quot;src/style/*&quot;]</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L9" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L9">9</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    }</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L10" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L10">10</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr><tr id="Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L11" class="">
+        <td class="line-number"><a href="#Beb419c2849dd1ef6604d507db21c46fa1de64eeb-L11">11</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">}</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B866b0e61986c35774e6e6987fc8f31abda79ab5d" class="headered-section-header">
+    <a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d">package.json</a>
+    |
+    <span class="stats added">
+        +7L
+      </span><span class="stats removed">
+        
+      </span><span class="stats changed">
+        26% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/package.json">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L0" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">{</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L1" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;name&quot;: &quot;astro-git-view&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L2" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;version&quot;: &quot;0.0.3&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L3" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L3">3</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;private&quot;: true,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L4" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L4">4</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;license&quot;: &quot;GPL-3.0&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L5" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &quot;contributors&quot;: [</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L6" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    {</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L7" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &quot;name&quot;: &quot;Siver K. Volle&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L8" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &quot;email&quot;: &quot;package-json.astro-git-view@siverv.no&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L9" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L9">9</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &quot;url&quot;: &quot;https://www.siverv.no&quot;</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L10" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L10">10</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    }</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L11" class="added">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L11">11</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  ],</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L12" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L12">12</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;scripts&quot;: {</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L13" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L13">13</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    &quot;dev&quot;: &quot;(ln -s ../dist/lunr ./public/lunr 2&gt; /dev/null || true) &amp;&amp; astro dev&quot;,</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L..." class="ellipsis">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L25" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L25">25</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr><tr id="B866b0e61986c35774e6e6987fc8f31abda79ab5d-L26" class="">
+        <td class="line-number"><a href="#B866b0e61986c35774e6e6987fc8f31abda79ab5d-L26">26</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">}</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="Bf20cf2475d8ffc83161e6639e9ebecf11f91cef0" class="headered-section-header">
+    <a href="#Bf20cf2475d8ffc83161e6639e9ebecf11f91cef0">src/components/DiffLines.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/DiffLines.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bd4671617bc1257b6e55bb86f70fbbac719551a7f" class="headered-section-header">
+    <a href="#Bd4671617bc1257b6e55bb86f70fbbac719551a7f">src/components/DiffLines.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/DiffLines.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B9efa543f9855f54cb72b59528a6923dfd02b0136" class="headered-section-header">
+    <a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136">src/components/filePreviews/MarkdownPreview.astro</a>
+    |
+    <span class="stats added">
+        +1L
+      </span><span class="stats removed">
+        -1L
+      </span><span class="stats changed">
+        5% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/filePreviews/MarkdownPreview.astro">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L0" class="">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">---</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L1" class="">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import { Markdown } from &#39;astro/components&#39;;</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L..." class="ellipsis">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L31" class="">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L31">31</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &lt;/header&gt;</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L32" class="">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L32">32</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &lt;div class=&quot;markdown-preview &quot;&gt;</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L33" class="removed">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L33">33</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">    &lt;Markdown&gt;{content}&lt;/Markdown&gt;</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L34" class="added">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L34">34</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;Markdown set:html={content}&gt;&lt;/Markdown&gt;</td>
+      </tr><tr id="B9efa543f9855f54cb72b59528a6923dfd02b0136-L35" class="">
+        <td class="line-number"><a href="#B9efa543f9855f54cb72b59528a6923dfd02b0136-L35">35</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &lt;/div&gt;</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B69769746fcdf01aaba5b7170017f380c00307a01" class="headered-section-header">
+    <a href="#B69769746fcdf01aaba5b7170017f380c00307a01">src/pages/[repo]/commit/[ref]/index.astro</a>
+    |
+    <span class="stats added">
+        +31L
+      </span><span class="stats removed">
+        -4L
+      </span><span class="stats changed">
+        85% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/[repo]/commit/[ref]/index.astro">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L0" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">---</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L1" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import {getRepoRefsStaticPaths} from &#39;astro-git/gitStaticPaths.js&#39;;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L2" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import RepoHeader from &#39;@components/RepoHeader.astro&#39;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L3" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L3">3</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import GitHistoryBar from &#39;@components/GitHistoryBar.astro&#39;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L4" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L4">4</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import {getRepo} from &#39;astro-git/git.js&#39;;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L5" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import BaseLayout from &#39;@layout/BaseLayout.astro&#39;;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L6" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import DiffLines from &#39;@components/DiffLines.astro&#39;;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L7" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import &quot;../../../../style/headered-section.css&quot;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L8" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L9" class="removed">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L9">9</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">const {repo, ref} = {...Astro.props, ...Astro.params};</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L10" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L10">10</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">const {repo: repoName, ref} = {...Astro.props, ...Astro.params};</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L11" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L11">11</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">const repo = getRepo(repoName);</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L12" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L12">12</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">const log = await repo.getLog(ref);</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L13" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L13">13</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">const previousCommit = log[1];</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L14" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L14">14</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L15" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L15">15</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">export const getStaticPaths = async () =&gt; await getRepoRefsStaticPaths(true);</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L16" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L16">16</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L17" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L17">17</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">let diffList = previousCommit &amp;&amp; await repo.getDiff(previousCommit.oid, ref)</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L18" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L18">18</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L19" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L19">19</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">diffList?.sort((a,b) =&gt; a.path.localeCompare(b.path))</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L20" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L20">20</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L21" class="">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L21">21</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">---</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L22" class="removed">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L22">22</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">&lt;div&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L23" class="removed">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L23">23</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">  Diff between commit and previous. {repo} / {ref}</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L25" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L25">25</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">&lt;BaseLayout&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L26" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L26">26</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &lt;RepoHeader repo={repo} ref={ref} path={&quot;.&quot;}/&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L27" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L27">27</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &lt;GitHistoryBar {...Astro.props} repo={repo} path=&quot;.&quot; entry={log[0]}/&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L28" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L28">28</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &lt;section&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L29" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L29">29</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;h3&gt;Differences for commit {ref}&lt;/h3&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L30" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L30">30</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &lt;/section&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L31" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L31">31</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  {diffList?.map(({type, path, a, b, diff}) =&gt; {</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L32" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L32">32</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    let lineNumber = 0;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L33" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L33">33</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    return &lt;section class=&quot;headered-section&quot;&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L34" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L34">34</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &lt;header class=&quot;headered-section-header&quot;&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L35" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L35">35</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">        {path}</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L36" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L36">36</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &lt;/header&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L37" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L37">37</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">      &lt;DiffLines diff={diff}/&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L38" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L38">38</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;/section&gt;</td>
+      </tr><tr id="B69769746fcdf01aaba5b7170017f380c00307a01-L39" class="added">
+        <td class="line-number"><a href="#B69769746fcdf01aaba5b7170017f380c00307a01-L39">39</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  })}</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section>
+  </body></html>

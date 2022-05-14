@@ -1,0 +1,1428 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.42f11fe5.css"></link><script type="module" src="/astro-git-view/entry.3afa2b8f.js" astro-script="/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-lunr/">astro-lunr</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-lunr/tree/077a3541ec212cf1e9fd0113759ac0872217100b/LICENSE">License</a>
+  </div>
+  <p>Lunr integration for Astro; client-side search for statically hosted pages.
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-lunr" data-current="077a3541ec212cf1e9fd0113759ac0872217100b" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master">
+          master
+        </option>
+  </optgroup>
+  
+  <optgroup label="other">
+    <option value="077a3541ec212cf1e9fd0113759ac0872217100b" selected="true">077a354</option>
+  </optgroup>
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-lunr">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+</span>
+    <b class="commit-message">
+      #1: fixed base path replacement problem
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">
+          3f44311
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">#1: fixed base path replacement problem
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b" title="show diff">3f44311</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 13:57">2022-05-01 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a">Fixed problem with import.meta.env when proper npm-module
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a" title="show diff">00a915f</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:31">2022-04-18 20:31</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997">add demo-link to readme
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997" title="show diff">d930b81</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18" title="show diff">9983ab3</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b" title="show diff">182546c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/1612826e03ec07e2d6b6dd961749e8dc18c8f5c4">support for github pages; max-lines in file view
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/1612826e03ec07e2d6b6dd961749e8dc18c8f5c4" title="show diff">1612826</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b" title="show diff">077a354</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c" title="show diff">adfedbe</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/146ebb56e2a3cd6eeffd6fedfb9677c6e65e14d9">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/146ebb56e2a3cd6eeffd6fedfb9677c6e65e14d9" title="show diff">146ebb5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details><section>
+    <h3>Differences for commit 077a3541ec212cf1e9fd0113759ac0872217100b</h3>
+  </section><section class="file-diff headered-section">
+  <header id="B6ba4ae8dfdf402703436ce28849eb72ad0536895" class="headered-section-header">
+    <a href="#B6ba4ae8dfdf402703436ce28849eb72ad0536895">.gitignore</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/6ba4ae8dfdf402703436ce28849eb72ad0536895">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bf288702d2fa16d3cdf0035b15a9fcbc552cd88e7" class="headered-section-header">
+    <a href="#Bf288702d2fa16d3cdf0035b15a9fcbc552cd88e7">LICENSE</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/LICENSE">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B5f0b90cc8d1431668bba43c87a4fbec32339da52" class="headered-section-header">
+    <a href="#B5f0b90cc8d1431668bba43c87a4fbec32339da52">package-lock.json</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/package-lock.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B5580981671715f3261c55c56ed4d9b7d3733598e" class="headered-section-header">
+    <a href="#B5580981671715f3261c55c56ed4d9b7d3733598e">package.json</a>
+    |
+    <span class="stats added">
+        +7L
+      </span><span class="stats removed">
+        -3L
+      </span><span class="stats changed">
+        50% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/package.json">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L0" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">{</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L1" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;name&quot;: &quot;astro-lunr&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L2" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;version&quot;: &quot;0.0.1&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L3" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L3">3</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;private&quot;: true,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L4" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L4">4</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &quot;license&quot; : &quot;GPL-3.0&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L5" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;description&quot;: &quot;Lunr integration for Astro&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L6" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;type&quot;: &quot;module&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L7" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &quot;exports&quot;: {</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L8" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;./plugin.mjs&quot;: &quot;./plugin.mjs&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L9" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L9">9</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;./client/lunr.js&quot;: &quot;./client/lunr.js&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L10" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L10">10</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;./server/renderer.js&quot;: &quot;./server/renderer.js&quot;</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L11" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L11">11</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  },</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L12" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L12">12</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;dependencies&quot;: {</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L13" class="removed">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L13">13</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">    &quot;lunr&quot;: &quot;^2.3.9&quot;</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L14" class="removed">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L14">14</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">  },</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L15" class="removed">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L15">15</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">  &quot;devDependencies&quot;: {</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L16" class="added">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L16">16</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;lunr&quot;: &quot;^2.3.9&quot;,</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L17" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L17">17</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">    &quot;rehype&quot;: &quot;^12.0.1&quot;</td>
+      </tr><tr id="B5580981671715f3261c55c56ed4d9b7d3733598e-L18" class="">
+        <td class="line-number"><a href="#B5580981671715f3261c55c56ed4d9b7d3733598e-L18">18</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">  }</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B78f1d3cb0d535f29642ec7dee366c29b22d32133" class="headered-section-header">
+    <a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133">plugin.mjs</a>
+    |
+    <span class="stats added">
+        +3L
+      </span><span class="stats removed">
+        -28L
+      </span><span class="stats changed">
+        21% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/plugin.mjs">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L0" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L0">0</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">import { createFilter } from &#39;@rollup/pluginutils&#39;</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L1" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import fs from &#39;node:fs&#39;;</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L2" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">import path from &#39;node:path&#39;;</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L..." class="ellipsis">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L55" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L55">55</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L56" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L56">56</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L57" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L57">57</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L58" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L58">58</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// function getViteConfiguration(options = {}) {</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L59" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L59">59</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 	var filter = createFilter([&quot;**/pages/**/*.astro&quot;], options.exclude, {});</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L60" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L60">60</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 	return {	</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L61" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L61">61</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 		plugins: [</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L62" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L62">62</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 			{</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L63" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L63">63</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 				enforce: &#39;pre&#39;, // run transforms before other plugins can</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L64" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L64">64</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 				name: &quot;lunr-rollup-plugin&quot;,</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L65" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L65">65</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 				transform(code, id) {</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L66" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L66">66</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					if(!filter(id)) return null;</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L67" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L67">67</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					const ast = this.parse(code);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L68" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L68">68</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					const ext = ast.body.filter(node =&gt; node.type === &quot;ExportNamedDeclaration&quot;);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L69" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L69">69</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					const indexDocumentAst = ext.find(node =&gt; node.declaration.declarations.find(n =&gt; n.id === &quot;indexDocument&quot;))</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L70" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L70">70</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					if(!indexDocumentAst) return null;</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L71" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L71">71</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					console.log(&quot;transform&quot;, id, indexDocumentAst);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L72" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L72">72</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					// const art = this.parse(code);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L73" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L73">73</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					// const source = await fs.promises.readFile(id, &#39;utf8&#39;).catch(err =&gt; console.log(err));</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L74" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L74">74</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 					// console.log(&quot;loaded&quot;, id, source);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L75" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L75">75</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 				}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L76" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L76">76</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 			}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L77" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L77">77</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 		],</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L78" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L78">78</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// 	};</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L79" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L79">79</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">// }</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L80" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L80">80</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L81" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L81">81</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L82" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L82">82</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">export default function createPlugin({pathFilter, subDir, documentFilter, initialize, mapDocument, verbose}){</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L83" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L83">83</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">	let config = {};</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L..." class="ellipsis">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L90" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L90">90</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					options.addRenderer({</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L91" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L91">91</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">						name: &#39;lunr-renderer&#39;,</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L92" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L92">92</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">						serverEntrypoint: &#39;@integrations/astro-lunr/server/renderer.js&#39;,</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L93" class="added">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L93">93</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">						serverEntrypoint: &#39;astro-lunr/server/renderer.js&#39;,</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L94" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L94">94</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					});</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L95" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L95">95</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">				}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L..." class="ellipsis">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L123" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L123">123</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					if(newDocuments.length &gt; 0) {</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L124" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L124">124</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">						if(verbose){</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L125" class="removed">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L125">125</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">							console.log(`Indexing ${pathname}, found ${newDocuments.length} documents to index`);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L126" class="added">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L126">126</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">							console.log(`Indexing ${newDocuments.length} doc(s) from ${pathname}`);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L127" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L127">127</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">						}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L128" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L128">128</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">						fs.writeFileSync(url, String(hyped));</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L..." class="ellipsis">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L138" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L138">138</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">						documents = documents.map(mapDocument);</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L139" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L139">139</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L140" class="added">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L140">140</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">					fs.mkdirSync(new URL(path.join(subDir || &quot;&quot;, index || &quot;&quot;), dir), { recursive: true });</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L141" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L141">141</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					fs.writeFileSync(new URL(path.join(subDir || &quot;&quot;, index || &quot;&quot;, &#39;idx.json&#39;), dir), JSON.stringify(idx));</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L142" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L142">142</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">					fs.writeFileSync(new URL(path.join(subDir || &quot;&quot;, index || &quot;&quot;, &#39;docs.json&#39;), dir), JSON.stringify(documents));</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L..." class="ellipsis">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L...">...</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L145" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L145">145</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">		}</td>
+      </tr><tr id="B78f1d3cb0d535f29642ec7dee366c29b22d32133-L146" class="">
+        <td class="line-number"><a href="#B78f1d3cb0d535f29642ec7dee366c29b22d32133-L146">146</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">	}</td>
+      </tr>
+    
+  </tbody>
+</table>
+</section><section class="file-diff headered-section">
+  <header id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0" class="headered-section-header">
+    <a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0">README.md</a>
+    |
+    <span class="stats added">
+        +113L
+      </span><span class="stats removed">
+        -1L
+      </span><span class="stats changed">
+        91% changed
+      </span>
+    
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-lunr/tree/master/README.md">to file</a>
+    </div>
+  </header>
+  <table class="diff-lines">
+  <tbody>
+    <tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L0" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L0">0</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L1" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L1">1</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L2" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L2">2</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"># astro-lunr</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L3" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L3">3</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L4" class="removed">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L4">4</a></td>
+        <td class="line-removed">-</td>
+        <td class="line-added"> </td>
+        <td class="line">[Lunr](https://lunrjs.com) integration for [Astro](https://astro.build/)</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L5" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L5">5</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">[Lunr](https://lunrjs.com) integration for [Astro](https://astro.build/).</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L6" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L6">6</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L7" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L7">7</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">See example usage in [astro-git-view](https://github.com/siverv/astro-git-view)</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L8" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L8">8</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L9" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L9">9</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">## Usage</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L10" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L10">10</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L11" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L11">11</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```js</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L12" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L12">12</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import { defineConfig } from &#39;astro/config&#39;;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L13" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L13">13</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import astroLunr from &#39;astro-lunr/plugin.mjs&#39;;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L14" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L14">14</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">export default defineConfig({</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L15" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L15">15</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  integrations: [</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L16" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L16">16</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    astroLunr({})</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L17" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L17">17</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  ]</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L18" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L18">18</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">});</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L19" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L19">19</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L20" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L20">20</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L21" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L21">21</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">## Config</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L22" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L22">22</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L23" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L23">23</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">pathFilter, subDir, documentFilter, initialize, mapDocument, verbose</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L24" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L24">24</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L25" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L25">25</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| Config field     | Type                | Value                                        |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L26" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L26">26</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">|:---------------- |:------------------  |:-------------------------------------------- |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L27" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L27">27</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `subDir`         | string              | Subdirectory to store the created idx.json and docs.json files.  |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L28" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L28">28</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `pathFilter`     | (string) =&gt; boolean | Filter for paths that should be searched for `&lt;lunr-document/&gt;`-elements |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L29" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L29">29</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `documentFilter` | (string) =&gt; boolean | Filter for documents should be included in the final index, after they are found by searching the pre-generated pages |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L30" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L30">30</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `initialize`     | (lunr.Builder, lunr) =&gt; void | Lunr-specific setup. E.g. fields to index and pipeline-adjustments |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L31" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L31">31</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `mapDocument`    | (Object) =&gt; Object  | Transform the documents before storing them in docs.json |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L32" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L32">32</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">| `verbose`        | boolean             | Debug log |</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L33" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L33">33</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L34" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L34">34</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L35" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L35">35</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">### Example from astro-git-view</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L36" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L36">36</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L37" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L37">37</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```js</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L38" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L38">38</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">astroLunr({</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L39" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L39">39</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  subDir: &quot;lunr&quot;,</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L40" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L40">40</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  pathFilter: (pathname) =&gt; {</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L41" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L41">41</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    return pathname.match(/\w+\/tree\//);</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L42" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L42">42</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  },</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L43" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L43">43</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  documentFilter: (doc) =&gt; {</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L44" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L44">44</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    return doc.ref === &quot;master&quot; &amp;&amp; !doc.canonicalUrl.includes(&quot;package-lock.json&quot;);</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L45" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L45">45</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  },</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L46" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L46">46</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  initialize: (builder, lunr) =&gt; {</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L47" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L47">47</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    lunr.tokenizer.separator = /[^\w]+/;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L48" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L48">48</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.pipeline.reset();</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L49" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L49">49</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.searchPipeline.reset();</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L50" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L50">50</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.field(&quot;ref&quot;, {boost: 0.01});</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L51" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L51">51</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.field(&quot;oid&quot;, {boost: 0.01});</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L52" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L52">52</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.field(&quot;path&quot;, {boost: 0.1});</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L53" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L53">53</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.field(&quot;name&quot;, {boost: 10});</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L54" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L54">54</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.field(&quot;content&quot;);</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L55" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L55">55</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    builder.metadataWhitelist = [&quot;position&quot;];</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L56" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L56">56</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  },</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L57" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L57">57</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  mapDocument: (doc) =&gt; doc,</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L58" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L58">58</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  verbose: false</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L59" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L59">59</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">})</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L60" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L60">60</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L61" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L61">61</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L62" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L62">62</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">## Indexing documents</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L63" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L63">63</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L64" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L64">64</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">Indexing is done automatically during build-time, by searching the genereated pages for the `&lt;lunr-document/&gt;`-element on any of the generated pages. These elements are removed from the final version of the build-output, and therefore only affects the two generated index-files `idx.json` and `docs.json`.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L65" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L65">65</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L66" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L66">66</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">Multiple indexes are supported by supplying the index-attribute to the `&lt;lunr-document/&gt;`-elements. Each index will create their own `idx.json`/`docs.json` pair.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L67" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L67">67</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L68" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L68">68</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">### Example from astro-git-view</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L69" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L69">69</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L70" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L70">70</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```jsx</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L71" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L71">71</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">&lt;lunr-document index={repo.getName()}&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L72" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L72">72</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;repo&quot; value={repo.getName()}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L73" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L73">73</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;ref&quot; value={ref}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L74" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L74">74</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;path&quot; value={path}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L75" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L75">75</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;base&quot; value={path.split(&quot;/&quot;).slice(0,-1).join(&quot;/&quot;)}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L76" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L76">76</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;name&quot; value={name}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L77" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L77">77</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;oid&quot; value={oid}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L78" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L78">78</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;type&quot; value={&quot;blob&quot;}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L79" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L79">79</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-field name=&quot;extension&quot; value={name.split(&quot;.&quot;).pop()}/&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L80" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L80">80</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &lt;lunr-text name=&quot;content&quot;&gt;{content}&lt;/lunr-text&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L81" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L81">81</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">&lt;/lunr-document&gt;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L82" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L82">82</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L83" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L83">83</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L84" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L84">84</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line">## Searching</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L85" class="">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L85">85</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added"> </td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L86" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L86">86</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">`astro-lunr` gives two functions to search `search` and `enrich`. `async search(query, index)` loads and deserializes the `idx.json` file, performs the search, and returns the hits from lunr. `async enrich(hits, index)` loads the `docs.json` file and enriches the result from lunr with the documents that were matches.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L87" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L87">87</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L88" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L88">88</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">As the two json-files often can be megabytes in size, it is recommended to not </td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L89" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L89">89</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L90" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L90">90</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">### Example</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L91" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L91">91</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L92" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L92">92</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```js</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L93" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L93">93</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">import {search, enrich} from &#39;astro-lunr/client/lunr.js&#39;;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L94" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L94">94</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L95" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L95">95</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">search(&quot;query&quot;, &quot;index&quot;)</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L96" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L96">96</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  .then(enrich)</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L97" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L97">97</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  .then((result) =&gt; result.forEach(</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L98" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L98">98</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    ({hit, doc}) =&gt; console.log(hit, doc)))</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L99" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L99">99</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L100" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L100">100</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L101" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L101">101</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">### Searching in Dev-mode</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L102" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L102">102</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L103" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L103">103</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">Due to the nature of indexing, to properly search in dev-mode, one needs to first build the page at least once to create the index</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L104" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L104">104</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L105" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L105">105</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">Furthermore, to make the dev-server accept the index-files, you might need to symbolically link the index-files from the public-folder. These should be included in `.gitignore` or equivalent.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L106" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L106">106</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L107" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L107">107</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">Example of how this is done automatically for `astro-git-view`:</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L108" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L108">108</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L109" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L109">109</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">```json</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L110" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L110">110</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  &quot;scripts&quot;: {</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L111" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L111">111</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;dev&quot;: &quot;(ln -s ../dist/lunr ./public/lunr 2&gt; /dev/null || true) &amp;&amp; astro dev&quot;,</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L112" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L112">112</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;start&quot;: &quot;(ln -s ../dist/lunr ./public/lunr 2&gt; /dev/null || true) &amp;&amp; astro dev&quot;,</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L113" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L113">113</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;build&quot;: &quot;(rm ./public/lunr 2&gt; /dev/null || true) &amp;&amp; astro build&quot;,</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L114" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L114">114</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">    &quot;preview&quot;: &quot;astro preview&quot;</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L115" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L115">115</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">  },</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L116" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L116">116</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">``` </td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L117" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L117">117</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L118" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L118">118</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">A potential future solution would be to &quot;trick&quot; the dev-server into serving certain files from `./dist` without the end-user needing to think, or by writing the files to both dist and public.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L119" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L119">119</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L120" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L120">120</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">### Searching in SSR-mode</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L121" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L121">121</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L122" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L122">122</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line">To properly search files that are not usually genereated in the build-step, you would need to have a separate build-step that includes all pages that might be generated.</td>
+      </tr><tr id="B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L123" class="added">
+        <td class="line-number"><a href="#B6648cac0b8891c3ea28ac001e9d4763987ba01a0-L123">123</a></td>
+        <td class="line-removed"> </td>
+        <td class="line-added">+</td>
+        <td class="line"></td>
+      </tr>
+    
+  </tbody>
+</table>
+</section>
+  </body></html>

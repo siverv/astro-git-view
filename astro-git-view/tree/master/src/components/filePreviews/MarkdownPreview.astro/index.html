@@ -1,0 +1,570 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-git-view/tree/master/src/components/filePreviews/MarkdownPreview.astro//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+</span>
+    <b class="commit-message">
+      SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">
+          9b5fdf1
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0" title="show diff">9b5fdf1</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99">Basic functionality, with some some dead links
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99" title="show diff">1a4b2c5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/src">src</a> / <a href="/astro-git-view/astro-git-view/tree/master/src/components">components</a> / <a href="/astro-git-view/astro-git-view/tree/master/src/components/filePreviews">filePreviews</a> / <b>MarkdownPreview.astro</b>
+
+      <div>
+        <span>44 lines</span>
+        <span>(41 sloc)</span>
+        | 
+        <span class="bytes">
+  1.4 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content">---</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content">import { Markdown } from 'astro/components';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content">import GitBreadcrumbs from '@components/GitBreadcrumbs.astro';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content">import Bytes from '@components/ui/Bytes.astro';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content">import {getRawPath} from '@utils/linkUtils';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content">import RelativeDateTime from '@components/ui/RelativeDateTime.astro'</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content">const {repo, ref, entry: {oid}} = Astro.props;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content">const log = await repo.getLog(ref);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">const blob = await repo.getBlob(oid);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content">const decoder = new TextDecoder("utf-8");</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">const isSSR = import.meta.env.PUBLIC_IS_SSR === "true";</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content">const {oidMap, refPathMap} = await repo.getStaticHelpers();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">const path = oidMap.get(oid);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">const history = await repo.getHistory(ref, path);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content">const latestCommit = history[0];</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">const content = decoder.decode(blob.blob);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">const lines = content.split(/\n/);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content">const sloc = lines.filter(line => !line.match(/^\s*$/)).length;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">const bytes = blob.blob.length;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">---</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content">&#x3C;section class="file-content-section headered-section"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;header class="headered-section-header"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;div style="display: inline-block"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">      &#x3C;GitBreadcrumbs {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content">      &#x3C;div></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L29" id="L29">
+                29
+              </a>
+            </td>
+            <td class="line-content">        &#x3C;span>{lines.length} lines&#x3C;/span></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L30" id="L30">
+                30
+              </a>
+            </td>
+            <td class="line-content">        &#x3C;span>({sloc} sloc)&#x3C;/span></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L31" id="L31">
+                31
+              </a>
+            </td>
+            <td class="line-content">        | </td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L32" id="L32">
+                32
+              </a>
+            </td>
+            <td class="line-content">        &#x3C;Bytes bytes={bytes}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L33" id="L33">
+                33
+              </a>
+            </td>
+            <td class="line-content">      &#x3C;/div></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L34" id="L34">
+                34
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;/div></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L35" id="L35">
+                35
+              </a>
+            </td>
+            <td class="line-content">    {isSSR &#x26;&#x26; &#x3C;span class="download-file"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L36" id="L36">
+                36
+              </a>
+            </td>
+            <td class="line-content">      &#x3C;a href={getRawPath(repo, ref, path)}></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L37" id="L37">
+                37
+              </a>
+            </td>
+            <td class="line-content">        download</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L38" id="L38">
+                38
+              </a>
+            </td>
+            <td class="line-content">      &#x3C;/a></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L39" id="L39">
+                39
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;/span>}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L40" id="L40">
+                40
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;/header></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L41" id="L41">
+                41
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;div class="markdown-preview "></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L42" id="L42">
+                42
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;Markdown set:html={content}>&#x3C;/Markdown></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L43" id="L43">
+                43
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;/div></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L44" id="L44">
+                44
+              </a>
+            </td>
+            <td class="line-content">&#x3C;/section></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

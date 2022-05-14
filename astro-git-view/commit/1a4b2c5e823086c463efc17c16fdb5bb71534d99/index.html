@@ -1,0 +1,1213 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.42f11fe5.css"></link><script type="module" src="/astro-git-view/entry.3afa2b8f.js" astro-script="/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/1a4b2c5e823086c463efc17c16fdb5bb71534d99/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="1a4b2c5e823086c463efc17c16fdb5bb71534d99" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master">
+          master
+        </option>
+  </optgroup>
+  
+  <optgroup label="other">
+    <option value="1a4b2c5e823086c463efc17c16fdb5bb71534d99" selected="true">1a4b2c5</option>
+  </optgroup>
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+</span>
+    <b class="commit-message">
+      npm dependencies updated
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">
+          8a011bd
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">npm dependencies updated
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b" title="show diff">8a011bd</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:33">2022-05-01 20:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4">astr-lunr@0.0.2
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4" title="show diff">b879cee</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0" title="show diff">9b5fdf1</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:03">2022-04-18 20:03</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035">astro-lunr as its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035" title="show diff">53e9aa9</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7" title="show diff">a0ab44c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f" title="show diff">9a34364</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329">support for github pages; max-lines in file view
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329" title="show diff">f3e5297</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f" title="show diff">885875b</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99">Basic functionality, with some some dead links
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99" title="show diff">1a4b2c5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details><section>
+    <h3>Differences for commit 1a4b2c5e823086c463efc17c16fdb5bb71534d99</h3>
+  </section><section class="file-diff headered-section">
+  <header id="Bce3c9b4a3f535941c56ce7f0d5a2dced5880c335" class="headered-section-header">
+    <a href="#Bce3c9b4a3f535941c56ce7f0d5a2dced5880c335">.env.local</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B9db44c9f5c42a853d18b7fa58924d3ad6d280aa1" class="headered-section-header">
+    <a href="#B9db44c9f5c42a853d18b7fa58924d3ad6d280aa1">.gitignore</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/571c99c37b0397bb8ccc2e95ab8475d91e68c59a">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B0f50453057ac4146473a110ac20c085d994c180f" class="headered-section-header">
+    <a href="#B0f50453057ac4146473a110ac20c085d994c180f">astro.config.mjs</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/astro.config.mjs">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bfa3ca2c75a5dac170e26c3630875abf1562135ce" class="headered-section-header">
+    <a href="#Bfa3ca2c75a5dac170e26c3630875abf1562135ce">jsconfig.json</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/jsconfig.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B6455516521494beac2a14bd817b0dbb38c337439" class="headered-section-header">
+    <a href="#B6455516521494beac2a14bd817b0dbb38c337439">package-lock.json</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/package-lock.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bc66f978122f6f596d9dcafc4d2128d9758cac58c" class="headered-section-header">
+    <a href="#Bc66f978122f6f596d9dcafc4d2128d9758cac58c">package.json</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/package.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B30cf03a305a84b3e67e0b689ed587bb6aa408575" class="headered-section-header">
+    <a href="#B30cf03a305a84b3e67e0b689ed587bb6aa408575">public</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/public">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B578ad458b8906c08fbed84f42b045fea04db89d1" class="headered-section-header">
+    <a href="#B578ad458b8906c08fbed84f42b045fea04db89d1">public/favicon.ico</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/public/favicon.ico">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B72e788ff8901afe7e2d5ccae07072b709cc19d4e" class="headered-section-header">
+    <a href="#B72e788ff8901afe7e2d5ccae07072b709cc19d4e">README.md</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/README.md">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B9178af77d7de67feb6342c3fc8f6cfd7463bd21f" class="headered-section-header">
+    <a href="#B9178af77d7de67feb6342c3fc8f6cfd7463bd21f">sandbox.config.json</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/sandbox.config.json">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bcd2cf4a045f9ec8d0b55d7748f6ce9e0078e7ac9" class="headered-section-header">
+    <a href="#Bcd2cf4a045f9ec8d0b55d7748f6ce9e0078e7ac9">src</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B2f0ef64a30659fd65a67efd57978fc9314fea28f" class="headered-section-header">
+    <a href="#B2f0ef64a30659fd65a67efd57978fc9314fea28f">src/components</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bda79e392cab4ff3ff749226054e7c47bb2955110" class="headered-section-header">
+    <a href="#Bda79e392cab4ff3ff749226054e7c47bb2955110">src/components/filePreviews</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/filePreviews">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B426c9ca2968c3389e74841ff96416cac9fa98330" class="headered-section-header">
+    <a href="#B426c9ca2968c3389e74841ff96416cac9fa98330">src/components/filePreviews/CodeFilePreview.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/filePreviews/CodeFilePreview.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B52003af87a8ff66ff6ff807414b9f54783ed4cc5" class="headered-section-header">
+    <a href="#B52003af87a8ff66ff6ff807414b9f54783ed4cc5">src/components/filePreviews/MarkdownPreview.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/filePreviews/MarkdownPreview.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Be6f57e28881721a28ae63b6ecfda8a3b31cf5bf8" class="headered-section-header">
+    <a href="#Be6f57e28881721a28ae63b6ecfda8a3b31cf5bf8">src/components/GitBreadcrumbs.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitBreadcrumbs.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bbebae9556aeef2dd39ccbb003b14e03244dd8d1f" class="headered-section-header">
+    <a href="#Bbebae9556aeef2dd39ccbb003b14e03244dd8d1f">src/components/GitFile.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitFile.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bd8233383db81f4a6cc3b0a4f6ee3b3bb8bb052ba" class="headered-section-header">
+    <a href="#Bd8233383db81f4a6cc3b0a4f6ee3b3bb8bb052ba">src/components/GitFile.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitFile.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B0106184f6b40719da7959a67ae20ef42460faa71" class="headered-section-header">
+    <a href="#B0106184f6b40719da7959a67ae20ef42460faa71">src/components/GitHistoryBar.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitHistoryBar.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B9c6c2425cf1cf50deca96089bf8016b866511ed9" class="headered-section-header">
+    <a href="#B9c6c2425cf1cf50deca96089bf8016b866511ed9">src/components/GitHistoryBar.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitHistoryBar.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bf8a5852888a9e7276f6eaadf1a2bd140e5aa9276" class="headered-section-header">
+    <a href="#Bf8a5852888a9e7276f6eaadf1a2bd140e5aa9276">src/components/GitLog.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitLog.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B4c649d00cf748b679d29e18a48c31c3640e38875" class="headered-section-header">
+    <a href="#B4c649d00cf748b679d29e18a48c31c3640e38875">src/components/GitLogEntry.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitLogEntry.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bd26da8a68930832ca519ba8e9745107a24a1c8e2" class="headered-section-header">
+    <a href="#Bd26da8a68930832ca519ba8e9745107a24a1c8e2">src/components/GitPathNotFound.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitPathNotFound.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bf9fc35cf9852d016facd566bf0164896d7e7b5a1" class="headered-section-header">
+    <a href="#Bf9fc35cf9852d016facd566bf0164896d7e7b5a1">src/components/GitRefSelector.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitRefSelector.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bef980ff5e73ffe9f0eb5b14c3d4606a8c7052a4c" class="headered-section-header">
+    <a href="#Bef980ff5e73ffe9f0eb5b14c3d4606a8c7052a4c">src/components/GitTree.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitTree.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B99619707e70e9d0d2229efe83a5d7301b9da3ebd" class="headered-section-header">
+    <a href="#B99619707e70e9d0d2229efe83a5d7301b9da3ebd">src/components/GitTree.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/GitTree.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B33054b9637c8ef7c93005d9c256950026bf24d23" class="headered-section-header">
+    <a href="#B33054b9637c8ef7c93005d9c256950026bf24d23">src/components/RepoHeader.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/RepoHeader.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bd69b532883a06bcf7343d35fc031b4a74f701b39" class="headered-section-header">
+    <a href="#Bd69b532883a06bcf7343d35fc031b4a74f701b39">src/components/RepoHeader.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/RepoHeader.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bc22bac9251e9e970260f095fd0f2a00d4a2ec24a" class="headered-section-header">
+    <a href="#Bc22bac9251e9e970260f095fd0f2a00d4a2ec24a">src/components/ui</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B6b78330600be0c427f0de569b384f581bbe801f6" class="headered-section-header">
+    <a href="#B6b78330600be0c427f0de569b384f581bbe801f6">src/components/ui/Bytes.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/Bytes.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B8e678632effc820b34e276065bd957b40899242c" class="headered-section-header">
+    <a href="#B8e678632effc820b34e276065bd957b40899242c">src/components/ui/DarkmodeButton.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/DarkmodeButton.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B5a04771b2a833d6bb6ce464d88fc96eadfd1048a" class="headered-section-header">
+    <a href="#B5a04771b2a833d6bb6ce464d88fc96eadfd1048a">src/components/ui/EnsureDarkmode.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/EnsureDarkmode.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B3b3619a5e863dcb96802c0a9be7f438fc41e62e5" class="headered-section-header">
+    <a href="#B3b3619a5e863dcb96802c0a9be7f438fc41e62e5">src/components/ui/RelativeDateTime.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/RelativeDateTime.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bdc3e8981f6e32f367513b768d15c79ef56469ccc" class="headered-section-header">
+    <a href="#Bdc3e8981f6e32f367513b768d15c79ef56469ccc">src/components/ui/RelativeDateTimeInitializer.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/RelativeDateTimeInitializer.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B7eaa32941fbcab6e70bb324aceb9d60e4880d9c3" class="headered-section-header">
+    <a href="#B7eaa32941fbcab6e70bb324aceb9d60e4880d9c3">src/components/ui/relativeDateTimeUtils.js</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/components/ui/relativeDateTimeUtils.js">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B233820f864464ae294a0bfdaf47af20c9036181e" class="headered-section-header">
+    <a href="#B233820f864464ae294a0bfdaf47af20c9036181e">src/layout</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/layout">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B6924054ee1bea64a69ff4374f4d938953ed2a91e" class="headered-section-header">
+    <a href="#B6924054ee1bea64a69ff4374f4d938953ed2a91e">src/layout/BaseLayout.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/layout/BaseLayout.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B968ba9aea1fc6f3871511fbea0190a7d68ccc847" class="headered-section-header">
+    <a href="#B968ba9aea1fc6f3871511fbea0190a7d68ccc847">src/layout/BaseLayout.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/layout/BaseLayout.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B38d9673b9095ece43e3c76579a20e946cfcf7b7b" class="headered-section-header">
+    <a href="#B38d9673b9095ece43e3c76579a20e946cfcf7b7b">src/pages</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B5a66782a8331b9f150c092086d5ee47fef2a698c" class="headered-section-header">
+    <a href="#B5a66782a8331b9f150c092086d5ee47fef2a698c">src/pages/commit</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/commit">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B5d2977957fa1b35036eb38c59f6b9c15cb14a813" class="headered-section-header">
+    <a href="#B5d2977957fa1b35036eb38c59f6b9c15cb14a813">src/pages/commit/[ref]</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/commit/[ref]">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B32bcf27259cf83854edb8b15afb294fa2cb73192" class="headered-section-header">
+    <a href="#B32bcf27259cf83854edb8b15afb294fa2cb73192">src/pages/commit/[ref]/index.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/commit/[ref]/index.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B93c1d7d284d0de68a4a0b6dee3ad505a61d52763" class="headered-section-header">
+    <a href="#B93c1d7d284d0de68a4a0b6dee3ad505a61d52763">src/pages/tree</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/tree">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B4fdb4dad3ce7f83976e5963ead96cd2e0ac0d545" class="headered-section-header">
+    <a href="#B4fdb4dad3ce7f83976e5963ead96cd2e0ac0d545">src/pages/tree/[ref]</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/tree/[ref]">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B48aa041eaee4453812b3e5620a7ea361e547ea0e" class="headered-section-header">
+    <a href="#B48aa041eaee4453812b3e5620a7ea361e547ea0e">src/pages/tree/[ref]/[...path]</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/tree/[ref]/[...path]">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B6747a807ddb293838aad6beff01f5cc41b48225e" class="headered-section-header">
+    <a href="#B6747a807ddb293838aad6beff01f5cc41b48225e">src/pages/tree/[ref]/[...path]/index.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/tree/[ref]/[...path]/index.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B09561107e9ba1e9f0c9f0b1e94c528ea982eb087" class="headered-section-header">
+    <a href="#B09561107e9ba1e9f0c9f0b1e94c528ea982eb087">src/pages/tree/[ref]/index.astro</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/pages/tree/[ref]/index.astro">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B8fe639b4a38521d25c17d19583820e09b1a2def3" class="headered-section-header">
+    <a href="#B8fe639b4a38521d25c17d19583820e09b1a2def3">src/style</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/style">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="Bcf5d04ebee9861add78be29ead1533b87f220e25" class="headered-section-header">
+    <a href="#Bcf5d04ebee9861add78be29ead1533b87f220e25">src/style/headered-section.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/style/headered-section.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B6c7a2256b8fa575fc7e1ce032820c60a23d48f5d" class="headered-section-header">
+    <a href="#B6c7a2256b8fa575fc7e1ce032820c60a23d48f5d">src/style/main.css</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/style/main.css">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B96e90c9b9a66dfc0147796c7605bdeb0e2276b26" class="headered-section-header">
+    <a href="#B96e90c9b9a66dfc0147796c7605bdeb0e2276b26">src/utils</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/utils">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B7292301cf8d335ca484897a91b9986b848efcefc" class="headered-section-header">
+    <a href="#B7292301cf8d335ca484897a91b9986b848efcefc">src/utils/git.js</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/utils/git.js">to file</a>
+    </div>
+  </header>
+  
+</section><section class="file-diff headered-section">
+  <header id="B3a60a640f0d008c06512ba0d4f76fb08ecf59148" class="headered-section-header">
+    <a href="#B3a60a640f0d008c06512ba0d4f76fb08ecf59148">src/utils/staticPaths.js</a>
+    |
+    
+    <span class="stats added">
+        New file
+      </span>
+    
+    
+    
+    <div style="float:right">
+      <a href="/astro-git-view/astro-git-view/tree/master/src/utils/staticPaths.js">to file</a>
+    </div>
+  </header>
+  
+</section>
+  </body></html>

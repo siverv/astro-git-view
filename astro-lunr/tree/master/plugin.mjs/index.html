@@ -1,0 +1,1387 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-lunr/tree/master/plugin.mjs//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-lunr/">astro-lunr</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-lunr/tree/master/LICENSE">License</a>
+  </div>
+  <p>Lunr integration for Astro; client-side search for statically hosted pages.
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-lunr" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-lunr">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+</span>
+    <b class="commit-message">
+      #1: fixed base path replacement problem
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">
+          3f44311
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">#1: fixed base path replacement problem
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b" title="show diff">3f44311</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18" title="show diff">9983ab3</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b" title="show diff">182546c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b" title="show diff">077a354</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c" title="show diff">adfedbe</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/146ebb56e2a3cd6eeffd6fedfb9677c6e65e14d9">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/146ebb56e2a3cd6eeffd6fedfb9677c6e65e14d9" title="show diff">146ebb5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-lunr/tree/master">astro-lunr</a>
+ / <b>plugin.mjs</b>
+
+      <div>
+        <span>158 lines</span>
+        <span>(150 sloc)</span>
+        | 
+        <span class="bytes">
+  4.7 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content">import fs from 'node:fs';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content">import path from 'node:path';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content">import {rehype} from 'rehype'</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content">import lunr from 'lunr';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content">import crypto from 'node:crypto';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content">function traverseReplace(replace, tree) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content">    return transform(tree, null, null);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content">    function transform(node, index, parent) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">        let replacement = replace(node, index, parent);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content">        if(replacement){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content">            return replacement;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">        } else {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content">            if ('children' in node) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content">                return {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">                    ...node,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">                    children: node.children.flatMap(</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content">                        (child, index) => transform(child, index, node)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">                    )</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">                };</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content">            } return node;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">        }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">    }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">function parseLunrDocument(lunrTree){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">	let doc = {};</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content">	traverseReplace((node => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L29" id="L29">
+                29
+              </a>
+            </td>
+            <td class="line-content">		if(node.type === "element"){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L30" id="L30">
+                30
+              </a>
+            </td>
+            <td class="line-content">			switch(node.tagName){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L31" id="L31">
+                31
+              </a>
+            </td>
+            <td class="line-content">				case "lunr-field": {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L32" id="L32">
+                32
+              </a>
+            </td>
+            <td class="line-content">					doc[node.properties.name] = node.properties.value;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L33" id="L33">
+                33
+              </a>
+            </td>
+            <td class="line-content">					break;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L34" id="L34">
+                34
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L35" id="L35">
+                35
+              </a>
+            </td>
+            <td class="line-content">				case "lunr-text": {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L36" id="L36">
+                36
+              </a>
+            </td>
+            <td class="line-content">					doc[node.properties.name] = node.children.filter(n => n.type === "text").map(n => n.value).join("\n");</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L37" id="L37">
+                37
+              </a>
+            </td>
+            <td class="line-content">					break;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L38" id="L38">
+                38
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L39" id="L39">
+                39
+              </a>
+            </td>
+            <td class="line-content">			}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L40" id="L40">
+                40
+              </a>
+            </td>
+            <td class="line-content">		}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L41" id="L41">
+                41
+              </a>
+            </td>
+            <td class="line-content">	}), lunrTree)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L42" id="L42">
+                42
+              </a>
+            </td>
+            <td class="line-content">	return doc;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L43" id="L43">
+                43
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L44" id="L44">
+                44
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L45" id="L45">
+                45
+              </a>
+            </td>
+            <td class="line-content">function indexLunrDocuments(canonicalUrl, addToBulk){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L46" id="L46">
+                46
+              </a>
+            </td>
+            <td class="line-content">	return () => traverseReplace.bind(null, (node) => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L47" id="L47">
+                47
+              </a>
+            </td>
+            <td class="line-content">        if(node.type === "element" &#x26;&#x26; node.tagName === "lunr-document"){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L48" id="L48">
+                48
+              </a>
+            </td>
+            <td class="line-content">        	let doc = parseLunrDocument(node);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L49" id="L49">
+                49
+              </a>
+            </td>
+            <td class="line-content">        	doc["canonicalUrl"] = canonicalUrl;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L50" id="L50">
+                50
+              </a>
+            </td>
+            <td class="line-content">        	doc["__index__"] = node.properties.index;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L51" id="L51">
+                51
+              </a>
+            </td>
+            <td class="line-content">        	addToBulk(doc);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L52" id="L52">
+                52
+              </a>
+            </td>
+            <td class="line-content">        	return []</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L53" id="L53">
+                53
+              </a>
+            </td>
+            <td class="line-content">        }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L54" id="L54">
+                54
+              </a>
+            </td>
+            <td class="line-content">    });</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L55" id="L55">
+                55
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L56" id="L56">
+                56
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L57" id="L57">
+                57
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L58" id="L58">
+                58
+              </a>
+            </td>
+            <td class="line-content">export function createVitePlugin({ config }) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L59" id="L59">
+                59
+              </a>
+            </td>
+            <td class="line-content">	return {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L60" id="L60">
+                60
+              </a>
+            </td>
+            <td class="line-content">		name: '@siverv/astro-lunr:dev-server',</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L61" id="L61">
+                61
+              </a>
+            </td>
+            <td class="line-content">		configureServer(viteServer) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L62" id="L62">
+                62
+              </a>
+            </td>
+            <td class="line-content">			viteServer.middlewares.use((req, res, next) => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L63" id="L63">
+                63
+              </a>
+            </td>
+            <td class="line-content">				if(req.url.endsWith("/idx.json") || req.url.endsWith("/docs.json")){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L64" id="L64">
+                64
+              </a>
+            </td>
+            <td class="line-content">					let path = req.url;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L65" id="L65">
+                65
+              </a>
+            </td>
+            <td class="line-content">					if(config.base &#x26;&#x26; path.startsWith(config.base)){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L66" id="L66">
+                66
+              </a>
+            </td>
+            <td class="line-content">						path = path.replace(config.base, "");</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L67" id="L67">
+                67
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L68" id="L68">
+                68
+              </a>
+            </td>
+            <td class="line-content">					let preBuiltPath = new URL(path, config.outDir);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L69" id="L69">
+                69
+              </a>
+            </td>
+            <td class="line-content">					try {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L70" id="L70">
+                70
+              </a>
+            </td>
+            <td class="line-content">					    var stat = fs.statSync(preBuiltPath);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L71" id="L71">
+                71
+              </a>
+            </td>
+            <td class="line-content">					} catch(err){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L72" id="L72">
+                72
+              </a>
+            </td>
+            <td class="line-content">						err.message = "Could not find pre-built lunr-files - search is not available without first building your astro-pages at least once. "  + err.toString();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L73" id="L73">
+                73
+              </a>
+            </td>
+            <td class="line-content">						throw err;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L74" id="L74">
+                74
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L75" id="L75">
+                75
+              </a>
+            </td>
+            <td class="line-content">				    res.writeHead(200, {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L76" id="L76">
+                76
+              </a>
+            </td>
+            <td class="line-content">				        'Content-Type': 'application/json',</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L77" id="L77">
+                77
+              </a>
+            </td>
+            <td class="line-content">				        'Content-Length': stat.size</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L78" id="L78">
+                78
+              </a>
+            </td>
+            <td class="line-content">				    });</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L79" id="L79">
+                79
+              </a>
+            </td>
+            <td class="line-content">				    return fs.createReadStream(preBuiltPath).pipe(res);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L80" id="L80">
+                80
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L81" id="L81">
+                81
+              </a>
+            </td>
+            <td class="line-content">				return next();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L82" id="L82">
+                82
+              </a>
+            </td>
+            <td class="line-content">			});</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L83" id="L83">
+                83
+              </a>
+            </td>
+            <td class="line-content">		},</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L84" id="L84">
+                84
+              </a>
+            </td>
+            <td class="line-content">	};</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L85" id="L85">
+                85
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L86" id="L86">
+                86
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L87" id="L87">
+                87
+              </a>
+            </td>
+            <td class="line-content">function getViteConfiguration(config) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L88" id="L88">
+                88
+              </a>
+            </td>
+            <td class="line-content">	return {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L89" id="L89">
+                89
+              </a>
+            </td>
+            <td class="line-content">		plugins: [createVitePlugin(config)]</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L90" id="L90">
+                90
+              </a>
+            </td>
+            <td class="line-content">	};</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L91" id="L91">
+                91
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L92" id="L92">
+                92
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L93" id="L93">
+                93
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L94" id="L94">
+                94
+              </a>
+            </td>
+            <td class="line-content">export default function createPlugin({pathFilter, subDir, documentFilter, initialize, mapDocument, verbose}){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L95" id="L95">
+                95
+              </a>
+            </td>
+            <td class="line-content">	let config = {};</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L96" id="L96">
+                96
+              </a>
+            </td>
+            <td class="line-content">	let pathsToIndex = []</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L97" id="L97">
+                97
+              </a>
+            </td>
+            <td class="line-content">	return {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L98" id="L98">
+                98
+              </a>
+            </td>
+            <td class="line-content">		name: '@siverv/astro-lunr:plugin',</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L99" id="L99">
+                99
+              </a>
+            </td>
+            <td class="line-content">		hooks: {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L100" id="L100">
+                100
+              </a>
+            </td>
+            <td class="line-content">			'astro:config:setup': (options) => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L101" id="L101">
+                101
+              </a>
+            </td>
+            <td class="line-content">				if(options.command === "dev"){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L102" id="L102">
+                102
+              </a>
+            </td>
+            <td class="line-content">					options.addRenderer({</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L103" id="L103">
+                103
+              </a>
+            </td>
+            <td class="line-content">						name: '@siverv/astro-lunr:renderer',</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L104" id="L104">
+                104
+              </a>
+            </td>
+            <td class="line-content">						serverEntrypoint: '@siverv/astro-lunr/server/renderer.js',</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L105" id="L105">
+                105
+              </a>
+            </td>
+            <td class="line-content">					});</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L106" id="L106">
+                106
+              </a>
+            </td>
+            <td class="line-content">					options.updateConfig({ vite: getViteConfiguration(options) });</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L107" id="L107">
+                107
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L108" id="L108">
+                108
+              </a>
+            </td>
+            <td class="line-content">			},</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L109" id="L109">
+                109
+              </a>
+            </td>
+            <td class="line-content">			'astro:build:done': async ({pages, dir}) => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L110" id="L110">
+                110
+              </a>
+            </td>
+            <td class="line-content">				let indexMap = new Map();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L111" id="L111">
+                111
+              </a>
+            </td>
+            <td class="line-content">				const addToIndexMap = (doc) => {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L112" id="L112">
+                112
+              </a>
+            </td>
+            <td class="line-content">					if(documentFilter &#x26;&#x26; !documentFilter(doc)){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L113" id="L113">
+                113
+              </a>
+            </td>
+            <td class="line-content">						return;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L114" id="L114">
+                114
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L115" id="L115">
+                115
+              </a>
+            </td>
+            <td class="line-content">					const {__index__: index, ...rest} = doc;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L116" id="L116">
+                116
+              </a>
+            </td>
+            <td class="line-content">					if(!indexMap.has(index)){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L117" id="L117">
+                117
+              </a>
+            </td>
+            <td class="line-content">						indexMap.set(index, []);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L118" id="L118">
+                118
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L119" id="L119">
+                119
+              </a>
+            </td>
+            <td class="line-content">					indexMap.get(index).push({</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L120" id="L120">
+                120
+              </a>
+            </td>
+            <td class="line-content">						...rest,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L121" id="L121">
+                121
+              </a>
+            </td>
+            <td class="line-content">						id: doc["id"] || crypto.createHash('md5').update(doc["canonicalUrl"]).digest('hex')</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L122" id="L122">
+                122
+              </a>
+            </td>
+            <td class="line-content">					});</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L123" id="L123">
+                123
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L124" id="L124">
+                124
+              </a>
+            </td>
+            <td class="line-content">				let documents = [];</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L125" id="L125">
+                125
+              </a>
+            </td>
+            <td class="line-content">				for(let {pathname} of pages) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L126" id="L126">
+                126
+              </a>
+            </td>
+            <td class="line-content">					if(pathFilter &#x26;&#x26; !pathFilter(pathname)){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L127" id="L127">
+                127
+              </a>
+            </td>
+            <td class="line-content">						continue;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L128" id="L128">
+                128
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L129" id="L129">
+                129
+              </a>
+            </td>
+            <td class="line-content">					let url = new URL((pathname ? pathname + "/" : "") + "index.html", dir);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L130" id="L130">
+                130
+              </a>
+            </td>
+            <td class="line-content">					let content = fs.readFileSync(url, "utf-8");</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L131" id="L131">
+                131
+              </a>
+            </td>
+            <td class="line-content">					let newDocuments = [];</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L132" id="L132">
+                132
+              </a>
+            </td>
+            <td class="line-content">					let hyped = await rehype()</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L133" id="L133">
+                133
+              </a>
+            </td>
+            <td class="line-content">						.use(indexLunrDocuments(pathname, (doc) => newDocuments.push(doc)))</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L134" id="L134">
+                134
+              </a>
+            </td>
+            <td class="line-content">						.process(content);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L135" id="L135">
+                135
+              </a>
+            </td>
+            <td class="line-content">					if(newDocuments.length > 0) {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L136" id="L136">
+                136
+              </a>
+            </td>
+            <td class="line-content">						if(verbose){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L137" id="L137">
+                137
+              </a>
+            </td>
+            <td class="line-content">							console.log(`Indexing ${newDocuments.length} doc(s) from ${pathname}`);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L138" id="L138">
+                138
+              </a>
+            </td>
+            <td class="line-content">						}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L139" id="L139">
+                139
+              </a>
+            </td>
+            <td class="line-content">						fs.writeFileSync(url, String(hyped));</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L140" id="L140">
+                140
+              </a>
+            </td>
+            <td class="line-content">						newDocuments.forEach(addToIndexMap)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L141" id="L141">
+                141
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L142" id="L142">
+                142
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L143" id="L143">
+                143
+              </a>
+            </td>
+            <td class="line-content">				for(let [index, documents] of indexMap){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L144" id="L144">
+                144
+              </a>
+            </td>
+            <td class="line-content">					const idx = lunr(function () {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L145" id="L145">
+                145
+              </a>
+            </td>
+            <td class="line-content">						initialize(this, lunr);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L146" id="L146">
+                146
+              </a>
+            </td>
+            <td class="line-content">						documents.forEach(doc => this.add(doc));</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L147" id="L147">
+                147
+              </a>
+            </td>
+            <td class="line-content">					})</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L148" id="L148">
+                148
+              </a>
+            </td>
+            <td class="line-content">					if(mapDocument){</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L149" id="L149">
+                149
+              </a>
+            </td>
+            <td class="line-content">						documents = documents.map(mapDocument);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L150" id="L150">
+                150
+              </a>
+            </td>
+            <td class="line-content">					}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L151" id="L151">
+                151
+              </a>
+            </td>
+            <td class="line-content">					fs.mkdirSync(new URL(path.join(subDir || "", index || ""), dir), { recursive: true });</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L152" id="L152">
+                152
+              </a>
+            </td>
+            <td class="line-content">					fs.writeFileSync(new URL(path.join(subDir || "", index || "", 'idx.json'), dir), JSON.stringify(idx));</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L153" id="L153">
+                153
+              </a>
+            </td>
+            <td class="line-content">					fs.writeFileSync(new URL(path.join(subDir || "", index || "", 'docs.json'), dir), JSON.stringify(documents));</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L154" id="L154">
+                154
+              </a>
+            </td>
+            <td class="line-content">				}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L155" id="L155">
+                155
+              </a>
+            </td>
+            <td class="line-content">			}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L156" id="L156">
+                156
+              </a>
+            </td>
+            <td class="line-content">		}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L157" id="L157">
+                157
+              </a>
+            </td>
+            <td class="line-content">	}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L158" id="L158">
+                158
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

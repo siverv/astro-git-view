@@ -1,0 +1,477 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-lunr/tree/master/package.json//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-lunr/">astro-lunr</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-lunr/tree/master/LICENSE">License</a>
+  </div>
+  <p>Lunr integration for Astro; client-side search for statically hosted pages.
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-lunr" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-lunr">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+</span>
+    <b class="commit-message">
+      #1: fixed base path replacement problem
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">
+          3f44311
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">#1: fixed base path replacement problem
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b" title="show diff">3f44311</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 13:57">2022-05-01 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a">Fixed problem with import.meta.env when proper npm-module
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a" title="show diff">00a915f</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:31">2022-04-18 20:31</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997">add demo-link to readme
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997" title="show diff">d930b81</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18" title="show diff">9983ab3</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b" title="show diff">077a354</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c" title="show diff">adfedbe</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-lunr/tree/master">astro-lunr</a>
+ / <b>package.json</b>
+
+      <div>
+        <span>28 lines</span>
+        <span>(28 sloc)</span>
+        | 
+        <span class="bytes">
+  693 B
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content">{</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content">  "name": "@siverv/astro-lunr",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content">  "version": "0.0.3",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content">  "license" : "GPL-3.0",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content">  "description": "Lunr integration for Astro",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content">  "type": "module",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content">  "homepage": "https://siverv.github.io/astro-git-view/astro-lunr/",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content">  "contributors": [</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content">    {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">      "name": "Siver K. Volle",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content">      "email": "package-json.astro-lunr@siverv.no",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content">      "url": "https://www.siverv.no"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">    }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content">  ],</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content">  "repository": {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">    "type": "git",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">    "url": "https://github.com/siverv/astro-lunr.git"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content">  },</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">  "exports": {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">    "./plugin.mjs": "./plugin.mjs",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content">    "./client/lunr.js": "./client/lunr.js",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">    "./server/renderer.js": "./server/renderer.js"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">  },</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content">  "dependencies": {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content">    "lunr": "^2.3.9",</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">    "rehype": "^12.0.1"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">  }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

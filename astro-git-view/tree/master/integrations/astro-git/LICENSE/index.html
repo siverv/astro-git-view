@@ -1,0 +1,4911 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-git-view/tree/master/integrations/astro-git/LICENSE//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+</span>
+    <b class="commit-message">
+      Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">
+          8024c0a
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/integrations">integrations</a> / <a href="/astro-git-view/astro-git-view/tree/master/integrations/astro-git">astro-git</a> / <b>LICENSE</b>
+
+      <div>
+        <span>675 lines</span>
+        <span>(553 sloc)</span>
+        | 
+        <span class="bytes">
+  35.1 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content">                    GNU GENERAL PUBLIC LICENSE</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content">                       Version 3, 29 June 2007</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content"> Copyright (C) 2007 Free Software Foundation, Inc. &#x3C;https://fsf.org/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content"> Everyone is permitted to copy and distribute verbatim copies</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content"> of this license document, but changing it is not allowed.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content">                            Preamble</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">  The GNU General Public License is a free, copyleft license for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content">software and other kinds of works.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">  The licenses for most software and other practical works are designed</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content">to take away your freedom to share and change the works.  By contrast,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content">the GNU General Public License is intended to guarantee your freedom to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">share and change all versions of a program--to make sure it remains free</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">software for all its users.  We, the Free Software Foundation, use the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content">GNU General Public License for most of our software; it applies also to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">any other work released this way by its authors.  You can apply it to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">your programs, too.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">  When we speak of free software, we are referring to freedom, not</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">price.  Our General Public Licenses are designed to make sure that you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content">have the freedom to distribute copies of free software (and charge for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content">them if you wish), that you receive source code or can get it if you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">want it, that you can change the software or use pieces of it in new</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">free programs, and that you know you can do these things.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L29" id="L29">
+                29
+              </a>
+            </td>
+            <td class="line-content">  To protect your rights, we need to prevent others from denying you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L30" id="L30">
+                30
+              </a>
+            </td>
+            <td class="line-content">these rights or asking you to surrender the rights.  Therefore, you have</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L31" id="L31">
+                31
+              </a>
+            </td>
+            <td class="line-content">certain responsibilities if you distribute copies of the software, or if</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L32" id="L32">
+                32
+              </a>
+            </td>
+            <td class="line-content">you modify it: responsibilities to respect the freedom of others.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L33" id="L33">
+                33
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L34" id="L34">
+                34
+              </a>
+            </td>
+            <td class="line-content">  For example, if you distribute copies of such a program, whether</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L35" id="L35">
+                35
+              </a>
+            </td>
+            <td class="line-content">gratis or for a fee, you must pass on to the recipients the same</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L36" id="L36">
+                36
+              </a>
+            </td>
+            <td class="line-content">freedoms that you received.  You must make sure that they, too, receive</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L37" id="L37">
+                37
+              </a>
+            </td>
+            <td class="line-content">or can get the source code.  And you must show them these terms so they</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L38" id="L38">
+                38
+              </a>
+            </td>
+            <td class="line-content">know their rights.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L39" id="L39">
+                39
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L40" id="L40">
+                40
+              </a>
+            </td>
+            <td class="line-content">  Developers that use the GNU GPL protect your rights with two steps:</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L41" id="L41">
+                41
+              </a>
+            </td>
+            <td class="line-content">(1) assert copyright on the software, and (2) offer you this License</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L42" id="L42">
+                42
+              </a>
+            </td>
+            <td class="line-content">giving you legal permission to copy, distribute and/or modify it.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L43" id="L43">
+                43
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L44" id="L44">
+                44
+              </a>
+            </td>
+            <td class="line-content">  For the developers' and authors' protection, the GPL clearly explains</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L45" id="L45">
+                45
+              </a>
+            </td>
+            <td class="line-content">that there is no warranty for this free software.  For both users' and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L46" id="L46">
+                46
+              </a>
+            </td>
+            <td class="line-content">authors' sake, the GPL requires that modified versions be marked as</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L47" id="L47">
+                47
+              </a>
+            </td>
+            <td class="line-content">changed, so that their problems will not be attributed erroneously to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L48" id="L48">
+                48
+              </a>
+            </td>
+            <td class="line-content">authors of previous versions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L49" id="L49">
+                49
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L50" id="L50">
+                50
+              </a>
+            </td>
+            <td class="line-content">  Some devices are designed to deny users access to install or run</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L51" id="L51">
+                51
+              </a>
+            </td>
+            <td class="line-content">modified versions of the software inside them, although the manufacturer</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L52" id="L52">
+                52
+              </a>
+            </td>
+            <td class="line-content">can do so.  This is fundamentally incompatible with the aim of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L53" id="L53">
+                53
+              </a>
+            </td>
+            <td class="line-content">protecting users' freedom to change the software.  The systematic</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L54" id="L54">
+                54
+              </a>
+            </td>
+            <td class="line-content">pattern of such abuse occurs in the area of products for individuals to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L55" id="L55">
+                55
+              </a>
+            </td>
+            <td class="line-content">use, which is precisely where it is most unacceptable.  Therefore, we</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L56" id="L56">
+                56
+              </a>
+            </td>
+            <td class="line-content">have designed this version of the GPL to prohibit the practice for those</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L57" id="L57">
+                57
+              </a>
+            </td>
+            <td class="line-content">products.  If such problems arise substantially in other domains, we</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L58" id="L58">
+                58
+              </a>
+            </td>
+            <td class="line-content">stand ready to extend this provision to those domains in future versions</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L59" id="L59">
+                59
+              </a>
+            </td>
+            <td class="line-content">of the GPL, as needed to protect the freedom of users.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L60" id="L60">
+                60
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L61" id="L61">
+                61
+              </a>
+            </td>
+            <td class="line-content">  Finally, every program is threatened constantly by software patents.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L62" id="L62">
+                62
+              </a>
+            </td>
+            <td class="line-content">States should not allow patents to restrict development and use of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L63" id="L63">
+                63
+              </a>
+            </td>
+            <td class="line-content">software on general-purpose computers, but in those that do, we wish to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L64" id="L64">
+                64
+              </a>
+            </td>
+            <td class="line-content">avoid the special danger that patents applied to a free program could</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L65" id="L65">
+                65
+              </a>
+            </td>
+            <td class="line-content">make it effectively proprietary.  To prevent this, the GPL assures that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L66" id="L66">
+                66
+              </a>
+            </td>
+            <td class="line-content">patents cannot be used to render the program non-free.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L67" id="L67">
+                67
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L68" id="L68">
+                68
+              </a>
+            </td>
+            <td class="line-content">  The precise terms and conditions for copying, distribution and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L69" id="L69">
+                69
+              </a>
+            </td>
+            <td class="line-content">modification follow.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L70" id="L70">
+                70
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L71" id="L71">
+                71
+              </a>
+            </td>
+            <td class="line-content">                       TERMS AND CONDITIONS</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L72" id="L72">
+                72
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L73" id="L73">
+                73
+              </a>
+            </td>
+            <td class="line-content">  0. Definitions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L74" id="L74">
+                74
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L75" id="L75">
+                75
+              </a>
+            </td>
+            <td class="line-content">  "This License" refers to version 3 of the GNU General Public License.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L76" id="L76">
+                76
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L77" id="L77">
+                77
+              </a>
+            </td>
+            <td class="line-content">  "Copyright" also means copyright-like laws that apply to other kinds of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L78" id="L78">
+                78
+              </a>
+            </td>
+            <td class="line-content">works, such as semiconductor masks.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L79" id="L79">
+                79
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L80" id="L80">
+                80
+              </a>
+            </td>
+            <td class="line-content">  "The Program" refers to any copyrightable work licensed under this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L81" id="L81">
+                81
+              </a>
+            </td>
+            <td class="line-content">License.  Each licensee is addressed as "you".  "Licensees" and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L82" id="L82">
+                82
+              </a>
+            </td>
+            <td class="line-content">"recipients" may be individuals or organizations.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L83" id="L83">
+                83
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L84" id="L84">
+                84
+              </a>
+            </td>
+            <td class="line-content">  To "modify" a work means to copy from or adapt all or part of the work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L85" id="L85">
+                85
+              </a>
+            </td>
+            <td class="line-content">in a fashion requiring copyright permission, other than the making of an</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L86" id="L86">
+                86
+              </a>
+            </td>
+            <td class="line-content">exact copy.  The resulting work is called a "modified version" of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L87" id="L87">
+                87
+              </a>
+            </td>
+            <td class="line-content">earlier work or a work "based on" the earlier work.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L88" id="L88">
+                88
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L89" id="L89">
+                89
+              </a>
+            </td>
+            <td class="line-content">  A "covered work" means either the unmodified Program or a work based</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L90" id="L90">
+                90
+              </a>
+            </td>
+            <td class="line-content">on the Program.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L91" id="L91">
+                91
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L92" id="L92">
+                92
+              </a>
+            </td>
+            <td class="line-content">  To "propagate" a work means to do anything with it that, without</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L93" id="L93">
+                93
+              </a>
+            </td>
+            <td class="line-content">permission, would make you directly or secondarily liable for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L94" id="L94">
+                94
+              </a>
+            </td>
+            <td class="line-content">infringement under applicable copyright law, except executing it on a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L95" id="L95">
+                95
+              </a>
+            </td>
+            <td class="line-content">computer or modifying a private copy.  Propagation includes copying,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L96" id="L96">
+                96
+              </a>
+            </td>
+            <td class="line-content">distribution (with or without modification), making available to the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L97" id="L97">
+                97
+              </a>
+            </td>
+            <td class="line-content">public, and in some countries other activities as well.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L98" id="L98">
+                98
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L99" id="L99">
+                99
+              </a>
+            </td>
+            <td class="line-content">  To "convey" a work means any kind of propagation that enables other</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L100" id="L100">
+                100
+              </a>
+            </td>
+            <td class="line-content">parties to make or receive copies.  Mere interaction with a user through</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L101" id="L101">
+                101
+              </a>
+            </td>
+            <td class="line-content">a computer network, with no transfer of a copy, is not conveying.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L102" id="L102">
+                102
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L103" id="L103">
+                103
+              </a>
+            </td>
+            <td class="line-content">  An interactive user interface displays "Appropriate Legal Notices"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L104" id="L104">
+                104
+              </a>
+            </td>
+            <td class="line-content">to the extent that it includes a convenient and prominently visible</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L105" id="L105">
+                105
+              </a>
+            </td>
+            <td class="line-content">feature that (1) displays an appropriate copyright notice, and (2)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L106" id="L106">
+                106
+              </a>
+            </td>
+            <td class="line-content">tells the user that there is no warranty for the work (except to the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L107" id="L107">
+                107
+              </a>
+            </td>
+            <td class="line-content">extent that warranties are provided), that licensees may convey the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L108" id="L108">
+                108
+              </a>
+            </td>
+            <td class="line-content">work under this License, and how to view a copy of this License.  If</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L109" id="L109">
+                109
+              </a>
+            </td>
+            <td class="line-content">the interface presents a list of user commands or options, such as a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L110" id="L110">
+                110
+              </a>
+            </td>
+            <td class="line-content">menu, a prominent item in the list meets this criterion.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L111" id="L111">
+                111
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L112" id="L112">
+                112
+              </a>
+            </td>
+            <td class="line-content">  1. Source Code.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L113" id="L113">
+                113
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L114" id="L114">
+                114
+              </a>
+            </td>
+            <td class="line-content">  The "source code" for a work means the preferred form of the work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L115" id="L115">
+                115
+              </a>
+            </td>
+            <td class="line-content">for making modifications to it.  "Object code" means any non-source</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L116" id="L116">
+                116
+              </a>
+            </td>
+            <td class="line-content">form of a work.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L117" id="L117">
+                117
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L118" id="L118">
+                118
+              </a>
+            </td>
+            <td class="line-content">  A "Standard Interface" means an interface that either is an official</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L119" id="L119">
+                119
+              </a>
+            </td>
+            <td class="line-content">standard defined by a recognized standards body, or, in the case of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L120" id="L120">
+                120
+              </a>
+            </td>
+            <td class="line-content">interfaces specified for a particular programming language, one that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L121" id="L121">
+                121
+              </a>
+            </td>
+            <td class="line-content">is widely used among developers working in that language.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L122" id="L122">
+                122
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L123" id="L123">
+                123
+              </a>
+            </td>
+            <td class="line-content">  The "System Libraries" of an executable work include anything, other</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L124" id="L124">
+                124
+              </a>
+            </td>
+            <td class="line-content">than the work as a whole, that (a) is included in the normal form of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L125" id="L125">
+                125
+              </a>
+            </td>
+            <td class="line-content">packaging a Major Component, but which is not part of that Major</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L126" id="L126">
+                126
+              </a>
+            </td>
+            <td class="line-content">Component, and (b) serves only to enable use of the work with that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L127" id="L127">
+                127
+              </a>
+            </td>
+            <td class="line-content">Major Component, or to implement a Standard Interface for which an</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L128" id="L128">
+                128
+              </a>
+            </td>
+            <td class="line-content">implementation is available to the public in source code form.  A</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L129" id="L129">
+                129
+              </a>
+            </td>
+            <td class="line-content">"Major Component", in this context, means a major essential component</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L130" id="L130">
+                130
+              </a>
+            </td>
+            <td class="line-content">(kernel, window system, and so on) of the specific operating system</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L131" id="L131">
+                131
+              </a>
+            </td>
+            <td class="line-content">(if any) on which the executable work runs, or a compiler used to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L132" id="L132">
+                132
+              </a>
+            </td>
+            <td class="line-content">produce the work, or an object code interpreter used to run it.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L133" id="L133">
+                133
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L134" id="L134">
+                134
+              </a>
+            </td>
+            <td class="line-content">  The "Corresponding Source" for a work in object code form means all</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L135" id="L135">
+                135
+              </a>
+            </td>
+            <td class="line-content">the source code needed to generate, install, and (for an executable</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L136" id="L136">
+                136
+              </a>
+            </td>
+            <td class="line-content">work) run the object code and to modify the work, including scripts to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L137" id="L137">
+                137
+              </a>
+            </td>
+            <td class="line-content">control those activities.  However, it does not include the work's</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L138" id="L138">
+                138
+              </a>
+            </td>
+            <td class="line-content">System Libraries, or general-purpose tools or generally available free</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L139" id="L139">
+                139
+              </a>
+            </td>
+            <td class="line-content">programs which are used unmodified in performing those activities but</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L140" id="L140">
+                140
+              </a>
+            </td>
+            <td class="line-content">which are not part of the work.  For example, Corresponding Source</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L141" id="L141">
+                141
+              </a>
+            </td>
+            <td class="line-content">includes interface definition files associated with source files for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L142" id="L142">
+                142
+              </a>
+            </td>
+            <td class="line-content">the work, and the source code for shared libraries and dynamically</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L143" id="L143">
+                143
+              </a>
+            </td>
+            <td class="line-content">linked subprograms that the work is specifically designed to require,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L144" id="L144">
+                144
+              </a>
+            </td>
+            <td class="line-content">such as by intimate data communication or control flow between those</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L145" id="L145">
+                145
+              </a>
+            </td>
+            <td class="line-content">subprograms and other parts of the work.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L146" id="L146">
+                146
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L147" id="L147">
+                147
+              </a>
+            </td>
+            <td class="line-content">  The Corresponding Source need not include anything that users</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L148" id="L148">
+                148
+              </a>
+            </td>
+            <td class="line-content">can regenerate automatically from other parts of the Corresponding</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L149" id="L149">
+                149
+              </a>
+            </td>
+            <td class="line-content">Source.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L150" id="L150">
+                150
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L151" id="L151">
+                151
+              </a>
+            </td>
+            <td class="line-content">  The Corresponding Source for a work in source code form is that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L152" id="L152">
+                152
+              </a>
+            </td>
+            <td class="line-content">same work.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L153" id="L153">
+                153
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L154" id="L154">
+                154
+              </a>
+            </td>
+            <td class="line-content">  2. Basic Permissions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L155" id="L155">
+                155
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L156" id="L156">
+                156
+              </a>
+            </td>
+            <td class="line-content">  All rights granted under this License are granted for the term of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L157" id="L157">
+                157
+              </a>
+            </td>
+            <td class="line-content">copyright on the Program, and are irrevocable provided the stated</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L158" id="L158">
+                158
+              </a>
+            </td>
+            <td class="line-content">conditions are met.  This License explicitly affirms your unlimited</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L159" id="L159">
+                159
+              </a>
+            </td>
+            <td class="line-content">permission to run the unmodified Program.  The output from running a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L160" id="L160">
+                160
+              </a>
+            </td>
+            <td class="line-content">covered work is covered by this License only if the output, given its</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L161" id="L161">
+                161
+              </a>
+            </td>
+            <td class="line-content">content, constitutes a covered work.  This License acknowledges your</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L162" id="L162">
+                162
+              </a>
+            </td>
+            <td class="line-content">rights of fair use or other equivalent, as provided by copyright law.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L163" id="L163">
+                163
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L164" id="L164">
+                164
+              </a>
+            </td>
+            <td class="line-content">  You may make, run and propagate covered works that you do not</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L165" id="L165">
+                165
+              </a>
+            </td>
+            <td class="line-content">convey, without conditions so long as your license otherwise remains</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L166" id="L166">
+                166
+              </a>
+            </td>
+            <td class="line-content">in force.  You may convey covered works to others for the sole purpose</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L167" id="L167">
+                167
+              </a>
+            </td>
+            <td class="line-content">of having them make modifications exclusively for you, or provide you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L168" id="L168">
+                168
+              </a>
+            </td>
+            <td class="line-content">with facilities for running those works, provided that you comply with</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L169" id="L169">
+                169
+              </a>
+            </td>
+            <td class="line-content">the terms of this License in conveying all material for which you do</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L170" id="L170">
+                170
+              </a>
+            </td>
+            <td class="line-content">not control copyright.  Those thus making or running the covered works</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L171" id="L171">
+                171
+              </a>
+            </td>
+            <td class="line-content">for you must do so exclusively on your behalf, under your direction</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L172" id="L172">
+                172
+              </a>
+            </td>
+            <td class="line-content">and control, on terms that prohibit them from making any copies of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L173" id="L173">
+                173
+              </a>
+            </td>
+            <td class="line-content">your copyrighted material outside their relationship with you.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L174" id="L174">
+                174
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L175" id="L175">
+                175
+              </a>
+            </td>
+            <td class="line-content">  Conveying under any other circumstances is permitted solely under</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L176" id="L176">
+                176
+              </a>
+            </td>
+            <td class="line-content">the conditions stated below.  Sublicensing is not allowed; section 10</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L177" id="L177">
+                177
+              </a>
+            </td>
+            <td class="line-content">makes it unnecessary.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L178" id="L178">
+                178
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L179" id="L179">
+                179
+              </a>
+            </td>
+            <td class="line-content">  3. Protecting Users' Legal Rights From Anti-Circumvention Law.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L180" id="L180">
+                180
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L181" id="L181">
+                181
+              </a>
+            </td>
+            <td class="line-content">  No covered work shall be deemed part of an effective technological</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L182" id="L182">
+                182
+              </a>
+            </td>
+            <td class="line-content">measure under any applicable law fulfilling obligations under article</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L183" id="L183">
+                183
+              </a>
+            </td>
+            <td class="line-content">11 of the WIPO copyright treaty adopted on 20 December 1996, or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L184" id="L184">
+                184
+              </a>
+            </td>
+            <td class="line-content">similar laws prohibiting or restricting circumvention of such</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L185" id="L185">
+                185
+              </a>
+            </td>
+            <td class="line-content">measures.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L186" id="L186">
+                186
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L187" id="L187">
+                187
+              </a>
+            </td>
+            <td class="line-content">  When you convey a covered work, you waive any legal power to forbid</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L188" id="L188">
+                188
+              </a>
+            </td>
+            <td class="line-content">circumvention of technological measures to the extent such circumvention</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L189" id="L189">
+                189
+              </a>
+            </td>
+            <td class="line-content">is effected by exercising rights under this License with respect to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L190" id="L190">
+                190
+              </a>
+            </td>
+            <td class="line-content">the covered work, and you disclaim any intention to limit operation or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L191" id="L191">
+                191
+              </a>
+            </td>
+            <td class="line-content">modification of the work as a means of enforcing, against the work's</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L192" id="L192">
+                192
+              </a>
+            </td>
+            <td class="line-content">users, your or third parties' legal rights to forbid circumvention of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L193" id="L193">
+                193
+              </a>
+            </td>
+            <td class="line-content">technological measures.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L194" id="L194">
+                194
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L195" id="L195">
+                195
+              </a>
+            </td>
+            <td class="line-content">  4. Conveying Verbatim Copies.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L196" id="L196">
+                196
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L197" id="L197">
+                197
+              </a>
+            </td>
+            <td class="line-content">  You may convey verbatim copies of the Program's source code as you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L198" id="L198">
+                198
+              </a>
+            </td>
+            <td class="line-content">receive it, in any medium, provided that you conspicuously and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L199" id="L199">
+                199
+              </a>
+            </td>
+            <td class="line-content">appropriately publish on each copy an appropriate copyright notice;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L200" id="L200">
+                200
+              </a>
+            </td>
+            <td class="line-content">keep intact all notices stating that this License and any</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L201" id="L201">
+                201
+              </a>
+            </td>
+            <td class="line-content">non-permissive terms added in accord with section 7 apply to the code;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L202" id="L202">
+                202
+              </a>
+            </td>
+            <td class="line-content">keep intact all notices of the absence of any warranty; and give all</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L203" id="L203">
+                203
+              </a>
+            </td>
+            <td class="line-content">recipients a copy of this License along with the Program.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L204" id="L204">
+                204
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L205" id="L205">
+                205
+              </a>
+            </td>
+            <td class="line-content">  You may charge any price or no price for each copy that you convey,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L206" id="L206">
+                206
+              </a>
+            </td>
+            <td class="line-content">and you may offer support or warranty protection for a fee.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L207" id="L207">
+                207
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L208" id="L208">
+                208
+              </a>
+            </td>
+            <td class="line-content">  5. Conveying Modified Source Versions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L209" id="L209">
+                209
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L210" id="L210">
+                210
+              </a>
+            </td>
+            <td class="line-content">  You may convey a work based on the Program, or the modifications to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L211" id="L211">
+                211
+              </a>
+            </td>
+            <td class="line-content">produce it from the Program, in the form of source code under the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L212" id="L212">
+                212
+              </a>
+            </td>
+            <td class="line-content">terms of section 4, provided that you also meet all of these conditions:</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L213" id="L213">
+                213
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L214" id="L214">
+                214
+              </a>
+            </td>
+            <td class="line-content">    a) The work must carry prominent notices stating that you modified</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L215" id="L215">
+                215
+              </a>
+            </td>
+            <td class="line-content">    it, and giving a relevant date.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L216" id="L216">
+                216
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L217" id="L217">
+                217
+              </a>
+            </td>
+            <td class="line-content">    b) The work must carry prominent notices stating that it is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L218" id="L218">
+                218
+              </a>
+            </td>
+            <td class="line-content">    released under this License and any conditions added under section</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L219" id="L219">
+                219
+              </a>
+            </td>
+            <td class="line-content">    7.  This requirement modifies the requirement in section 4 to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L220" id="L220">
+                220
+              </a>
+            </td>
+            <td class="line-content">    "keep intact all notices".</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L221" id="L221">
+                221
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L222" id="L222">
+                222
+              </a>
+            </td>
+            <td class="line-content">    c) You must license the entire work, as a whole, under this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L223" id="L223">
+                223
+              </a>
+            </td>
+            <td class="line-content">    License to anyone who comes into possession of a copy.  This</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L224" id="L224">
+                224
+              </a>
+            </td>
+            <td class="line-content">    License will therefore apply, along with any applicable section 7</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L225" id="L225">
+                225
+              </a>
+            </td>
+            <td class="line-content">    additional terms, to the whole of the work, and all its parts,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L226" id="L226">
+                226
+              </a>
+            </td>
+            <td class="line-content">    regardless of how they are packaged.  This License gives no</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L227" id="L227">
+                227
+              </a>
+            </td>
+            <td class="line-content">    permission to license the work in any other way, but it does not</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L228" id="L228">
+                228
+              </a>
+            </td>
+            <td class="line-content">    invalidate such permission if you have separately received it.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L229" id="L229">
+                229
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L230" id="L230">
+                230
+              </a>
+            </td>
+            <td class="line-content">    d) If the work has interactive user interfaces, each must display</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L231" id="L231">
+                231
+              </a>
+            </td>
+            <td class="line-content">    Appropriate Legal Notices; however, if the Program has interactive</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L232" id="L232">
+                232
+              </a>
+            </td>
+            <td class="line-content">    interfaces that do not display Appropriate Legal Notices, your</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L233" id="L233">
+                233
+              </a>
+            </td>
+            <td class="line-content">    work need not make them do so.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L234" id="L234">
+                234
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L235" id="L235">
+                235
+              </a>
+            </td>
+            <td class="line-content">  A compilation of a covered work with other separate and independent</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L236" id="L236">
+                236
+              </a>
+            </td>
+            <td class="line-content">works, which are not by their nature extensions of the covered work,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L237" id="L237">
+                237
+              </a>
+            </td>
+            <td class="line-content">and which are not combined with it such as to form a larger program,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L238" id="L238">
+                238
+              </a>
+            </td>
+            <td class="line-content">in or on a volume of a storage or distribution medium, is called an</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L239" id="L239">
+                239
+              </a>
+            </td>
+            <td class="line-content">"aggregate" if the compilation and its resulting copyright are not</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L240" id="L240">
+                240
+              </a>
+            </td>
+            <td class="line-content">used to limit the access or legal rights of the compilation's users</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L241" id="L241">
+                241
+              </a>
+            </td>
+            <td class="line-content">beyond what the individual works permit.  Inclusion of a covered work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L242" id="L242">
+                242
+              </a>
+            </td>
+            <td class="line-content">in an aggregate does not cause this License to apply to the other</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L243" id="L243">
+                243
+              </a>
+            </td>
+            <td class="line-content">parts of the aggregate.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L244" id="L244">
+                244
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L245" id="L245">
+                245
+              </a>
+            </td>
+            <td class="line-content">  6. Conveying Non-Source Forms.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L246" id="L246">
+                246
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L247" id="L247">
+                247
+              </a>
+            </td>
+            <td class="line-content">  You may convey a covered work in object code form under the terms</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L248" id="L248">
+                248
+              </a>
+            </td>
+            <td class="line-content">of sections 4 and 5, provided that you also convey the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L249" id="L249">
+                249
+              </a>
+            </td>
+            <td class="line-content">machine-readable Corresponding Source under the terms of this License,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L250" id="L250">
+                250
+              </a>
+            </td>
+            <td class="line-content">in one of these ways:</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L251" id="L251">
+                251
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L252" id="L252">
+                252
+              </a>
+            </td>
+            <td class="line-content">    a) Convey the object code in, or embodied in, a physical product</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L253" id="L253">
+                253
+              </a>
+            </td>
+            <td class="line-content">    (including a physical distribution medium), accompanied by the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L254" id="L254">
+                254
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source fixed on a durable physical medium</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L255" id="L255">
+                255
+              </a>
+            </td>
+            <td class="line-content">    customarily used for software interchange.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L256" id="L256">
+                256
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L257" id="L257">
+                257
+              </a>
+            </td>
+            <td class="line-content">    b) Convey the object code in, or embodied in, a physical product</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L258" id="L258">
+                258
+              </a>
+            </td>
+            <td class="line-content">    (including a physical distribution medium), accompanied by a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L259" id="L259">
+                259
+              </a>
+            </td>
+            <td class="line-content">    written offer, valid for at least three years and valid for as</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L260" id="L260">
+                260
+              </a>
+            </td>
+            <td class="line-content">    long as you offer spare parts or customer support for that product</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L261" id="L261">
+                261
+              </a>
+            </td>
+            <td class="line-content">    model, to give anyone who possesses the object code either (1) a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L262" id="L262">
+                262
+              </a>
+            </td>
+            <td class="line-content">    copy of the Corresponding Source for all the software in the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L263" id="L263">
+                263
+              </a>
+            </td>
+            <td class="line-content">    product that is covered by this License, on a durable physical</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L264" id="L264">
+                264
+              </a>
+            </td>
+            <td class="line-content">    medium customarily used for software interchange, for a price no</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L265" id="L265">
+                265
+              </a>
+            </td>
+            <td class="line-content">    more than your reasonable cost of physically performing this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L266" id="L266">
+                266
+              </a>
+            </td>
+            <td class="line-content">    conveying of source, or (2) access to copy the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L267" id="L267">
+                267
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source from a network server at no charge.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L268" id="L268">
+                268
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L269" id="L269">
+                269
+              </a>
+            </td>
+            <td class="line-content">    c) Convey individual copies of the object code with a copy of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L270" id="L270">
+                270
+              </a>
+            </td>
+            <td class="line-content">    written offer to provide the Corresponding Source.  This</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L271" id="L271">
+                271
+              </a>
+            </td>
+            <td class="line-content">    alternative is allowed only occasionally and noncommercially, and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L272" id="L272">
+                272
+              </a>
+            </td>
+            <td class="line-content">    only if you received the object code with such an offer, in accord</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L273" id="L273">
+                273
+              </a>
+            </td>
+            <td class="line-content">    with subsection 6b.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L274" id="L274">
+                274
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L275" id="L275">
+                275
+              </a>
+            </td>
+            <td class="line-content">    d) Convey the object code by offering access from a designated</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L276" id="L276">
+                276
+              </a>
+            </td>
+            <td class="line-content">    place (gratis or for a charge), and offer equivalent access to the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L277" id="L277">
+                277
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source in the same way through the same place at no</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L278" id="L278">
+                278
+              </a>
+            </td>
+            <td class="line-content">    further charge.  You need not require recipients to copy the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L279" id="L279">
+                279
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source along with the object code.  If the place to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L280" id="L280">
+                280
+              </a>
+            </td>
+            <td class="line-content">    copy the object code is a network server, the Corresponding Source</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L281" id="L281">
+                281
+              </a>
+            </td>
+            <td class="line-content">    may be on a different server (operated by you or a third party)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L282" id="L282">
+                282
+              </a>
+            </td>
+            <td class="line-content">    that supports equivalent copying facilities, provided you maintain</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L283" id="L283">
+                283
+              </a>
+            </td>
+            <td class="line-content">    clear directions next to the object code saying where to find the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L284" id="L284">
+                284
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source.  Regardless of what server hosts the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L285" id="L285">
+                285
+              </a>
+            </td>
+            <td class="line-content">    Corresponding Source, you remain obligated to ensure that it is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L286" id="L286">
+                286
+              </a>
+            </td>
+            <td class="line-content">    available for as long as needed to satisfy these requirements.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L287" id="L287">
+                287
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L288" id="L288">
+                288
+              </a>
+            </td>
+            <td class="line-content">    e) Convey the object code using peer-to-peer transmission, provided</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L289" id="L289">
+                289
+              </a>
+            </td>
+            <td class="line-content">    you inform other peers where the object code and Corresponding</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L290" id="L290">
+                290
+              </a>
+            </td>
+            <td class="line-content">    Source of the work are being offered to the general public at no</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L291" id="L291">
+                291
+              </a>
+            </td>
+            <td class="line-content">    charge under subsection 6d.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L292" id="L292">
+                292
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L293" id="L293">
+                293
+              </a>
+            </td>
+            <td class="line-content">  A separable portion of the object code, whose source code is excluded</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L294" id="L294">
+                294
+              </a>
+            </td>
+            <td class="line-content">from the Corresponding Source as a System Library, need not be</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L295" id="L295">
+                295
+              </a>
+            </td>
+            <td class="line-content">included in conveying the object code work.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L296" id="L296">
+                296
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L297" id="L297">
+                297
+              </a>
+            </td>
+            <td class="line-content">  A "User Product" is either (1) a "consumer product", which means any</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L298" id="L298">
+                298
+              </a>
+            </td>
+            <td class="line-content">tangible personal property which is normally used for personal, family,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L299" id="L299">
+                299
+              </a>
+            </td>
+            <td class="line-content">or household purposes, or (2) anything designed or sold for incorporation</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L300" id="L300">
+                300
+              </a>
+            </td>
+            <td class="line-content">into a dwelling.  In determining whether a product is a consumer product,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L301" id="L301">
+                301
+              </a>
+            </td>
+            <td class="line-content">doubtful cases shall be resolved in favor of coverage.  For a particular</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L302" id="L302">
+                302
+              </a>
+            </td>
+            <td class="line-content">product received by a particular user, "normally used" refers to a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L303" id="L303">
+                303
+              </a>
+            </td>
+            <td class="line-content">typical or common use of that class of product, regardless of the status</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L304" id="L304">
+                304
+              </a>
+            </td>
+            <td class="line-content">of the particular user or of the way in which the particular user</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L305" id="L305">
+                305
+              </a>
+            </td>
+            <td class="line-content">actually uses, or expects or is expected to use, the product.  A product</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L306" id="L306">
+                306
+              </a>
+            </td>
+            <td class="line-content">is a consumer product regardless of whether the product has substantial</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L307" id="L307">
+                307
+              </a>
+            </td>
+            <td class="line-content">commercial, industrial or non-consumer uses, unless such uses represent</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L308" id="L308">
+                308
+              </a>
+            </td>
+            <td class="line-content">the only significant mode of use of the product.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L309" id="L309">
+                309
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L310" id="L310">
+                310
+              </a>
+            </td>
+            <td class="line-content">  "Installation Information" for a User Product means any methods,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L311" id="L311">
+                311
+              </a>
+            </td>
+            <td class="line-content">procedures, authorization keys, or other information required to install</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L312" id="L312">
+                312
+              </a>
+            </td>
+            <td class="line-content">and execute modified versions of a covered work in that User Product from</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L313" id="L313">
+                313
+              </a>
+            </td>
+            <td class="line-content">a modified version of its Corresponding Source.  The information must</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L314" id="L314">
+                314
+              </a>
+            </td>
+            <td class="line-content">suffice to ensure that the continued functioning of the modified object</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L315" id="L315">
+                315
+              </a>
+            </td>
+            <td class="line-content">code is in no case prevented or interfered with solely because</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L316" id="L316">
+                316
+              </a>
+            </td>
+            <td class="line-content">modification has been made.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L317" id="L317">
+                317
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L318" id="L318">
+                318
+              </a>
+            </td>
+            <td class="line-content">  If you convey an object code work under this section in, or with, or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L319" id="L319">
+                319
+              </a>
+            </td>
+            <td class="line-content">specifically for use in, a User Product, and the conveying occurs as</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L320" id="L320">
+                320
+              </a>
+            </td>
+            <td class="line-content">part of a transaction in which the right of possession and use of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L321" id="L321">
+                321
+              </a>
+            </td>
+            <td class="line-content">User Product is transferred to the recipient in perpetuity or for a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L322" id="L322">
+                322
+              </a>
+            </td>
+            <td class="line-content">fixed term (regardless of how the transaction is characterized), the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L323" id="L323">
+                323
+              </a>
+            </td>
+            <td class="line-content">Corresponding Source conveyed under this section must be accompanied</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L324" id="L324">
+                324
+              </a>
+            </td>
+            <td class="line-content">by the Installation Information.  But this requirement does not apply</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L325" id="L325">
+                325
+              </a>
+            </td>
+            <td class="line-content">if neither you nor any third party retains the ability to install</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L326" id="L326">
+                326
+              </a>
+            </td>
+            <td class="line-content">modified object code on the User Product (for example, the work has</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L327" id="L327">
+                327
+              </a>
+            </td>
+            <td class="line-content">been installed in ROM).</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L328" id="L328">
+                328
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L329" id="L329">
+                329
+              </a>
+            </td>
+            <td class="line-content">  The requirement to provide Installation Information does not include a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L330" id="L330">
+                330
+              </a>
+            </td>
+            <td class="line-content">requirement to continue to provide support service, warranty, or updates</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L331" id="L331">
+                331
+              </a>
+            </td>
+            <td class="line-content">for a work that has been modified or installed by the recipient, or for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L332" id="L332">
+                332
+              </a>
+            </td>
+            <td class="line-content">the User Product in which it has been modified or installed.  Access to a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L333" id="L333">
+                333
+              </a>
+            </td>
+            <td class="line-content">network may be denied when the modification itself materially and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L334" id="L334">
+                334
+              </a>
+            </td>
+            <td class="line-content">adversely affects the operation of the network or violates the rules and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L335" id="L335">
+                335
+              </a>
+            </td>
+            <td class="line-content">protocols for communication across the network.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L336" id="L336">
+                336
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L337" id="L337">
+                337
+              </a>
+            </td>
+            <td class="line-content">  Corresponding Source conveyed, and Installation Information provided,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L338" id="L338">
+                338
+              </a>
+            </td>
+            <td class="line-content">in accord with this section must be in a format that is publicly</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L339" id="L339">
+                339
+              </a>
+            </td>
+            <td class="line-content">documented (and with an implementation available to the public in</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L340" id="L340">
+                340
+              </a>
+            </td>
+            <td class="line-content">source code form), and must require no special password or key for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L341" id="L341">
+                341
+              </a>
+            </td>
+            <td class="line-content">unpacking, reading or copying.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L342" id="L342">
+                342
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L343" id="L343">
+                343
+              </a>
+            </td>
+            <td class="line-content">  7. Additional Terms.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L344" id="L344">
+                344
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L345" id="L345">
+                345
+              </a>
+            </td>
+            <td class="line-content">  "Additional permissions" are terms that supplement the terms of this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L346" id="L346">
+                346
+              </a>
+            </td>
+            <td class="line-content">License by making exceptions from one or more of its conditions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L347" id="L347">
+                347
+              </a>
+            </td>
+            <td class="line-content">Additional permissions that are applicable to the entire Program shall</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L348" id="L348">
+                348
+              </a>
+            </td>
+            <td class="line-content">be treated as though they were included in this License, to the extent</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L349" id="L349">
+                349
+              </a>
+            </td>
+            <td class="line-content">that they are valid under applicable law.  If additional permissions</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L350" id="L350">
+                350
+              </a>
+            </td>
+            <td class="line-content">apply only to part of the Program, that part may be used separately</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L351" id="L351">
+                351
+              </a>
+            </td>
+            <td class="line-content">under those permissions, but the entire Program remains governed by</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L352" id="L352">
+                352
+              </a>
+            </td>
+            <td class="line-content">this License without regard to the additional permissions.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L353" id="L353">
+                353
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L354" id="L354">
+                354
+              </a>
+            </td>
+            <td class="line-content">  When you convey a copy of a covered work, you may at your option</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L355" id="L355">
+                355
+              </a>
+            </td>
+            <td class="line-content">remove any additional permissions from that copy, or from any part of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L356" id="L356">
+                356
+              </a>
+            </td>
+            <td class="line-content">it.  (Additional permissions may be written to require their own</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L357" id="L357">
+                357
+              </a>
+            </td>
+            <td class="line-content">removal in certain cases when you modify the work.)  You may place</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L358" id="L358">
+                358
+              </a>
+            </td>
+            <td class="line-content">additional permissions on material, added by you to a covered work,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L359" id="L359">
+                359
+              </a>
+            </td>
+            <td class="line-content">for which you have or can give appropriate copyright permission.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L360" id="L360">
+                360
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L361" id="L361">
+                361
+              </a>
+            </td>
+            <td class="line-content">  Notwithstanding any other provision of this License, for material you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L362" id="L362">
+                362
+              </a>
+            </td>
+            <td class="line-content">add to a covered work, you may (if authorized by the copyright holders of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L363" id="L363">
+                363
+              </a>
+            </td>
+            <td class="line-content">that material) supplement the terms of this License with terms:</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L364" id="L364">
+                364
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L365" id="L365">
+                365
+              </a>
+            </td>
+            <td class="line-content">    a) Disclaiming warranty or limiting liability differently from the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L366" id="L366">
+                366
+              </a>
+            </td>
+            <td class="line-content">    terms of sections 15 and 16 of this License; or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L367" id="L367">
+                367
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L368" id="L368">
+                368
+              </a>
+            </td>
+            <td class="line-content">    b) Requiring preservation of specified reasonable legal notices or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L369" id="L369">
+                369
+              </a>
+            </td>
+            <td class="line-content">    author attributions in that material or in the Appropriate Legal</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L370" id="L370">
+                370
+              </a>
+            </td>
+            <td class="line-content">    Notices displayed by works containing it; or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L371" id="L371">
+                371
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L372" id="L372">
+                372
+              </a>
+            </td>
+            <td class="line-content">    c) Prohibiting misrepresentation of the origin of that material, or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L373" id="L373">
+                373
+              </a>
+            </td>
+            <td class="line-content">    requiring that modified versions of such material be marked in</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L374" id="L374">
+                374
+              </a>
+            </td>
+            <td class="line-content">    reasonable ways as different from the original version; or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L375" id="L375">
+                375
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L376" id="L376">
+                376
+              </a>
+            </td>
+            <td class="line-content">    d) Limiting the use for publicity purposes of names of licensors or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L377" id="L377">
+                377
+              </a>
+            </td>
+            <td class="line-content">    authors of the material; or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L378" id="L378">
+                378
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L379" id="L379">
+                379
+              </a>
+            </td>
+            <td class="line-content">    e) Declining to grant rights under trademark law for use of some</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L380" id="L380">
+                380
+              </a>
+            </td>
+            <td class="line-content">    trade names, trademarks, or service marks; or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L381" id="L381">
+                381
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L382" id="L382">
+                382
+              </a>
+            </td>
+            <td class="line-content">    f) Requiring indemnification of licensors and authors of that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L383" id="L383">
+                383
+              </a>
+            </td>
+            <td class="line-content">    material by anyone who conveys the material (or modified versions of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L384" id="L384">
+                384
+              </a>
+            </td>
+            <td class="line-content">    it) with contractual assumptions of liability to the recipient, for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L385" id="L385">
+                385
+              </a>
+            </td>
+            <td class="line-content">    any liability that these contractual assumptions directly impose on</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L386" id="L386">
+                386
+              </a>
+            </td>
+            <td class="line-content">    those licensors and authors.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L387" id="L387">
+                387
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L388" id="L388">
+                388
+              </a>
+            </td>
+            <td class="line-content">  All other non-permissive additional terms are considered "further</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L389" id="L389">
+                389
+              </a>
+            </td>
+            <td class="line-content">restrictions" within the meaning of section 10.  If the Program as you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L390" id="L390">
+                390
+              </a>
+            </td>
+            <td class="line-content">received it, or any part of it, contains a notice stating that it is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L391" id="L391">
+                391
+              </a>
+            </td>
+            <td class="line-content">governed by this License along with a term that is a further</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L392" id="L392">
+                392
+              </a>
+            </td>
+            <td class="line-content">restriction, you may remove that term.  If a license document contains</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L393" id="L393">
+                393
+              </a>
+            </td>
+            <td class="line-content">a further restriction but permits relicensing or conveying under this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L394" id="L394">
+                394
+              </a>
+            </td>
+            <td class="line-content">License, you may add to a covered work material governed by the terms</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L395" id="L395">
+                395
+              </a>
+            </td>
+            <td class="line-content">of that license document, provided that the further restriction does</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L396" id="L396">
+                396
+              </a>
+            </td>
+            <td class="line-content">not survive such relicensing or conveying.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L397" id="L397">
+                397
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L398" id="L398">
+                398
+              </a>
+            </td>
+            <td class="line-content">  If you add terms to a covered work in accord with this section, you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L399" id="L399">
+                399
+              </a>
+            </td>
+            <td class="line-content">must place, in the relevant source files, a statement of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L400" id="L400">
+                400
+              </a>
+            </td>
+            <td class="line-content">additional terms that apply to those files, or a notice indicating</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L401" id="L401">
+                401
+              </a>
+            </td>
+            <td class="line-content">where to find the applicable terms.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L402" id="L402">
+                402
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L403" id="L403">
+                403
+              </a>
+            </td>
+            <td class="line-content">  Additional terms, permissive or non-permissive, may be stated in the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L404" id="L404">
+                404
+              </a>
+            </td>
+            <td class="line-content">form of a separately written license, or stated as exceptions;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L405" id="L405">
+                405
+              </a>
+            </td>
+            <td class="line-content">the above requirements apply either way.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L406" id="L406">
+                406
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L407" id="L407">
+                407
+              </a>
+            </td>
+            <td class="line-content">  8. Termination.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L408" id="L408">
+                408
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L409" id="L409">
+                409
+              </a>
+            </td>
+            <td class="line-content">  You may not propagate or modify a covered work except as expressly</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L410" id="L410">
+                410
+              </a>
+            </td>
+            <td class="line-content">provided under this License.  Any attempt otherwise to propagate or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L411" id="L411">
+                411
+              </a>
+            </td>
+            <td class="line-content">modify it is void, and will automatically terminate your rights under</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L412" id="L412">
+                412
+              </a>
+            </td>
+            <td class="line-content">this License (including any patent licenses granted under the third</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L413" id="L413">
+                413
+              </a>
+            </td>
+            <td class="line-content">paragraph of section 11).</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L414" id="L414">
+                414
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L415" id="L415">
+                415
+              </a>
+            </td>
+            <td class="line-content">  However, if you cease all violation of this License, then your</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L416" id="L416">
+                416
+              </a>
+            </td>
+            <td class="line-content">license from a particular copyright holder is reinstated (a)</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L417" id="L417">
+                417
+              </a>
+            </td>
+            <td class="line-content">provisionally, unless and until the copyright holder explicitly and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L418" id="L418">
+                418
+              </a>
+            </td>
+            <td class="line-content">finally terminates your license, and (b) permanently, if the copyright</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L419" id="L419">
+                419
+              </a>
+            </td>
+            <td class="line-content">holder fails to notify you of the violation by some reasonable means</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L420" id="L420">
+                420
+              </a>
+            </td>
+            <td class="line-content">prior to 60 days after the cessation.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L421" id="L421">
+                421
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L422" id="L422">
+                422
+              </a>
+            </td>
+            <td class="line-content">  Moreover, your license from a particular copyright holder is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L423" id="L423">
+                423
+              </a>
+            </td>
+            <td class="line-content">reinstated permanently if the copyright holder notifies you of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L424" id="L424">
+                424
+              </a>
+            </td>
+            <td class="line-content">violation by some reasonable means, this is the first time you have</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L425" id="L425">
+                425
+              </a>
+            </td>
+            <td class="line-content">received notice of violation of this License (for any work) from that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L426" id="L426">
+                426
+              </a>
+            </td>
+            <td class="line-content">copyright holder, and you cure the violation prior to 30 days after</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L427" id="L427">
+                427
+              </a>
+            </td>
+            <td class="line-content">your receipt of the notice.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L428" id="L428">
+                428
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L429" id="L429">
+                429
+              </a>
+            </td>
+            <td class="line-content">  Termination of your rights under this section does not terminate the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L430" id="L430">
+                430
+              </a>
+            </td>
+            <td class="line-content">licenses of parties who have received copies or rights from you under</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L431" id="L431">
+                431
+              </a>
+            </td>
+            <td class="line-content">this License.  If your rights have been terminated and not permanently</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L432" id="L432">
+                432
+              </a>
+            </td>
+            <td class="line-content">reinstated, you do not qualify to receive new licenses for the same</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L433" id="L433">
+                433
+              </a>
+            </td>
+            <td class="line-content">material under section 10.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L434" id="L434">
+                434
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L435" id="L435">
+                435
+              </a>
+            </td>
+            <td class="line-content">  9. Acceptance Not Required for Having Copies.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L436" id="L436">
+                436
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L437" id="L437">
+                437
+              </a>
+            </td>
+            <td class="line-content">  You are not required to accept this License in order to receive or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L438" id="L438">
+                438
+              </a>
+            </td>
+            <td class="line-content">run a copy of the Program.  Ancillary propagation of a covered work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L439" id="L439">
+                439
+              </a>
+            </td>
+            <td class="line-content">occurring solely as a consequence of using peer-to-peer transmission</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L440" id="L440">
+                440
+              </a>
+            </td>
+            <td class="line-content">to receive a copy likewise does not require acceptance.  However,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L441" id="L441">
+                441
+              </a>
+            </td>
+            <td class="line-content">nothing other than this License grants you permission to propagate or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L442" id="L442">
+                442
+              </a>
+            </td>
+            <td class="line-content">modify any covered work.  These actions infringe copyright if you do</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L443" id="L443">
+                443
+              </a>
+            </td>
+            <td class="line-content">not accept this License.  Therefore, by modifying or propagating a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L444" id="L444">
+                444
+              </a>
+            </td>
+            <td class="line-content">covered work, you indicate your acceptance of this License to do so.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L445" id="L445">
+                445
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L446" id="L446">
+                446
+              </a>
+            </td>
+            <td class="line-content">  10. Automatic Licensing of Downstream Recipients.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L447" id="L447">
+                447
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L448" id="L448">
+                448
+              </a>
+            </td>
+            <td class="line-content">  Each time you convey a covered work, the recipient automatically</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L449" id="L449">
+                449
+              </a>
+            </td>
+            <td class="line-content">receives a license from the original licensors, to run, modify and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L450" id="L450">
+                450
+              </a>
+            </td>
+            <td class="line-content">propagate that work, subject to this License.  You are not responsible</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L451" id="L451">
+                451
+              </a>
+            </td>
+            <td class="line-content">for enforcing compliance by third parties with this License.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L452" id="L452">
+                452
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L453" id="L453">
+                453
+              </a>
+            </td>
+            <td class="line-content">  An "entity transaction" is a transaction transferring control of an</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L454" id="L454">
+                454
+              </a>
+            </td>
+            <td class="line-content">organization, or substantially all assets of one, or subdividing an</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L455" id="L455">
+                455
+              </a>
+            </td>
+            <td class="line-content">organization, or merging organizations.  If propagation of a covered</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L456" id="L456">
+                456
+              </a>
+            </td>
+            <td class="line-content">work results from an entity transaction, each party to that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L457" id="L457">
+                457
+              </a>
+            </td>
+            <td class="line-content">transaction who receives a copy of the work also receives whatever</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L458" id="L458">
+                458
+              </a>
+            </td>
+            <td class="line-content">licenses to the work the party's predecessor in interest had or could</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L459" id="L459">
+                459
+              </a>
+            </td>
+            <td class="line-content">give under the previous paragraph, plus a right to possession of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L460" id="L460">
+                460
+              </a>
+            </td>
+            <td class="line-content">Corresponding Source of the work from the predecessor in interest, if</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L461" id="L461">
+                461
+              </a>
+            </td>
+            <td class="line-content">the predecessor has it or can get it with reasonable efforts.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L462" id="L462">
+                462
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L463" id="L463">
+                463
+              </a>
+            </td>
+            <td class="line-content">  You may not impose any further restrictions on the exercise of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L464" id="L464">
+                464
+              </a>
+            </td>
+            <td class="line-content">rights granted or affirmed under this License.  For example, you may</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L465" id="L465">
+                465
+              </a>
+            </td>
+            <td class="line-content">not impose a license fee, royalty, or other charge for exercise of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L466" id="L466">
+                466
+              </a>
+            </td>
+            <td class="line-content">rights granted under this License, and you may not initiate litigation</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L467" id="L467">
+                467
+              </a>
+            </td>
+            <td class="line-content">(including a cross-claim or counterclaim in a lawsuit) alleging that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L468" id="L468">
+                468
+              </a>
+            </td>
+            <td class="line-content">any patent claim is infringed by making, using, selling, offering for</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L469" id="L469">
+                469
+              </a>
+            </td>
+            <td class="line-content">sale, or importing the Program or any portion of it.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L470" id="L470">
+                470
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L471" id="L471">
+                471
+              </a>
+            </td>
+            <td class="line-content">  11. Patents.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L472" id="L472">
+                472
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L473" id="L473">
+                473
+              </a>
+            </td>
+            <td class="line-content">  A "contributor" is a copyright holder who authorizes use under this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L474" id="L474">
+                474
+              </a>
+            </td>
+            <td class="line-content">License of the Program or a work on which the Program is based.  The</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L475" id="L475">
+                475
+              </a>
+            </td>
+            <td class="line-content">work thus licensed is called the contributor's "contributor version".</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L476" id="L476">
+                476
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L477" id="L477">
+                477
+              </a>
+            </td>
+            <td class="line-content">  A contributor's "essential patent claims" are all patent claims</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L478" id="L478">
+                478
+              </a>
+            </td>
+            <td class="line-content">owned or controlled by the contributor, whether already acquired or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L479" id="L479">
+                479
+              </a>
+            </td>
+            <td class="line-content">hereafter acquired, that would be infringed by some manner, permitted</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L480" id="L480">
+                480
+              </a>
+            </td>
+            <td class="line-content">by this License, of making, using, or selling its contributor version,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L481" id="L481">
+                481
+              </a>
+            </td>
+            <td class="line-content">but do not include claims that would be infringed only as a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L482" id="L482">
+                482
+              </a>
+            </td>
+            <td class="line-content">consequence of further modification of the contributor version.  For</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L483" id="L483">
+                483
+              </a>
+            </td>
+            <td class="line-content">purposes of this definition, "control" includes the right to grant</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L484" id="L484">
+                484
+              </a>
+            </td>
+            <td class="line-content">patent sublicenses in a manner consistent with the requirements of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L485" id="L485">
+                485
+              </a>
+            </td>
+            <td class="line-content">this License.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L486" id="L486">
+                486
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L487" id="L487">
+                487
+              </a>
+            </td>
+            <td class="line-content">  Each contributor grants you a non-exclusive, worldwide, royalty-free</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L488" id="L488">
+                488
+              </a>
+            </td>
+            <td class="line-content">patent license under the contributor's essential patent claims, to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L489" id="L489">
+                489
+              </a>
+            </td>
+            <td class="line-content">make, use, sell, offer for sale, import and otherwise run, modify and</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L490" id="L490">
+                490
+              </a>
+            </td>
+            <td class="line-content">propagate the contents of its contributor version.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L491" id="L491">
+                491
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L492" id="L492">
+                492
+              </a>
+            </td>
+            <td class="line-content">  In the following three paragraphs, a "patent license" is any express</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L493" id="L493">
+                493
+              </a>
+            </td>
+            <td class="line-content">agreement or commitment, however denominated, not to enforce a patent</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L494" id="L494">
+                494
+              </a>
+            </td>
+            <td class="line-content">(such as an express permission to practice a patent or covenant not to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L495" id="L495">
+                495
+              </a>
+            </td>
+            <td class="line-content">sue for patent infringement).  To "grant" such a patent license to a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L496" id="L496">
+                496
+              </a>
+            </td>
+            <td class="line-content">party means to make such an agreement or commitment not to enforce a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L497" id="L497">
+                497
+              </a>
+            </td>
+            <td class="line-content">patent against the party.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L498" id="L498">
+                498
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L499" id="L499">
+                499
+              </a>
+            </td>
+            <td class="line-content">  If you convey a covered work, knowingly relying on a patent license,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L500" id="L500">
+                500
+              </a>
+            </td>
+            <td class="line-content">and the Corresponding Source of the work is not available for anyone</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L501" id="L501">
+                501
+              </a>
+            </td>
+            <td class="line-content">to copy, free of charge and under the terms of this License, through a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L502" id="L502">
+                502
+              </a>
+            </td>
+            <td class="line-content">publicly available network server or other readily accessible means,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L503" id="L503">
+                503
+              </a>
+            </td>
+            <td class="line-content">then you must either (1) cause the Corresponding Source to be so</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L504" id="L504">
+                504
+              </a>
+            </td>
+            <td class="line-content">available, or (2) arrange to deprive yourself of the benefit of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L505" id="L505">
+                505
+              </a>
+            </td>
+            <td class="line-content">patent license for this particular work, or (3) arrange, in a manner</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L506" id="L506">
+                506
+              </a>
+            </td>
+            <td class="line-content">consistent with the requirements of this License, to extend the patent</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L507" id="L507">
+                507
+              </a>
+            </td>
+            <td class="line-content">license to downstream recipients.  "Knowingly relying" means you have</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L508" id="L508">
+                508
+              </a>
+            </td>
+            <td class="line-content">actual knowledge that, but for the patent license, your conveying the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L509" id="L509">
+                509
+              </a>
+            </td>
+            <td class="line-content">covered work in a country, or your recipient's use of the covered work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L510" id="L510">
+                510
+              </a>
+            </td>
+            <td class="line-content">in a country, would infringe one or more identifiable patents in that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L511" id="L511">
+                511
+              </a>
+            </td>
+            <td class="line-content">country that you have reason to believe are valid.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L512" id="L512">
+                512
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L513" id="L513">
+                513
+              </a>
+            </td>
+            <td class="line-content">  If, pursuant to or in connection with a single transaction or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L514" id="L514">
+                514
+              </a>
+            </td>
+            <td class="line-content">arrangement, you convey, or propagate by procuring conveyance of, a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L515" id="L515">
+                515
+              </a>
+            </td>
+            <td class="line-content">covered work, and grant a patent license to some of the parties</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L516" id="L516">
+                516
+              </a>
+            </td>
+            <td class="line-content">receiving the covered work authorizing them to use, propagate, modify</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L517" id="L517">
+                517
+              </a>
+            </td>
+            <td class="line-content">or convey a specific copy of the covered work, then the patent license</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L518" id="L518">
+                518
+              </a>
+            </td>
+            <td class="line-content">you grant is automatically extended to all recipients of the covered</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L519" id="L519">
+                519
+              </a>
+            </td>
+            <td class="line-content">work and works based on it.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L520" id="L520">
+                520
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L521" id="L521">
+                521
+              </a>
+            </td>
+            <td class="line-content">  A patent license is "discriminatory" if it does not include within</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L522" id="L522">
+                522
+              </a>
+            </td>
+            <td class="line-content">the scope of its coverage, prohibits the exercise of, or is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L523" id="L523">
+                523
+              </a>
+            </td>
+            <td class="line-content">conditioned on the non-exercise of one or more of the rights that are</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L524" id="L524">
+                524
+              </a>
+            </td>
+            <td class="line-content">specifically granted under this License.  You may not convey a covered</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L525" id="L525">
+                525
+              </a>
+            </td>
+            <td class="line-content">work if you are a party to an arrangement with a third party that is</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L526" id="L526">
+                526
+              </a>
+            </td>
+            <td class="line-content">in the business of distributing software, under which you make payment</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L527" id="L527">
+                527
+              </a>
+            </td>
+            <td class="line-content">to the third party based on the extent of your activity of conveying</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L528" id="L528">
+                528
+              </a>
+            </td>
+            <td class="line-content">the work, and under which the third party grants, to any of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L529" id="L529">
+                529
+              </a>
+            </td>
+            <td class="line-content">parties who would receive the covered work from you, a discriminatory</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L530" id="L530">
+                530
+              </a>
+            </td>
+            <td class="line-content">patent license (a) in connection with copies of the covered work</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L531" id="L531">
+                531
+              </a>
+            </td>
+            <td class="line-content">conveyed by you (or copies made from those copies), or (b) primarily</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L532" id="L532">
+                532
+              </a>
+            </td>
+            <td class="line-content">for and in connection with specific products or compilations that</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L533" id="L533">
+                533
+              </a>
+            </td>
+            <td class="line-content">contain the covered work, unless you entered into that arrangement,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L534" id="L534">
+                534
+              </a>
+            </td>
+            <td class="line-content">or that patent license was granted, prior to 28 March 2007.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L535" id="L535">
+                535
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L536" id="L536">
+                536
+              </a>
+            </td>
+            <td class="line-content">  Nothing in this License shall be construed as excluding or limiting</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L537" id="L537">
+                537
+              </a>
+            </td>
+            <td class="line-content">any implied license or other defenses to infringement that may</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L538" id="L538">
+                538
+              </a>
+            </td>
+            <td class="line-content">otherwise be available to you under applicable patent law.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L539" id="L539">
+                539
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L540" id="L540">
+                540
+              </a>
+            </td>
+            <td class="line-content">  12. No Surrender of Others' Freedom.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L541" id="L541">
+                541
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L542" id="L542">
+                542
+              </a>
+            </td>
+            <td class="line-content">  If conditions are imposed on you (whether by court order, agreement or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L543" id="L543">
+                543
+              </a>
+            </td>
+            <td class="line-content">otherwise) that contradict the conditions of this License, they do not</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L544" id="L544">
+                544
+              </a>
+            </td>
+            <td class="line-content">excuse you from the conditions of this License.  If you cannot convey a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L545" id="L545">
+                545
+              </a>
+            </td>
+            <td class="line-content">covered work so as to satisfy simultaneously your obligations under this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L546" id="L546">
+                546
+              </a>
+            </td>
+            <td class="line-content">License and any other pertinent obligations, then as a consequence you may</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L547" id="L547">
+                547
+              </a>
+            </td>
+            <td class="line-content">not convey it at all.  For example, if you agree to terms that obligate you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L548" id="L548">
+                548
+              </a>
+            </td>
+            <td class="line-content">to collect a royalty for further conveying from those to whom you convey</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L549" id="L549">
+                549
+              </a>
+            </td>
+            <td class="line-content">the Program, the only way you could satisfy both those terms and this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L550" id="L550">
+                550
+              </a>
+            </td>
+            <td class="line-content">License would be to refrain entirely from conveying the Program.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L551" id="L551">
+                551
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L552" id="L552">
+                552
+              </a>
+            </td>
+            <td class="line-content">  13. Use with the GNU Affero General Public License.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L553" id="L553">
+                553
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L554" id="L554">
+                554
+              </a>
+            </td>
+            <td class="line-content">  Notwithstanding any other provision of this License, you have</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L555" id="L555">
+                555
+              </a>
+            </td>
+            <td class="line-content">permission to link or combine any covered work with a work licensed</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L556" id="L556">
+                556
+              </a>
+            </td>
+            <td class="line-content">under version 3 of the GNU Affero General Public License into a single</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L557" id="L557">
+                557
+              </a>
+            </td>
+            <td class="line-content">combined work, and to convey the resulting work.  The terms of this</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L558" id="L558">
+                558
+              </a>
+            </td>
+            <td class="line-content">License will continue to apply to the part which is the covered work,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L559" id="L559">
+                559
+              </a>
+            </td>
+            <td class="line-content">but the special requirements of the GNU Affero General Public License,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L560" id="L560">
+                560
+              </a>
+            </td>
+            <td class="line-content">section 13, concerning interaction through a network will apply to the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L561" id="L561">
+                561
+              </a>
+            </td>
+            <td class="line-content">combination as such.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L562" id="L562">
+                562
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L563" id="L563">
+                563
+              </a>
+            </td>
+            <td class="line-content">  14. Revised Versions of this License.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L564" id="L564">
+                564
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L565" id="L565">
+                565
+              </a>
+            </td>
+            <td class="line-content">  The Free Software Foundation may publish revised and/or new versions of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L566" id="L566">
+                566
+              </a>
+            </td>
+            <td class="line-content">the GNU General Public License from time to time.  Such new versions will</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L567" id="L567">
+                567
+              </a>
+            </td>
+            <td class="line-content">be similar in spirit to the present version, but may differ in detail to</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L568" id="L568">
+                568
+              </a>
+            </td>
+            <td class="line-content">address new problems or concerns.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L569" id="L569">
+                569
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L570" id="L570">
+                570
+              </a>
+            </td>
+            <td class="line-content">  Each version is given a distinguishing version number.  If the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L571" id="L571">
+                571
+              </a>
+            </td>
+            <td class="line-content">Program specifies that a certain numbered version of the GNU General</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L572" id="L572">
+                572
+              </a>
+            </td>
+            <td class="line-content">Public License "or any later version" applies to it, you have the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L573" id="L573">
+                573
+              </a>
+            </td>
+            <td class="line-content">option of following the terms and conditions either of that numbered</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L574" id="L574">
+                574
+              </a>
+            </td>
+            <td class="line-content">version or of any later version published by the Free Software</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L575" id="L575">
+                575
+              </a>
+            </td>
+            <td class="line-content">Foundation.  If the Program does not specify a version number of the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L576" id="L576">
+                576
+              </a>
+            </td>
+            <td class="line-content">GNU General Public License, you may choose any version ever published</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L577" id="L577">
+                577
+              </a>
+            </td>
+            <td class="line-content">by the Free Software Foundation.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L578" id="L578">
+                578
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L579" id="L579">
+                579
+              </a>
+            </td>
+            <td class="line-content">  If the Program specifies that a proxy can decide which future</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L580" id="L580">
+                580
+              </a>
+            </td>
+            <td class="line-content">versions of the GNU General Public License can be used, that proxy's</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L581" id="L581">
+                581
+              </a>
+            </td>
+            <td class="line-content">public statement of acceptance of a version permanently authorizes you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L582" id="L582">
+                582
+              </a>
+            </td>
+            <td class="line-content">to choose that version for the Program.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L583" id="L583">
+                583
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L584" id="L584">
+                584
+              </a>
+            </td>
+            <td class="line-content">  Later license versions may give you additional or different</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L585" id="L585">
+                585
+              </a>
+            </td>
+            <td class="line-content">permissions.  However, no additional obligations are imposed on any</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L586" id="L586">
+                586
+              </a>
+            </td>
+            <td class="line-content">author or copyright holder as a result of your choosing to follow a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L587" id="L587">
+                587
+              </a>
+            </td>
+            <td class="line-content">later version.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L588" id="L588">
+                588
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L589" id="L589">
+                589
+              </a>
+            </td>
+            <td class="line-content">  15. Disclaimer of Warranty.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L590" id="L590">
+                590
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L591" id="L591">
+                591
+              </a>
+            </td>
+            <td class="line-content">  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L592" id="L592">
+                592
+              </a>
+            </td>
+            <td class="line-content">APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L593" id="L593">
+                593
+              </a>
+            </td>
+            <td class="line-content">HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L594" id="L594">
+                594
+              </a>
+            </td>
+            <td class="line-content">OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L595" id="L595">
+                595
+              </a>
+            </td>
+            <td class="line-content">THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L596" id="L596">
+                596
+              </a>
+            </td>
+            <td class="line-content">PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L597" id="L597">
+                597
+              </a>
+            </td>
+            <td class="line-content">IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L598" id="L598">
+                598
+              </a>
+            </td>
+            <td class="line-content">ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L599" id="L599">
+                599
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L600" id="L600">
+                600
+              </a>
+            </td>
+            <td class="line-content">  16. Limitation of Liability.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L601" id="L601">
+                601
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L602" id="L602">
+                602
+              </a>
+            </td>
+            <td class="line-content">  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L603" id="L603">
+                603
+              </a>
+            </td>
+            <td class="line-content">WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L604" id="L604">
+                604
+              </a>
+            </td>
+            <td class="line-content">THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L605" id="L605">
+                605
+              </a>
+            </td>
+            <td class="line-content">GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L606" id="L606">
+                606
+              </a>
+            </td>
+            <td class="line-content">USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L607" id="L607">
+                607
+              </a>
+            </td>
+            <td class="line-content">DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L608" id="L608">
+                608
+              </a>
+            </td>
+            <td class="line-content">PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L609" id="L609">
+                609
+              </a>
+            </td>
+            <td class="line-content">EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L610" id="L610">
+                610
+              </a>
+            </td>
+            <td class="line-content">SUCH DAMAGES.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L611" id="L611">
+                611
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L612" id="L612">
+                612
+              </a>
+            </td>
+            <td class="line-content">  17. Interpretation of Sections 15 and 16.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L613" id="L613">
+                613
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L614" id="L614">
+                614
+              </a>
+            </td>
+            <td class="line-content">  If the disclaimer of warranty and limitation of liability provided</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L615" id="L615">
+                615
+              </a>
+            </td>
+            <td class="line-content">above cannot be given local legal effect according to their terms,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L616" id="L616">
+                616
+              </a>
+            </td>
+            <td class="line-content">reviewing courts shall apply local law that most closely approximates</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L617" id="L617">
+                617
+              </a>
+            </td>
+            <td class="line-content">an absolute waiver of all civil liability in connection with the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L618" id="L618">
+                618
+              </a>
+            </td>
+            <td class="line-content">Program, unless a warranty or assumption of liability accompanies a</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L619" id="L619">
+                619
+              </a>
+            </td>
+            <td class="line-content">copy of the Program in return for a fee.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L620" id="L620">
+                620
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L621" id="L621">
+                621
+              </a>
+            </td>
+            <td class="line-content">                     END OF TERMS AND CONDITIONS</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L622" id="L622">
+                622
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L623" id="L623">
+                623
+              </a>
+            </td>
+            <td class="line-content">            How to Apply These Terms to Your New Programs</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L624" id="L624">
+                624
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L625" id="L625">
+                625
+              </a>
+            </td>
+            <td class="line-content">  If you develop a new program, and you want it to be of the greatest</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L626" id="L626">
+                626
+              </a>
+            </td>
+            <td class="line-content">possible use to the public, the best way to achieve this is to make it</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L627" id="L627">
+                627
+              </a>
+            </td>
+            <td class="line-content">free software which everyone can redistribute and change under these terms.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L628" id="L628">
+                628
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L629" id="L629">
+                629
+              </a>
+            </td>
+            <td class="line-content">  To do so, attach the following notices to the program.  It is safest</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L630" id="L630">
+                630
+              </a>
+            </td>
+            <td class="line-content">to attach them to the start of each source file to most effectively</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L631" id="L631">
+                631
+              </a>
+            </td>
+            <td class="line-content">state the exclusion of warranty; and each file should have at least</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L632" id="L632">
+                632
+              </a>
+            </td>
+            <td class="line-content">the "copyright" line and a pointer to where the full notice is found.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L633" id="L633">
+                633
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L634" id="L634">
+                634
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;one line to give the program's name and a brief idea of what it does.></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L635" id="L635">
+                635
+              </a>
+            </td>
+            <td class="line-content">    Copyright (C) &#x3C;year>  &#x3C;name of author></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L636" id="L636">
+                636
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L637" id="L637">
+                637
+              </a>
+            </td>
+            <td class="line-content">    This program is free software: you can redistribute it and/or modify</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L638" id="L638">
+                638
+              </a>
+            </td>
+            <td class="line-content">    it under the terms of the GNU General Public License as published by</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L639" id="L639">
+                639
+              </a>
+            </td>
+            <td class="line-content">    the Free Software Foundation, either version 3 of the License, or</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L640" id="L640">
+                640
+              </a>
+            </td>
+            <td class="line-content">    (at your option) any later version.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L641" id="L641">
+                641
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L642" id="L642">
+                642
+              </a>
+            </td>
+            <td class="line-content">    This program is distributed in the hope that it will be useful,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L643" id="L643">
+                643
+              </a>
+            </td>
+            <td class="line-content">    but WITHOUT ANY WARRANTY; without even the implied warranty of</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L644" id="L644">
+                644
+              </a>
+            </td>
+            <td class="line-content">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L645" id="L645">
+                645
+              </a>
+            </td>
+            <td class="line-content">    GNU General Public License for more details.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L646" id="L646">
+                646
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L647" id="L647">
+                647
+              </a>
+            </td>
+            <td class="line-content">    You should have received a copy of the GNU General Public License</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L648" id="L648">
+                648
+              </a>
+            </td>
+            <td class="line-content">    along with this program.  If not, see &#x3C;https://www.gnu.org/licenses/>.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L649" id="L649">
+                649
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L650" id="L650">
+                650
+              </a>
+            </td>
+            <td class="line-content">Also add information on how to contact you by electronic and paper mail.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L651" id="L651">
+                651
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L652" id="L652">
+                652
+              </a>
+            </td>
+            <td class="line-content">  If the program does terminal interaction, make it output a short</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L653" id="L653">
+                653
+              </a>
+            </td>
+            <td class="line-content">notice like this when it starts in an interactive mode:</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L654" id="L654">
+                654
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L655" id="L655">
+                655
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;program>  Copyright (C) &#x3C;year>  &#x3C;name of author></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L656" id="L656">
+                656
+              </a>
+            </td>
+            <td class="line-content">    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L657" id="L657">
+                657
+              </a>
+            </td>
+            <td class="line-content">    This is free software, and you are welcome to redistribute it</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L658" id="L658">
+                658
+              </a>
+            </td>
+            <td class="line-content">    under certain conditions; type `show c' for details.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L659" id="L659">
+                659
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L660" id="L660">
+                660
+              </a>
+            </td>
+            <td class="line-content">The hypothetical commands `show w' and `show c' should show the appropriate</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L661" id="L661">
+                661
+              </a>
+            </td>
+            <td class="line-content">parts of the General Public License.  Of course, your program's commands</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L662" id="L662">
+                662
+              </a>
+            </td>
+            <td class="line-content">might be different; for a GUI interface, you would use an "about box".</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L663" id="L663">
+                663
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L664" id="L664">
+                664
+              </a>
+            </td>
+            <td class="line-content">  You should also get your employer (if you work as a programmer) or school,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L665" id="L665">
+                665
+              </a>
+            </td>
+            <td class="line-content">if any, to sign a "copyright disclaimer" for the program, if necessary.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L666" id="L666">
+                666
+              </a>
+            </td>
+            <td class="line-content">For more information on this, and how to apply and follow the GNU GPL, see</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L667" id="L667">
+                667
+              </a>
+            </td>
+            <td class="line-content">&#x3C;https://www.gnu.org/licenses/>.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L668" id="L668">
+                668
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L669" id="L669">
+                669
+              </a>
+            </td>
+            <td class="line-content">  The GNU General Public License does not permit incorporating your program</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L670" id="L670">
+                670
+              </a>
+            </td>
+            <td class="line-content">into proprietary programs.  If your program is a subroutine library, you</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L671" id="L671">
+                671
+              </a>
+            </td>
+            <td class="line-content">may consider it more useful to permit linking proprietary applications with</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L672" id="L672">
+                672
+              </a>
+            </td>
+            <td class="line-content">the library.  If this is what you want to do, use the GNU Lesser General</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L673" id="L673">
+                673
+              </a>
+            </td>
+            <td class="line-content">Public License instead of this License.  But first, please read</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L674" id="L674">
+                674
+              </a>
+            </td>
+            <td class="line-content">&#x3C;https://www.gnu.org/licenses/why-not-lgpl.html>.</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L675" id="L675">
+                675
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

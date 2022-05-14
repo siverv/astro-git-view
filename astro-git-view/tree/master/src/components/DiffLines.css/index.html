@@ -1,0 +1,555 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-git-view/tree/master/src/components/DiffLines.css//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+</span>
+    <b class="commit-message">
+      better lunr in dev-mode; better file diffs
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">
+          9a34364
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f" title="show diff">9a34364</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/src">src</a> / <a href="/astro-git-view/astro-git-view/tree/master/src/components">components</a> / <b>DiffLines.css</b>
+
+      <div>
+        <span>50 lines</span>
+        <span>(43 sloc)</span>
+        | 
+        <span class="bytes">
+  700 B
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .added {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content">	background-color: #0901;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .removed {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content">	background-color: #9001;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .added:hover {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">	background-color: #0904;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .removed:hover {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">	background-color: #9004;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .ellipsis {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">	opacity: 0.5;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .line-number {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">	min-width: 7ch;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content">	width: 7ch;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">	text-align: right;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .line-added,</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .line-removed {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">	min-width: 1ch;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content">	width: 1ch;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L29" id="L29">
+                29
+              </a>
+            </td>
+            <td class="line-content">	font-family: monospace;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L30" id="L30">
+                30
+              </a>
+            </td>
+            <td class="line-content">	text-align: center;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L31" id="L31">
+                31
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L32" id="L32">
+                32
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L33" id="L33">
+                33
+              </a>
+            </td>
+            <td class="line-content">.diff-lines .line {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L34" id="L34">
+                34
+              </a>
+            </td>
+            <td class="line-content">	white-space:  pre;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L35" id="L35">
+                35
+              </a>
+            </td>
+            <td class="line-content">	font-family: monospace;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L36" id="L36">
+                36
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L37" id="L37">
+                37
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L38" id="L38">
+                38
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L39" id="L39">
+                39
+              </a>
+            </td>
+            <td class="line-content">.stats {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L40" id="L40">
+                40
+              </a>
+            </td>
+            <td class="line-content">	padding: 0 1ch;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L41" id="L41">
+                41
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L42" id="L42">
+                42
+              </a>
+            </td>
+            <td class="line-content">.stats.removed {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L43" id="L43">
+                43
+              </a>
+            </td>
+            <td class="line-content">	background-color:  #9002;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L44" id="L44">
+                44
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L45" id="L45">
+                45
+              </a>
+            </td>
+            <td class="line-content">.stats.added {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L46" id="L46">
+                46
+              </a>
+            </td>
+            <td class="line-content">	background-color:  #0902;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L47" id="L47">
+                47
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L48" id="L48">
+                48
+              </a>
+            </td>
+            <td class="line-content">.stats.changed {</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L49" id="L49">
+                49
+              </a>
+            </td>
+            <td class="line-content">	background-color:  #0092;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L50" id="L50">
+                50
+              </a>
+            </td>
+            <td class="line-content">}</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

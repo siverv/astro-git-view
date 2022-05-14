@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.d9615966.css"></link><script type="module" src="/astro-git-view/entry.c1a531de.js" astro-script="//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <h1 class="headered-section-header">
+    Git-repositories as presented through <a href="https://github.com/siverv/astro-git-view">astro-git-view</a>
+  </h1><section>
+    <table class="repo-list-table">
+      <tbody>
+      <tr>
+          <td><a href="/astro-git-view/astro-git-view">astro-git-view</a></td>
+          <td>A server-side generated source code explorer for git-repositories
+</td>
+          <td class="message" style="color: #999;">
+            npm dependencies updated
+
+          </td>
+          <td class="date"><relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+</td>
+        </tr><tr>
+          <td><a href="/astro-git-view/astro-lunr">astro-lunr</a></td>
+          <td>Lunr integration for Astro; client-side search for statically hosted pages.
+</td>
+          <td class="message" style="color: #999;">
+            #1: fixed base path replacement problem
+
+          </td>
+          <td class="date"><relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  </body></html>

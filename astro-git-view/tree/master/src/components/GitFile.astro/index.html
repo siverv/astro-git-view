@@ -1,0 +1,609 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-git-view/tree/master/src/components/GitFile.astro//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+</span>
+    <b class="commit-message">
+      Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">
+          37a934a
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f" title="show diff">885875b</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99">Basic functionality, with some some dead links
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99" title="show diff">1a4b2c5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <a href="/astro-git-view/astro-git-view/tree/master/src">src</a> / <a href="/astro-git-view/astro-git-view/tree/master/src/components">components</a> / <b>GitFile.astro</b>
+
+      <div>
+        <span>55 lines</span>
+        <span>(48 sloc)</span>
+        | 
+        <span class="bytes">
+  1.9 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div>
+    <table class="file-content">
+      <tbody>
+        <tr class="line">
+            <td class="line-number">
+              <a href="#L1" id="L1">
+                1
+              </a>
+            </td>
+            <td class="line-content">---</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L2" id="L2">
+                2
+              </a>
+            </td>
+            <td class="line-content">import { Markdown } from 'astro/components';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L3" id="L3">
+                3
+              </a>
+            </td>
+            <td class="line-content">import GitHistoryBar from '@components/GitHistoryBar.astro';</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L4" id="L4">
+                4
+              </a>
+            </td>
+            <td class="line-content">import CodeFilePreview from './filePreviews/CodeFilePreview.astro'</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L5" id="L5">
+                5
+              </a>
+            </td>
+            <td class="line-content">import MarkdownPreview from './filePreviews/MarkdownPreview.astro'</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L6" id="L6">
+                6
+              </a>
+            </td>
+            <td class="line-content">import BinaryFilePreview from './filePreviews/BinaryFilePreview.astro'</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L7" id="L7">
+                7
+              </a>
+            </td>
+            <td class="line-content">import {isBinaryFile} from "isbinaryfile";</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L8" id="L8">
+                8
+              </a>
+            </td>
+            <td class="line-content">import "./GitFile.css"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L9" id="L9">
+                9
+              </a>
+            </td>
+            <td class="line-content">import "../style/headered-section.css"</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L10" id="L10">
+                10
+              </a>
+            </td>
+            <td class="line-content">const {repo, ref, path, entry: {oid}} = Astro.props;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L11" id="L11">
+                11
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L12" id="L12">
+                12
+              </a>
+            </td>
+            <td class="line-content">const log = await repo.getLog(ref);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L13" id="L13">
+                13
+              </a>
+            </td>
+            <td class="line-content">const blob = await repo.getBlob(oid);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L14" id="L14">
+                14
+              </a>
+            </td>
+            <td class="line-content">const decoder = new TextDecoder("utf-8");</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L15" id="L15">
+                15
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L16" id="L16">
+                16
+              </a>
+            </td>
+            <td class="line-content">const {pathMap, refPathMap} = await repo.getStaticHelpers();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L17" id="L17">
+                17
+              </a>
+            </td>
+            <td class="line-content">const history = await repo.getHistory(ref, path);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L18" id="L18">
+                18
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L19" id="L19">
+                19
+              </a>
+            </td>
+            <td class="line-content">const latestCommit = history[0];</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L20" id="L20">
+                20
+              </a>
+            </td>
+            <td class="line-content">const isBinary = await isBinaryFile(blob.blob);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L21" id="L21">
+                21
+              </a>
+            </td>
+            <td class="line-content">const content = isBinary ? null : decoder.decode(blob.blob);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L22" id="L22">
+                22
+              </a>
+            </td>
+            <td class="line-content">const lines = content?.split(/\n/);</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L23" id="L23">
+                23
+              </a>
+            </td>
+            <td class="line-content">const sloc = lines?.filter(line => !line.match(/^\s*$/)).length;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L24" id="L24">
+                24
+              </a>
+            </td>
+            <td class="line-content">const bytes = blob.blob.length;</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L25" id="L25">
+                25
+              </a>
+            </td>
+            <td class="line-content">const name = path.split("/").pop();</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L26" id="L26">
+                26
+              </a>
+            </td>
+            <td class="line-content">---</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L27" id="L27">
+                27
+              </a>
+            </td>
+            <td class="line-content">{isBinary ? &#x3C;></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L28" id="L28">
+                28
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;article class="file-browser"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L29" id="L29">
+                29
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;GitHistoryBar {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L30" id="L30">
+                30
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;BinaryFilePreview {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L31" id="L31">
+                31
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;/article></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L32" id="L32">
+                32
+              </a>
+            </td>
+            <td class="line-content">&#x3C;/> : &#x3C;></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L33" id="L33">
+                33
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;lunr-document index={repo.getName()}></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L34" id="L34">
+                34
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="repo" value={repo.getName()}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L35" id="L35">
+                35
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="ref" value={ref}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L36" id="L36">
+                36
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="path" value={path}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L37" id="L37">
+                37
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="base" value={path.split("/").slice(0,-1).join("/")}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L38" id="L38">
+                38
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="name" value={name}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L39" id="L39">
+                39
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="oid" value={oid}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L40" id="L40">
+                40
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="type" value={"blob"}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L41" id="L41">
+                41
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-field name="extension" value={name.split(".").pop()}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L42" id="L42">
+                42
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;lunr-text name="content">{content}&#x3C;/lunr-text></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L43" id="L43">
+                43
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;/lunr-document></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L44" id="L44">
+                44
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;article class="file-browser"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L45" id="L45">
+                45
+              </a>
+            </td>
+            <td class="line-content">    &#x3C;GitHistoryBar {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L46" id="L46">
+                46
+              </a>
+            </td>
+            <td class="line-content">    {path.endsWith(".md")</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L47" id="L47">
+                47
+              </a>
+            </td>
+            <td class="line-content">      ? &#x3C;MarkdownPreview {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L48" id="L48">
+                48
+              </a>
+            </td>
+            <td class="line-content">      : &#x3C;CodeFilePreview {...Astro.props}/></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L49" id="L49">
+                49
+              </a>
+            </td>
+            <td class="line-content">    }</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L50" id="L50">
+                50
+              </a>
+            </td>
+            <td class="line-content">  &#x3C;/article></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L51" id="L51">
+                51
+              </a>
+            </td>
+            <td class="line-content">&#x3C;/>}</td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L52" id="L52">
+                52
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L53" id="L53">
+                53
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L54" id="L54">
+                54
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr><tr class="line">
+            <td class="line-number">
+              <a href="#L55" id="L55">
+                55
+              </a>
+            </td>
+            <td class="line-content"></td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"></link><script type="module" src="/astro-git-view/entry.69c8a0c72.js" astro-script="/astro-git-view/tree//script-0"></script>
+</head>
+  <body data-dark data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-git-view/">astro-git-view</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">License</a>
+  </div>
+  <p>A server-side generated source code explorer for git-repositories
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-git-view" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected="true">
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-git-view">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="tree-browser">
+  <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+</span>
+    <b class="commit-message">
+      npm dependencies updated
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">
+          8a011bd
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b">npm dependencies updated
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8a011bda069c2e5a2497b9fb788e4fa6ada7771b" title="show diff">8a011bd</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:33">2022-05-01 20:33</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4">astr-lunr@0.0.2
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/b879cee7c734f70997f5c566e67e4b748f87daf4" title="show diff">b879cee</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9b5fdf144a5955edf7fdadea5fdb45ad2de04ea0" title="show diff">9b5fdf1</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:03">2022-04-18 20:03</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035">astro-lunr as its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/53e9aa9279d5f6d55757255f32882b2945a74035" title="show diff">53e9aa9</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/a0ab44c0b165dcd788a9e8a940915bfe2c062fe7" title="show diff">a0ab44c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/9a34364b99357a698500cbdf6e8ca330cda6de3f" title="show diff">9a34364</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-17 19:29">2022-04-17 19:29</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329">support for github pages; max-lines in file view
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/f3e5297d70eb797e9f4c0352b48240d4a9ade329" title="show diff">f3e5297</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257">commit-page with line diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/304458ce220b8d1b153ea4ccde168450b5cc6257" title="show diff">304458c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/8024c0a7362e096cfdfe374bd38c71b830e41b57" title="show diff">8024c0a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/37a934a46dc2913c0ad2448ab7ddbf006956f248" title="show diff">37a934a</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-14 10:00">2022-04-14 10:00</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f">lunr-based indexing and search integration; assorted minor ux/ui improvements
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/885875b0860a98eba370dd10fea75e019a96a14f" title="show diff">885875b</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99">Basic functionality, with some some dead links
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-git-view/commit/1a4b2c5e823086c463efc17c16fdb5bb71534d99" title="show diff">1a4b2c5</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+  <section class="headered-section">
+    <header class="headered-section-header">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <b>.</b>
+
+    </header>
+    <table class="tree-table">
+      <tbody>
+        <tr class="tree-row">
+            <td class="object-type">▦</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/integrations">integrations</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▦</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/nginx">nginx</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▦</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/public">public</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Basic functionality, with some some dead links
+</span>
+                <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▦</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/src">src</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/571c99c37b0397bb8ccc2e95ab8475d91e68c59a">.gitignore</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/astro.config.common.mjs">astro.config.common.mjs</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/astro.config.mjs">astro.config.mjs</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/astro.config.ssr.mjs">astro.config.ssr.mjs</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/deploy.sh">deploy.sh</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/docker-compose.yml">docker-compose.yml</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/docker.sh">docker.sh</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/Dockerfile">Dockerfile</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/jsconfig.json">jsconfig.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">commit-page with line diffs
+</span>
+                <relative-datetime title="2022-04-16 13:57">2022-04-16 13:57</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/kvissleik-repos.json">kvissleik-repos.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/LICENSE">LICENSE</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</span>
+                <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/package-lock.json">package-lock.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">npm dependencies updated
+</span>
+                <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/package.json">package.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">npm dependencies updated
+</span>
+                <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/README.md">README.md</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">npm dependencies updated
+</span>
+                <relative-datetime title="2022-05-14 17:33">2022-05-14 17:33</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/sandbox.config.json">sandbox.config.json</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">Basic functionality, with some some dead links
+</span>
+                <relative-datetime title="2022-04-12 19:25">2022-04-12 19:25</relative-datetime>
+
+              </td>
+          </tr><tr class="tree-row">
+            <td class="object-type">▢</td>
+            <td class="object-link">
+              <a href="/astro-git-view/astro-git-view/tree/master/ssr-server.mjs">ssr-server.mjs</a>
+            </td>
+            <td class="object-history">
+                <span class="commit-message">SSR- and SSG+SSR-modes; file- and line-diffs; docker for local testing SSG+SSR
+</span>
+                <relative-datetime title="2022-05-01 20:12">2022-05-01 20:12</relative-datetime>
+
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-git-view/tree/master">astro-git-view</a>
+ / <b>README.md</b>
+
+      <div>
+        <span>56 lines</span>
+        <span>(32 sloc)</span>
+        | 
+        <span class="bytes">
+  2.0 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div class="markdown-preview ">
+    <h1 id="astro-git-view">Astro Git View</h1>
+<p>A server-side generated source code explorer for git-repositories, inspired by <a href="https://codemadness.org/stagit.html">stagit</a>, built with <a href="https://astro.build">Astro</a></p>
+<p>See <a href="./integrations/astro-git">astro-git</a> and <a href="https://github.com/siverv/astro-lunr">astro-lunr</a> for the astro-plugins that supply most of the functionality.</p>
+<p><a href="https://siverv.github.io/astro-git-view/">Pure SSG demo on Github Pages</a></p>
+<p><a href="https://git.kvissleik.no">SSG/SSR-hybrid demo on git.kvissleik.no</a></p>
+<p>The SSG/SSR-hybrid maintains the full tree-view for each included branch and tag, but specific commits and raw files are served using the SSR-module.</p>
+<h2 id="commands">Commands</h2>
+<p>All commands are run from the root of the project, from a terminal:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Command</th><th align="left">Action</th></tr></thead><tbody><tr><td align="left"><code is:raw>npm ci --ignore-scripts</code></td><td align="left">Installs dependencies</td></tr><tr><td align="left"><code is:raw>npm run dev -- --experimental-integrations</code></td><td align="left">Starts local dev server at <code is:raw>localhost:3000</code></td></tr><tr><td align="left"><code is:raw>npm run build -- --experimental-integrations</code></td><td align="left">Build your production site to <code is:raw>./dist/</code></td></tr><tr><td align="left"><code is:raw>npm run preview -- --experimental-integrations</code></td><td align="left">Preview your build locally, before deploying</td></tr></tbody></table>
+<h2 id="running-ssr">Running SSR</h2>
+<h3 id="in-docker">in Docker</h3>
+<p>SSR is SSR-only, but for deployment, I want SSG for common resources, and SSR for the more obscure parts.</p>
+<p>To use:</p>
+<pre is:raw class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">docker compose up -d</span></span></code></pre>
+<p>This will start a server at <code is:raw>localhost:80</code></p>
+<h3 id="standalone">Standalone</h3>
+<pre is:raw class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw><span class="line"><span style="color: #c9d1d9">npm run build-ssr -- --experimental-integrations</span></span>
+<span class="line"><span style="color: #c9d1d9">npm run serve-ssr -- --experimental-integrations</span></span></code></pre>
+<p>Then go to <code is:raw>localhost:12549</code></p>
+<p>Static assets are not included, meaning styling and scripting will be missing.</p>
+<h3 id="ssr--astro-lunr">SSR + astro-lunr</h3>
+<p>Note that <code is:raw>astro-lunr</code> is currently not removing the <code is:raw>&#x3C;lunr-document/></code>-elements when hosted using SSR. (Seems like <code is:raw>options.addRenderer</code> is not included by the adapter?)</p>
+<p>Therefore a temporary css-style of <code is:raw>lunr-document {display: none}</code> is included in main.css;</p>
+
+  </div>
+</section>
+</article>
+
+
+
+  </body></html>

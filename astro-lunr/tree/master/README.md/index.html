@@ -1,0 +1,405 @@
+<!doctype html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Astro Git">
+    <title>Astro Git</title>
+    <script type="module">
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark").toString()){
+  document.body.toggleAttribute("data-dark");
+}
+</script>
+    
+  <link rel="stylesheet" href="/astro-git-view/assets/asset.75d06a62.css"><script type="module" src="/astro-git-view/entry.69c8a0c74.js" astro-script="/astro-lunr/tree/master/README.md//script-0"></script>
+</head>
+  <body data-dark="" data-lunr-dir="lunr">
+    <button id="darkmode-button" type="button" style="float:right; display: none;">light</button><script type="module">
+const darkmodeButton = document.getElementById("darkmode-button");
+function toggleDarkmode(){
+	let isDarkNow = document.body.toggleAttribute("data-dark");
+	localStorage.setItem("darkmode", isDarkNow);
+	darkmodeButton.innerText = isDarkNow ? "light" : "dark";
+}
+const storedDarkness = localStorage.getItem("darkmode");
+if(storedDarkness != null && storedDarkness != document.body.hasAttribute("data-dark")){
+	darkmodeButton.innerText = storedDarkness == "true" ? "light" : "dark";
+}
+darkmodeButton.addEventListener("click", toggleDarkmode);
+darkmodeButton.style.display = "block"
+</script> 
+    <header class="repo-header">
+  <a href="/astro-git-view">All repositories</a>
+  <h1><a href="/astro-git-view/astro-lunr/">astro-lunr</a></h1>
+  <div>
+      <a href="/astro-git-view/astro-lunr/tree/master/LICENSE">License</a>
+  </div>
+  <p>Lunr integration for Astro; client-side search for statically hosted pages.
+</p>
+  <nav class="repo-nav">
+    <div>
+      <script type="module">
+window.refSelectorOnChange = (select) => {
+	let value = select.value
+  if(value && value != select.dataset.current){
+    if(window.location.pathname.includes(select.dataset.current)){
+      window.location = window.location.pathname.replace(select.dataset.current, value);
+    } else {
+      window.location = `/${select.dataset.repo}/tree/${value}`;
+    }
+  } 
+} 
+</script>
+<select data-repo="astro-lunr" data-current="master" onchange="window.refSelectorOnChange(this)">
+  <optgroup label="branches">
+    <option value="master" selected>
+          master
+        </option>
+  </optgroup>
+  
+  
+</select>
+      <span class="branches"><b>1</b> branch</span>
+      
+    </div>
+    <div>
+      <div style="display:inline-block">
+        <noscript>
+  Search requires javascript
+</noscript>
+<form id="search-form" data-index="astro-lunr">
+  <input type="text" name="query" placeholder="keyword +require -exclude" title="Keyword search for the files in this repo">
+  <button>
+ 	Search
+  </button>
+</form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<section id="search-result-section" class="headered-section" style="display:none;">
+  <header class="headered-section-header">
+    Search result for <span id="search-result-query"></span>.
+    <span id="search-result-total"></span> hits.
+    
+    <button id="search-result-close">
+      close search
+    </button>
+  </header>
+  <ul id="search-result-list">
+  </ul>
+</section>
+<template id="search-item-template">
+  <li class="search-item headered-section">
+    <h4 class="search-header headered-section-header">
+      <span class="base-path">/</span>
+      <a class="url"></a>
+    </h4>
+    <div class="search-hit">
+      <table class="content-hit" style="white-space: pre">
+        <tbody class="content-hit-lines"></tbody>
+      </table>
+      <p class="field-hits"></p>
+      <!-- <pre class="debug"/> -->
+    </div>
+  </li>
+</template>
+<template id="search-item-content-line-template">
+  <tr class="line"><td class="line-number"><a></a></td><td class="line-content"></td></tr>
+</template><article class="file-browser">
+    <details class="history-bar headered-section">
+  <summary class="latest-commit headered-section-header">
+    <span><relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+</span>
+    <b class="commit-message">
+      #1: fixed base path replacement problem
+
+    </b>
+    <div>
+      <span class="commit-author-name">
+        Siver K. Volle
+      </span>
+      <span>
+        <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">
+          3f44311
+        </a>
+      </span>
+    </div>
+  </summary>
+  <table class="history-table">
+    <tbody>
+      <tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-14 17:06">2022-05-14 17:06</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b">#1: fixed base path replacement problem
+</a>
+            <span class="commit-tags">
+              <span class="commit-branch">master</span>
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/3f4431111825321d93a836e2410e747f3d74e46b" title="show diff">3f44311</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-05-01 13:57">2022-05-01 13:57</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a">Fixed problem with import.meta.env when proper npm-module
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/00a915fc838d1213904d4e69b02c025a7ceff64a" title="show diff">00a915f</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 20:31">2022-04-18 20:31</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997">add demo-link to readme
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/d930b81d009df6d3c65f24cec1609a469a20d997" title="show diff">d930b81</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 19:51">2022-04-18 19:51</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18">initial steps to turn astro-lunr into its own repo
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/9983ab39491aed97762bd060ca41b08840a59f18" title="show diff">9983ab3</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-18 18:39">2022-04-18 18:39</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b">better lunr in dev-mode; better file diffs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/182546cfb8193a9ce8fa49afb8b2aeca4be6c51b" title="show diff">182546c</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-16 00:25">2022-04-16 00:25</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b">Included readme and licenses; made the plugins into npm-modules; removed more dead-links and ui/ux-bugs
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/077a3541ec212cf1e9fd0113759ac0872217100b" title="show diff">077a354</a>
+          </td>
+        </tr><tr>
+          <td class="commit-datetime">
+            <relative-datetime title="2022-04-15 17:21">2022-04-15 17:21</relative-datetime>
+
+          </td>
+          <td class="commit-message">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c">Multi-repo support; refactored astro-git and astro-lunr into independent plugins
+</a>
+            <span class="commit-tags">
+              
+              
+            </span>
+          </td>
+          <td class="commit-author-name">
+              Siver K. Volle
+          </td>
+          <td class="commit-shorthash" style="font-family: monospace">
+            <a href="/astro-git-view/astro-lunr/commit/adfedbe9f27e5b76dd60b2223c69346040916d4c" title="show diff">adfedbe</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</details>
+    <section class="file-content-section headered-section">
+  <header class="headered-section-header">
+    <div style="display: inline-block">
+      <a href="/astro-git-view/astro-lunr/tree/master">astro-lunr</a>
+ / <b>README.md</b>
+
+      <div>
+        <span>112 lines</span>
+        <span>(83 sloc)</span>
+        | 
+        <span class="bytes">
+  4.4 KB
+</span>
+      </div>
+    </div>
+    
+  </header>
+  <div class="markdown-preview">
+    <h1 id="astro-lunr">astro-lunr</h1>
+<p><a href="https://lunrjs.com">Lunr</a> integration for <a href="https://astro.build/">Astro</a>; client-side search for statically hosted pages.</p>
+<p><a href="https://siverv.github.io/astro-git-view/astro-lunr/">Demo through the search-bar for astro-git-view hosted on Github Pages</a></p>
+<p>See example of usage in <a href="https://github.com/siverv/astro-git-view">astro-git-view’s source code</a></p>
+<h2 id="usage">Usage</h2>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw=""><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { defineConfig } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'astro/config'</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> astroLunr </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'astro-lunr/plugin.mjs'</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">defineConfig</span><span style="color: #FFA657">({</span></span>
+<span class="line"><span style="color: #FFA657">  </span><span style="color: #C9D1D9">integrations: [</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">astroLunr</span><span style="color: #C9D1D9">({})</span></span>
+<span class="line"><span style="color: #C9D1D9">  ]</span></span>
+<span class="line"><span style="color: #FFA657">})</span><span style="color: #C9D1D9">;</span></span></code></pre>
+<h2 id="config">Config</h2>
+<p>pathFilter, subDir, documentFilter, initialize, mapDocument, verbose</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Config field</th><th align="left">Type</th><th align="left">Value</th></tr></thead><tbody><tr><td align="left"><code is:raw="">subDir</code></td><td align="left">string</td><td align="left">Subdirectory to store the created idx.json and docs.json files.</td></tr><tr><td align="left"><code is:raw="">pathFilter</code></td><td align="left">(string) => boolean</td><td align="left">Filter for paths that should be searched for <code is:raw="">&#x3C;lunr-document/></code>-elements</td></tr><tr><td align="left"><code is:raw="">documentFilter</code></td><td align="left">(string) => boolean</td><td align="left">Filter for documents should be included in the final index, after they are found by searching the pre-generated pages</td></tr><tr><td align="left"><code is:raw="">initialize</code></td><td align="left">(lunr.Builder, lunr) => void</td><td align="left">Lunr-specific setup. E.g. fields to index and pipeline-adjustments</td></tr><tr><td align="left"><code is:raw="">mapDocument</code></td><td align="left">(Object) => Object</td><td align="left">Transform the documents before storing them in docs.json</td></tr><tr><td align="left"><code is:raw="">verbose</code></td><td align="left">boolean</td><td align="left">Debug log</td></tr></tbody></table>
+<h3 id="example-from-astro-git-view">Example from astro-git-view</h3>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw=""><span class="line"><span style="color: #D2A8FF">astroLunr</span><span style="color: #C9D1D9">({</span></span>
+<span class="line"><span style="color: #C9D1D9">  subDir: </span><span style="color: #A5D6FF">"lunr"</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">pathFilter</span><span style="color: #C9D1D9">: (</span><span style="color: #FFA657">pathname</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> pathname.</span><span style="color: #D2A8FF">match</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">/</span><span style="color: #79C0FF">\w</span><span style="color: #FF7B72">+</span><span style="color: #7EE787; font-weight: bold">\/</span><span style="color: #A5D6FF">tree</span><span style="color: #7EE787; font-weight: bold">\/</span><span style="color: #A5D6FF">/</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">documentFilter</span><span style="color: #C9D1D9">: (</span><span style="color: #FFA657">doc</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> doc.ref </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"master"</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x26;&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">!</span><span style="color: #C9D1D9">doc.canonicalUrl.</span><span style="color: #D2A8FF">includes</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"package-lock.json"</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">initialize</span><span style="color: #C9D1D9">: (</span><span style="color: #FFA657">builder</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">lunr</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">    lunr.tokenizer.separator </span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF"> /</span><span style="color: #79C0FF">[</span><span style="color: #FF7B72">^</span><span style="color: #79C0FF">\w]</span><span style="color: #FF7B72">+</span><span style="color: #A5D6FF">/</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.pipeline.</span><span style="color: #D2A8FF">reset</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.searchPipeline.</span><span style="color: #D2A8FF">reset</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.</span><span style="color: #D2A8FF">field</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"ref"</span><span style="color: #C9D1D9">, {boost: </span><span style="color: #79C0FF">0.01</span><span style="color: #C9D1D9">});</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.</span><span style="color: #D2A8FF">field</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"oid"</span><span style="color: #C9D1D9">, {boost: </span><span style="color: #79C0FF">0.01</span><span style="color: #C9D1D9">});</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.</span><span style="color: #D2A8FF">field</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"path"</span><span style="color: #C9D1D9">, {boost: </span><span style="color: #79C0FF">0.1</span><span style="color: #C9D1D9">});</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.</span><span style="color: #D2A8FF">field</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"name"</span><span style="color: #C9D1D9">, {boost: </span><span style="color: #79C0FF">10</span><span style="color: #C9D1D9">});</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.</span><span style="color: #D2A8FF">field</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"content"</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">    builder.metadataWhitelist </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> [</span><span style="color: #A5D6FF">"position"</span><span style="color: #C9D1D9">];</span></span>
+<span class="line"><span style="color: #C9D1D9">  },</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">mapDocument</span><span style="color: #C9D1D9">: (</span><span style="color: #FFA657">doc</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> doc,</span></span>
+<span class="line"><span style="color: #C9D1D9">  verbose: </span><span style="color: #79C0FF">false</span></span>
+<span class="line"><span style="color: #C9D1D9">})</span></span></code></pre>
+<h2 id="indexing-documents">Indexing documents</h2>
+<p>Indexing is done automatically during build-time, by searching the genereated pages for the <code is:raw="">&#x3C;lunr-document/></code>-element on any of the generated pages. These elements are removed from the final version of the build-output, and therefore only affects the two generated index-files <code is:raw="">idx.json</code> and <code is:raw="">docs.json</code>.</p>
+<p>Multiple indexes are supported by supplying the index-attribute to the <code is:raw="">&#x3C;lunr-document/></code>-elements. Each index will create their own <code is:raw="">idx.json</code>/<code is:raw="">docs.json</code> pair.</p>
+<h3 id="example-from-astro-git-view-1">Example from astro-git-view</h3>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw=""><span class="line"><span style="color: #C9D1D9">&#x3C;</span><span style="color: #7EE787">lunr-document</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">index</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{repo.</span><span style="color: #D2A8FF">getName</span><span style="color: #C9D1D9">()}></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"repo"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{repo.</span><span style="color: #D2A8FF">getName</span><span style="color: #C9D1D9">()}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"ref"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{ref}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"path"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{path}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"base"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{path.</span><span style="color: #D2A8FF">split</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"/"</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">slice</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">,</span><span style="color: #FF7B72">-</span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">join</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"/"</span><span style="color: #C9D1D9">)}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"name"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{name}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"oid"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{oid}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"type"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{</span><span style="color: #A5D6FF">"blob"</span><span style="color: #C9D1D9">}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-field</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"extension"</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">value</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{name.</span><span style="color: #D2A8FF">split</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"."</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">pop</span><span style="color: #C9D1D9">()}/></span></span>
+<span class="line"><span style="color: #C9D1D9">    &#x3C;</span><span style="color: #7EE787">lunr-text</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">name</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">"content"</span><span style="color: #C9D1D9">>{content}&#x3C;/</span><span style="color: #7EE787">lunr-text</span><span style="color: #C9D1D9">></span></span>
+<span class="line"><span style="color: #C9D1D9">&#x3C;/</span><span style="color: #7EE787">lunr-document</span><span style="color: #C9D1D9">></span></span></code></pre>
+<h2 id="searching">Searching</h2>
+<p><code is:raw="">astro-lunr</code> gives two functions to search <code is:raw="">search</code> and <code is:raw="">enrich</code>. <code is:raw="">async search(query, index)</code> loads and deserializes the <code is:raw="">idx.json</code> file, performs the search, and returns the hits from lunr. <code is:raw="">async enrich(hits, index)</code> loads the <code is:raw="">docs.json</code> file and enriches the result from lunr with the documents that were matches.</p>
+<p>As the two json-files often can be megabytes in size, it is recommended to not</p>
+<h3 id="example">Example</h3>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code is:raw=""><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> initializeLunr </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'astro-lunr/client/lunr.js'</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> {</span><span style="color: #79C0FF">search</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">enrich</span><span style="color: #C9D1D9">} </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">initializeLunr</span><span style="color: #C9D1D9">({lunrDir: </span><span style="color: #A5D6FF">"./lunr"</span><span style="color: #C9D1D9">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D2A8FF">search</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"query"</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">"index"</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"><span style="color: #C9D1D9">  .</span><span style="color: #D2A8FF">then</span><span style="color: #C9D1D9">(enrich)</span></span>
+<span class="line"><span style="color: #C9D1D9">  .</span><span style="color: #D2A8FF">then</span><span style="color: #C9D1D9">((</span><span style="color: #FFA657">result</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> result.</span><span style="color: #D2A8FF">forEach</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">    ({</span><span style="color: #FFA657">hit</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">doc</span><span style="color: #C9D1D9">}) </span><span style="color: #FF7B72">=></span><span style="color: #C9D1D9"> console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(hit, doc)))</span></span></code></pre>
+<h3 id="searching-in-dev-mode">Searching in Dev-mode</h3>
+<p>Due to the nature of indexing, to properly search in dev-mode, one needs to first build the pages at least once to create the index</p>
+<h3 id="searching-in-ssr-mode">Searching in SSR-mode</h3>
+<p>To properly search files that are not usually genereated in the build-step, you would need to have a separate build-step that includes all pages that might be generated.</p>
+<p>A potential future solution would be to include a way to index using static paths that are completely separate from the usual page-generation.</p>
+
+  </div>
+</section>
+  </article>
+
+
+
+
+  
+</body></html>
